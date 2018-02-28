@@ -20,6 +20,8 @@
         /*注册客户*/
         function post()
         {
+            date_default_timezone_set("PRC");
+            $date = date("Y-m-d H:i:s");
             $check = new Check();
             $ajax = Request::instance()->post(false);
             $phone = $ajax['phone'];
@@ -29,6 +31,7 @@
                 $data = ['isSuccess'=>false,'msg'=>'手机号已经存在，请直接登录','data'=>[]];
             }else{
                 //不存在
+                $ajax['date'] = $date;
                 $userId = Db::name('usertable')->insertGetId($ajax,false);
                 $line = Db::table('usertable')->where('userId',$userId)->find();
                 $data = ['isSuccess'=>true,'msg'=>'注册成功！','data'=>$line];

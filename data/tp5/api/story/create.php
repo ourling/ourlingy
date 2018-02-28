@@ -9,9 +9,13 @@
         /*编辑新故事*/
         function create()
         {
+            date_default_timezone_set("PRC");
+            $date = date("Y-m-d H:i:s");
             $ajax = Request::instance()->post(false);
-            $storyId = Db::name('storytable')->insertGetId($ajax,false);
-            $line = Db::table('storytable')->where('$storyId',$storyId)->find();
+            $ajax['date'] = $date;
+            $ajax['userName'] = Db::table('usertable')->where('userId',$ajax['userId'])->find('name');
+            $storyId = Db::name('storytable')->insertGetId($ajax);
+            $line = Db::table('storytable')->where('storyId',$storyId)->find();
             $data = array('isSuccess'=>true,'msg'=>'新建故事成功！','data'=>$line);
             echo json_encode($data);
         }
