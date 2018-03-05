@@ -47,7 +47,7 @@ new Vue({
     },
     mounted(){
         this.test();
-        this.uploadList = this.$refs.upload.fileList;
+        // this.uploadList = this.$refs.upload.fileList;
     },
     methods:{
         test(){
