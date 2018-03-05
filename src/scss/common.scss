@@ -3,8 +3,23 @@
 }
 .header-container{
   background: #495060;
+  text-align: right;
   .header{
-    margin: auto;
-    width: 1200px;
+    float: left;
+    text-align: left;
   }
+  .search-input{
+    width: 200px;
+    line-height: 60px;
+    margin-right: 40px;
+  }
+}
+.clearfix:before,.clearfix:after{
+  content: "";
+  display: table;
+  clear: both;
+}
+.container{
+  width: 1300px;
+  margin: auto;
 }

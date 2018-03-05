@@ -1,6 +1,7 @@
 const Head = {
     template: `
     <header class="header-container">
+    <div class="container clearfix">
         <i-menu class="header" mode="horizontal" :theme="theme1" active-name="1" v-cloak>
             <menu-item name="1">
                 <icon type="ios-paper"></icon>
@@ -30,11 +31,28 @@ const Head = {
                 综合设置
             </menu-item>
         </i-menu>
+        <i-input @keyup.enter.native="search" class="search-input" v-model="value14" placeholder="Enter something..."></i-input>
+        <Avatar style="background-color: #87d068" icon="person" />
+    </div>
+</template>
     </header>
     `,
     data(){
         return {
-            theme1: 'dark'
+            theme1: 'dark',
+            value14: "",
         }
-    }
+    },
+    methods:{
+      search(){
+          console.log(this.value14);
+      },
+    },
+}
+const Foot = {
+    template: `
+        <footer>
+            123
+        </footer>
+    `
 }
