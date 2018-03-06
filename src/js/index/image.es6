@@ -3,6 +3,7 @@ new Vue({
     data: {
         https: {
             test: '//ourlingy.com/data/qiniu/examples/upload.php',
+            // test: '//ourlingy.com/data/tp5/api/upload/upload.php',
         },
         defaultList: [
             {

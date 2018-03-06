@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__ . '/../autoload.php';
+    require_once __DIR__ . '/../../autoload.php';
 
     // 引入鉴权类
     use Qiniu\Auth;
@@ -36,7 +36,7 @@
         $file = [
                 'url'=>'//ozjrt1c1f.bkt.clouddn.com/'.$key,
                 'name'=>$_FILES['file']['name'],
-                'userId'=>$_COOKIE['userId']
+                'userId'=>0
                 ];
         $data = ['isSuccess'=>true,'msg'=>'图片上传成功','data'=>$file];
     }
