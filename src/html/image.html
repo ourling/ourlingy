@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片上传</title>
+    <script src="../static/js/wyboot/wyboot.js"></script>
+</head>
+<body>
+<div id="app">
+    <div class="demo-upload-list" v-for="item in uploadList">
+        <template v-if="item.status === 'finished'">
+            <img :src="item.url">
+            <div class="demo-upload-list-cover">
+                <icon type="ios-eye-outline" @click.native="handleView(item)"></icon>
+                <icon type="ios-trash-outline" @click.native="handleRemove(item)"></icon>
+            </div>
+        </template>
+        <template v-else>
+            <i-progress v-if="item.showProgress" :percent="item.percentage" hide-info></i-progress>
+        </template>
+    </div>
+    <upload
+            ref="upload"
+            :show-upload-list="false"
+            :default-file-list="defaultList"
+            :on-success="handleSuccess"
+            :format="['jpg','jpeg','png']"
+            :max-size="2048"
+            :on-format-error="handleFormatError"
+            :on-exceeded-size="handleMaxSize"
+            multiple="false"
+            type="drag"
+            name="file"
+            :action="https.test"
+            style="display: inline-block;width:58px;">
+            <div style="width: 58px;height:58px;line-height: 58px;">
+                <icon type="camera" size="20"></icon>
+            </div>
+    </upload>
+    <modal title="View Image" v-model="visible">
+        <img :src="viewPic.url" v-if="visible" style="width: 100%">
+    </modal>
+</div>
+<script src="../static/js/index/image.js"></script>
+</body>
+</html>
