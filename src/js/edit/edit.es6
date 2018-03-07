@@ -11,7 +11,8 @@ new Vue({
         formItem: {
             input: '',
             textarea: ''
-        }
+        },
+        modal1: false
     },
     mounted(){
         let _self = this
@@ -21,6 +22,12 @@ new Vue({
         //初始化editor
         initEdit(){
             UE.getEditor('editor')
+        },
+        modelOk(){
+            this.$Message.info('Clicked ok');
+        },
+        modelCancel () {
+            this.$Message.info('Clicked cancel');
         }
     }
 })
