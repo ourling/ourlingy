@@ -1,0 +1,47 @@
+$bg-review: #F8F8F8;
+$bg-de: #fff;
+$border: #EFEFEF;
+.color-999{
+  color: #999;
+  font-weight: normal;
+}
+.margin-15{
+  display: block;
+  margin-top: 15px;
+}
+.editor-container{
+  background: $bg-review;
+  border: 1px solid $border;
+  margin-top: 25px;
+  .editor-review{
+    float: left;
+    padding: 20px;
+    width: 25%;
+    .view-card{
+      margin-top: 15px;
+      .view-content{
+        position: relative;
+      }
+      .view-title{
+        background: rgba(0,0,0,.3);
+        bottom: 0;
+        color: #fff;
+        line-height: 36px;
+        position: absolute;
+        width: 100%;
+        overflow: hidden;
+        text-overflow:ellipsis;
+        white-space: nowrap;
+      }
+    }
+    .ivu-card-body{
+      padding: 0;
+    }
+  }
+  .editor-edit{
+    background: $bg-de;
+    float: left;
+    padding: 20px;
+    width: 75%;
+  }
+}

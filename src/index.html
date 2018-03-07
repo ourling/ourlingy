@@ -13,39 +13,6 @@
 <body>
 <div id="app">
     <app-head></app-head>
-    <!--<div class="demo-upload-list" v-for="item in uploadList">-->
-        <!--<template v-if="item.status === 'finished'">-->
-            <!--<img :src="item.url">-->
-            <!--<div class="demo-upload-list-cover">-->
-                <!--<icon type="ios-eye-outline" @click.native="handleView(item.name)"></icon>-->
-                <!--<icon type="ios-trash-outline" @click.native="handleRemove(item)"></icon>-->
-            <!--</div>-->
-        <!--</template>-->
-        <!--<template v-else>-->
-            <!--<i-progress v-if="item.showProgress" :percent="item.percentage" hide-info></i-progress>-->
-        <!--</template>-->
-    <!--</div>-->
-    <!--<upload-->
-            <!--ref="upload"-->
-            <!--:show-upload-list="false"-->
-            <!--:default-file-list="defaultList"-->
-            <!--:on-success="handleSuccess"-->
-            <!--:format="['jpg','jpeg','png']"-->
-            <!--:max-size="2048"-->
-            <!--:on-format-error="handleFormatError"-->
-            <!--:on-exceeded-size="handleMaxSize"-->
-            <!--:before-upload="handleBeforeUpload"-->
-            <!--multiple-->
-            <!--type="drag"-->
-            <!--action="//ozjrt1c1f.bkt.clouddn.com"-->
-            <!--style="display: inline-block;width:58px;">-->
-        <!--<div style="width: 58px;height:58px;line-height: 58px;">-->
-            <!--<icon type="camera" size="20"></icon>-->
-        <!--</div>-->
-    <!--</upload>-->
-    <!--<modal title="View Image" v-model="visible">-->
-        <!--<img :src="'https://o5wwk8baw.qnssl.com/' + imgName + '/large'" v-if="visible" style="width: 100%">-->
-    <!--</modal>-->
     <app-foot></app-foot>
 </div>
 <script src="static/js/tpl/tpl.js"></script>

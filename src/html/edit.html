@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>编辑</title>
+    <script src="../static/js/wyboot/wyboot.js"></script>
+    <link rel="stylesheet" href="../static/css/edit/edit.css">
+</head>
+<body>
+<div id="app">
+    <app-head></app-head>
+    <div class="container">
+        <div class="editor-container clearfix">
+            <div class="editor-review">
+                <h3>封面预览:</h3>
+                <card class="view-card">
+                    <div class="view-content" style="text-align:center">
+                        <img class="response-img" src="http://ozjrt1c1f.bkt.clouddn.com/1f2a9a4ecf5457208557c8a15ee1d4c3.png">
+                        <p class="view-title">A high quality UI Toolkit basedA high quality UI Toolkit based on Vue.js</p>
+                    </div>
+                </card>
+            </div>
+            <div class="editor-edit">
+                <i-form :model="formItem" :label-width="54" label-position="left">
+                    <form-item label="标题：">
+                        <i-input v-model="formItem.input" placeholder="请输入文章标题..."></i-input>
+                    </form-item>
+                    <form-item label="摘要：">
+                        <i-input v-model="formItem.textarea" type="textarea" :autosize="{minRows: 5,maxRows: 5}" placeholder="请输入文章摘要..."></i-input>
+                    </form-item>
+                </i-form>
+                <div id="editor"></div>
+                <div class="editor-cover">
+                    <span class="margin-15">图文封面： <a href="javascript:;" class="color-999">（大图片建议尺寸：500像素×500像素）</a></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-foot></app-foot>
+</div>
+<script type="text/javascript" charset="utf-8" src="../static/plugins/ueditor/ueditor.config.js"></script>
+<script type="text/javascript" charset="utf-8" src="../static/plugins/ueditor/ueditor.all.js"> </script>
+<script type="text/javascript" charset="utf-8" src="../static/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
+<script src="../static/js/tpl/tpl.js"></script>
+<script src="../static/js/edit/edit.js"></script>
+</body>
+</html>

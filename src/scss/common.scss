@@ -19,7 +19,15 @@
   display: table;
   clear: both;
 }
+textarea{
+  resize: none;
+}
 .container{
   width: 1300px;
   margin: auto;
+}
+.response-img{
+  display: block;
+  width: 100%;
+  height: 100%;
 }

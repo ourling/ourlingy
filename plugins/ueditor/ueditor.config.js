@@ -34,15 +34,13 @@
 
         //宸ュ叿鏍忎笂鐨勬墍鏈夌殑鍔熻兘鎸夐挳鍜屼笅鎷夋锛屽彲浠ュ湪new缂栬緫鍣ㄧ殑瀹炰緥鏃堕€夋嫨鑷繁闇€瑕佺殑閲嶆柊瀹氫箟
         , toolbars: [[
-            'source', '|', 'undo', 'redo', '|',
-            'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'superscript', 'subscript', 'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall', 'cleardoc', '|',
-            'rowspacingtop', 'rowspacingbottom', 'lineheight', '|',
-            'customstyle', 'paragraph', 'fontfamily', 'fontsize', '|',
-            'directionalityltr', 'directionalityrtl', 'indent', '|',
-            'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|', 'touppercase', 'tolowercase', '|',
-            'link', 'unlink', 'anchor', '|', 'imagenone', 'imageleft', 'imageright', 'imagecenter', '|',
+             'undo', 'redo', '|',
+            'removeformat', 'formatmatch', 'autotypeset', 'blockquote', 'pasteplain', '|',
+            'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', '|',
+            'touppercase', 'tolowercase', '|',
+            'imagenone', 'imageleft', 'imageright', 'imagecenter', '|',
             'simpleupload', 'emotion', 'pagebreak','|',
-            'horizontal',  'spechars', '|','preview'
+            'horizontal',  'spechars', 'preview'
         ]]
         //褰撻紶鏍囨斁鍦ㄥ伐鍏锋爮涓婃椂鏄剧ず鐨則ooltip鎻愮ず,鐣欑┖鏀寔鑷姩澶氳瑷€閰嶇疆锛屽惁鍒欎互閰嶇疆鍊间负鍑�
         //,labelMap:{
@@ -88,7 +86,8 @@
         //,indentValue:'2em'
 
         //,initialFrameWidth:1000  //鍒濆鍖栫紪杈戝櫒瀹藉害,榛樿1000
-        //,initialFrameHeight:320  //鍒濆鍖栫紪杈戝櫒楂樺害,榛樿320
+        //初始化高度
+        ,initialFrameHeight:500
 
         //,readonly : false //缂栬緫鍣ㄥ垵濮嬪寲缁撴潫鍚�,缂栬緫鍖哄煙鏄惁鏄彧璇荤殑锛岄粯璁ゆ槸false
 
@@ -244,12 +243,14 @@
         //,shortcutMenu:["fontfamily", "fontsize", "bold", "italic", "underline", "forecolor", "backcolor", "insertorderedlist", "insertunorderedlist"]
 
         //elementPathEnabled
-        //鏄惁鍚敤鍏冪礌璺緞锛岄粯璁ゆ槸鏄剧ず
-        //,elementPathEnabled : true
+        //关闭元素路径
+        ,elementPathEnabled : false
 
         //wordCount
-        //,wordCount:true          //鏄惁寮€鍚瓧鏁扮粺璁�
-        //,maximumWords:10000       //鍏佽鐨勬渶澶у瓧绗︽暟
+        //关闭字数统计
+        ,wordCount:false
+        //最大字数限制
+        ,maximumWords:10000
         //瀛楁暟缁熻鎻愮ず锛寋#count}浠ｈ〃褰撳墠瀛楁暟锛寋#leave}浠ｈ〃杩樺彲浠ヨ緭鍏ュ灏戝瓧绗︽暟,鐣欑┖鏀寔澶氳瑷€鑷姩鍒囨崲锛屽惁鍒欐寜姝ら厤缃樉绀�
         //,wordCountMsg:''   //褰撳墠宸茶緭鍏� {#count} 涓瓧绗︼紝鎮ㄨ繕鍙互杈撳叆{#leave} 涓瓧绗�
         //瓒呭嚭瀛楁暟闄愬埗鎻愮ず  鐣欑┖鏀寔澶氳瑷€鑷姩鍒囨崲锛屽惁鍒欐寜姝ら厤缃樉绀�
@@ -274,8 +275,8 @@
         //,maxInputCount:1
 
         //autoHeightEnabled
-        // 鏄惁鑷姩闀块珮,榛樿true
-        //,autoHeightEnabled:true
+        // 纵向滚动条
+        ,autoHeightEnabled:false
 
         //scaleEnabled
         //鏄惁鍙互鎷変几闀块珮,榛樿true(褰撳紑鍚椂锛岃嚜鍔ㄩ暱楂樺け鏁�)
