@@ -8,25 +8,25 @@
 </head>
 <body>
 <div id="app" v-cloak>
-    <app-head></app-head>
+    <!--<app-head></app-head>-->
     <div class="container">
         <div class="editor-container clearfix">
             <div class="editor-review">
                 <h3>封面预览:</h3>
                 <card class="view-card">
                     <div class="view-content" style="text-align:center">
-                        <img class="response-img" src="http://ozjrt1c1f.bkt.clouddn.com/1f2a9a4ecf5457208557c8a15ee1d4c3.png">
-                        <p class="view-title">A high quality UI Toolkit basedA high quality UI Toolkit based on Vue.js</p>
+                        <img class="response-img" :src="viewInfo.cover">
+                        <p class="view-title">{{info.title}}</p>
                     </div>
                 </card>
             </div>
             <div class="editor-edit">
-                <i-form :model="formItem" :label-width="54" label-position="left">
+                <i-form :model="info" :label-width="54" label-position="left">
                     <form-item label="标题：">
-                        <i-input v-model="formItem.input" placeholder="请输入文章标题..."></i-input>
+                        <i-input v-model="info.title" placeholder="请输入文章标题..."></i-input>
                     </form-item>
                     <form-item label="摘要：">
-                        <i-input v-model="formItem.textarea" type="textarea" :autosize="{minRows: 5,maxRows: 5}" placeholder="请输入文章摘要..."></i-input>
+                        <i-input v-model="info.desc" type="textarea" :autosize="{minRows: 5,maxRows: 5}" placeholder="请输入文章摘要..."></i-input>
                     </form-item>
                 </i-form>
                 <div id="editor"></div>
@@ -40,50 +40,13 @@
         </div>
     </div>
     <modal
+            width="800"
             class="cover-select"
             v-model="modal1"
             title="封面素材"
             @on-ok="modelOk"
             @on-cancel="modelCancel">
-        <row>
-            <i-col span="6">
-                <card>
-                    <div style="text-align:center">
-                        <img class="response-img" src="http://ozjrt1c1f.bkt.clouddn.com/1f2a9a4ecf5457208557c8a15ee1d4c3.png">
-                    </div>
-                </card>
-            </i-col>
-            <i-col span="6">
-                <card>
-                    <div style="text-align:center">
-                        <img class="response-img" src="http://ozjrt1c1f.bkt.clouddn.com/1f2a9a4ecf5457208557c8a15ee1d4c3.png">
-                    </div>
-                </card>
-            </i-col>
-            <i-col span="6">
-                <card>
-                    <div style="text-align:center">
-                        <upload
-                                ref="upload"
-                                :show-upload-list="false"
-                                :on-success="handleSuccess"
-                                :format="['jpg','jpeg','png']"
-                                :max-size="2048"
-                                :on-format-error="handleFormatError"
-                                :on-exceeded-size="handleMaxSize"
-                                multiple="false"
-                                type="drag"
-                                name="file"
-                                :action="https.test"
-                                style="display: inline-block;width:58px;">
-                                <div style="width: 58px;height:58px;line-height: 58px;">
-                                    <icon type="camera" size="20"></icon>
-                                </div>
-                        </upload>
-                    </div>
-                </card>
-            </i-col>
-        </row>
+        <up-img :list="coverList" :height="192" @selected-cover="selectCover"></up-img>
     </modal>
     <app-foot></app-foot>
 </div>
@@ -91,7 +54,6 @@
 <script type="text/javascript" charset="utf-8" src="../static/plugins/ueditor/ueditor.all.js"> </script>
 <script type="text/javascript" charset="utf-8" src="../static/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
 <script src="../static/js/tpl/tpl.js"></script>
-<script src="../static/js/index/image.js"></script>
 <script src="../static/js/edit/edit.js"></script>
 </body>
 </html>

@@ -52,4 +52,16 @@ $border: #EFEFEF;
   .ivu-card-body{
     padding: 0;
   }
+  .ivu-upload-drag{
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .ivu-col{
+    border: 1px solid transparent;
+    -webkit-transition: .3s;
+    transition: .3s;
+    &.active{
+      border: 1px solid #2d8cf0;
+    }
+  }
 }

@@ -90,9 +90,3 @@ let upImg = {
         },
     }
 }
-new Vue({
-    el: "#app",
-    components: {
-        "up-img" : upImg
-    }
-})
