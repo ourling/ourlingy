@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../static/css/edit/edit.css">
 </head>
 <body>
-<div id="app">
+<div id="app" v-cloak>
     <app-head></app-head>
     <div class="container">
         <div class="editor-container clearfix">
@@ -34,39 +34,64 @@
                     <span class="margin-15">图文封面： <a href="javascript:;" class="color-999">（大图片建议尺寸：500像素×500像素）</a></span>
                     <div class="margin-15">
                         <i-button @click="modal1 = true">选择封面</i-button>
-                        <modal
-                                v-model="modal1"
-                                title="封面素材"
-                                @on-ok="modelOk"
-                                @on-cancel="modelCancel">
-                            <i-row>
-                                <Col span="6">col-6</Col>
-                                <Col span="6">col-6</Col>
-                                <Col span="6">col-6</Col>
-                                <Col span="6">col-6</Col>
-                            </i-row>
-                            <card style="width:150px">
-                                <div style="text-align:center">
-                                    <img class="response-img" src="http://ozjrt1c1f.bkt.clouddn.com/1f2a9a4ecf5457208557c8a15ee1d4c3.png">
-                                </div>
-                            </card>
-                            <card style="width:150px">
-                                <div style="text-align:center">
-                                    <img class="response-img" src="http://ozjrt1c1f.bkt.clouddn.com/1f2a9a4ecf5457208557c8a15ee1d4c3.png">
-                                </div>
-                            </card>
-                        </modal>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <modal
+            class="cover-select"
+            v-model="modal1"
+            title="封面素材"
+            @on-ok="modelOk"
+            @on-cancel="modelCancel">
+        <row>
+            <i-col span="6">
+                <card>
+                    <div style="text-align:center">
+                        <img class="response-img" src="http://ozjrt1c1f.bkt.clouddn.com/1f2a9a4ecf5457208557c8a15ee1d4c3.png">
+                    </div>
+                </card>
+            </i-col>
+            <i-col span="6">
+                <card>
+                    <div style="text-align:center">
+                        <img class="response-img" src="http://ozjrt1c1f.bkt.clouddn.com/1f2a9a4ecf5457208557c8a15ee1d4c3.png">
+                    </div>
+                </card>
+            </i-col>
+            <i-col span="6">
+                <card>
+                    <div style="text-align:center">
+                        <upload
+                                ref="upload"
+                                :show-upload-list="false"
+                                :on-success="handleSuccess"
+                                :format="['jpg','jpeg','png']"
+                                :max-size="2048"
+                                :on-format-error="handleFormatError"
+                                :on-exceeded-size="handleMaxSize"
+                                multiple="false"
+                                type="drag"
+                                name="file"
+                                :action="https.test"
+                                style="display: inline-block;width:58px;">
+                                <div style="width: 58px;height:58px;line-height: 58px;">
+                                    <icon type="camera" size="20"></icon>
+                                </div>
+                        </upload>
+                    </div>
+                </card>
+            </i-col>
+        </row>
+    </modal>
     <app-foot></app-foot>
 </div>
 <script type="text/javascript" charset="utf-8" src="../static/plugins/ueditor/ueditor.config.js"></script>
 <script type="text/javascript" charset="utf-8" src="../static/plugins/ueditor/ueditor.all.js"> </script>
 <script type="text/javascript" charset="utf-8" src="../static/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
 <script src="../static/js/tpl/tpl.js"></script>
+<script src="../static/js/index/image.js"></script>
 <script src="../static/js/edit/edit.js"></script>
 </body>
 </html>
