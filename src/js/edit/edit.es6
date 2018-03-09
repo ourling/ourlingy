@@ -3,13 +3,12 @@ new Vue({
     components:{
         'app-head': Head,
         'app-foot':Foot,
-        "up-img" : upImg
+        "cover-img" : coverImg
     },
     data: {
         https: {
             test: `${GLOBAL_STATIC_API}user/create.php`,
         },
-        modal1: false,
         coverList: [
             {
                 'id': 12,
@@ -29,7 +28,10 @@ new Vue({
             cover: "",
             title: "预览标题",
             desc: ""
-        }
+        },
+        boo: {
+            isOpenCover: false,
+        },
     },
     mounted(){
         let _self = this
@@ -40,15 +42,10 @@ new Vue({
         initEdit(){
             UE.getEditor('editor')
         },
-        modelOk(){
-            this.$Message.info('Clicked ok');
-            this.viewInfo.cover = this.info.cover
-        },
-        modelCancel () {
-            this.$Message.info('Clicked cancel');
-        },
-        selectCover(url){
-            this.info.cover = url
+        selectCover(item){
+            console.log(item)
+            let _self = this
+            _self.viewInfo.cover = item.url
         }
     }
 })

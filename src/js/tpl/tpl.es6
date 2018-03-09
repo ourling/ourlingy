@@ -56,48 +56,53 @@ const Foot = {
         </footer>
     `
 }
-let upImg = {
+let coverImg = {
     template: `
-        <row>
-            <i-col span="6" :class="['demo-upload-list',coverId == item.id ? 'active' : '']" v-for="item in uploadList" :style="{height: height + 'px'}">
-                <template v-if="item.status === 'finished'">
-                    <img class="response-img" :src="item.url" @click="select(item)">
-                    <!--<div class="demo-upload-list-cover">-->
-                        <!--<icon type="ios-eye-outline" @click.native="handleView(item)"></icon>-->
-                        <!--<icon type="ios-trash-outline" @click.native="handleRemove(item)"></icon>-->
-                    <!--</div>-->
-                </template>
-                <template v-else>
-                    <i-progress v-if="item.showProgress" :percent="item.percentage" hide-info></i-progress>
-                </template>
-            </i-col>
-            <upload
-                    class="ivu-col ivu-col-span-6"
-                    ref="upload"
-                    :show-upload-list="false"
-                    :default-file-list="defaultList"
-                    :on-success="handleSuccess"
-                    :format="['jpg','jpeg','png']"
-                    :max-size="2048"
-                    :on-format-error="handleFormatError"
-                    :on-exceeded-size="handleMaxSize"
-                    multiple="false"
-                    type="drag"
-                    name="file"
-                    :style="{display: 'table',height: height + 'px'}"
-                    :action="https.test">
-                    <div>
-                        <icon type="camera" size="20"></icon>
-                    </div>
-            </upload>
-            <!--<modal title="View Image" v-model="visible">-->
-                <!--<img :src="viewPic.url" v-if="visible" style="width: 100%">-->
-            <!--</modal>-->
-        </row>
+    <modal
+            width="800"
+            class="cover-select"
+            v-model="boo.modelOpen"
+            title="封面素材"
+            @on-ok="modelOk">
+            <row>
+                <i-col span="6" :class="['demo-upload-list',coverId == item.id ? 'active' : '']" v-for="item in uploadList" :style="{height: height + 'px'}">
+                    <template v-if="item.status === 'finished'">
+                        <img class="response-img" :src="item.url" @click="select(item)">
+                    </template>
+                    <template v-else>
+                        <i-progress v-if="item.showProgress" :percent="item.percentage" hide-info></i-progress>
+                    </template>
+                </i-col>
+                <upload
+                        class="ivu-col ivu-col-span-6"
+                        ref="upload"
+                        :show-upload-list="false"
+                        :default-file-list="defaultList"
+                        :on-success="handleSuccess"
+                        :format="['jpg','jpeg','png']"
+                        :max-size="2048"
+                        :on-format-error="handleFormatError"
+                        :on-exceeded-size="handleMaxSize"
+                        multiple="false"
+                        type="drag"
+                        name="file"
+                        :style="{display: 'table',height: height + 'px'}"
+                        :action="https.test">
+                        <div>
+                            <icon type="camera" size="20"></icon>
+                        </div>
+                </upload>
+            </row>
+        </modal>
     `,
     props: {
         list: Array,
-        height: Number
+        isopen: Boolean
+    },
+    watch: {
+        isopen(newV,oldV){
+            this.boo.modelOpen = true
+        }
     },
     data(){
         return {
@@ -105,10 +110,16 @@ let upImg = {
                 test: '//ourlingy.com/data/qiniu/examples/upload.php',
             },
             defaultList: this.list,
+            height: 192,
             coverId: "",
-            imgName: '',
-            viewPic: {},
-            visible: false,
+            selectImg: {
+                id: "",
+                name: "",
+                url: ""
+            },
+            boo: {
+                modelOpen: this.isopen
+            },
             uploadList: [],
         }
     },
@@ -116,16 +127,6 @@ let upImg = {
         this.uploadList = this.$refs.upload.fileList;
     },
     methods: {
-        handleView (item) {
-            this.viewPic = item;
-            this.visible = true;
-
-        },
-        handleRemove (file) {
-            // 从 upload 实例删除数据
-            const fileList = this.$refs.upload.fileList;
-            this.$refs.upload.fileList.splice(fileList.indexOf(file), 1);
-        },
         handleSuccess (res, file) {
             file.url = res.data.url;
             file.name = res.data.name;
@@ -144,7 +145,18 @@ let upImg = {
         },
         select(item){
             this.coverId = item.id
-            this.$emit('selected-cover',item.url);
+            this.selectImg = {
+                id: item.id,
+                name: item.name,
+                url: item.url
+            }
+        },
+        modelOk(){
+            let _self = this
+            if(_self.selectImg.url == "") {
+                return _self.$Message.error('请选择一个封面！');
+            }
+            this.$emit('select-cover',_self.selectImg)
         }
     }
 }

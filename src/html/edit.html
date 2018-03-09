@@ -33,21 +33,13 @@
                 <div class="editor-cover">
                     <span class="margin-15">图文封面： <a href="javascript:;" class="color-999">（大图片建议尺寸：500像素×500像素）</a></span>
                     <div class="margin-15">
-                        <i-button @click="modal1 = true">选择封面</i-button>
+                        <i-button @click="boo.isOpenCover = !boo.isOpenCover">选择封面</i-button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <modal
-            width="800"
-            class="cover-select"
-            v-model="modal1"
-            title="封面素材"
-            @on-ok="modelOk"
-            @on-cancel="modelCancel">
-        <up-img :list="coverList" :height="192" @selected-cover="selectCover"></up-img>
-    </modal>
+    <cover-img :list="coverList" :isopen="boo.isOpenCover" @select-cover="selectCover"></cover-img>
     <app-foot></app-foot>
 </div>
 <script type="text/javascript" charset="utf-8" src="../static/plugins/ueditor/ueditor.config.js"></script>
