@@ -8,7 +8,7 @@
 </head>
 <body>
 <div id="app" v-cloak>
-    <!--<app-head></app-head>-->
+    <app-head></app-head>
     <div class="container">
         <div class="editor-container clearfix">
             <div class="editor-review">
@@ -36,10 +36,14 @@
                         <i-button @click="boo.isOpenCover = !boo.isOpenCover">选择封面</i-button>
                     </div>
                 </div>
+                <i class="bar-line"></i>
+                <div class="btn-container center">
+                    <i-button type="success" @click="submit">保存</i-button>
+                </div>
             </div>
         </div>
     </div>
-    <cover-img :list="coverList" :isopen="boo.isOpenCover" @select-cover="selectCover"></cover-img>
+    <cover-img :isopen="boo.isOpenCover" @select-cover="selectCover"></cover-img>
     <app-foot></app-foot>
 </div>
 <script type="text/javascript" charset="utf-8" src="../static/plugins/ueditor/ueditor.config.js"></script>

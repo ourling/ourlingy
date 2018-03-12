@@ -43,6 +43,17 @@ $border: #EFEFEF;
     float: left;
     padding: 20px;
     width: 75%;
+    .bar-line{
+      display: block;
+      border-top: 1px solid $border;
+      margin: 20px auto;
+      width: 100%;
+    }
+    .btn-container{
+      &.center{
+        text-align: center;
+      }
+    }
   }
 }
 .cover-select{
@@ -63,5 +74,9 @@ $border: #EFEFEF;
     &.active{
       border: 1px solid #2d8cf0;
     }
+  }
+  .ivu-page{
+    text-align: right;
+    margin-top: 20px;
   }
 }

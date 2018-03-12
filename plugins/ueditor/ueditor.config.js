@@ -40,7 +40,7 @@
             'touppercase', 'tolowercase', '|',
             'imagenone', 'imageleft', 'imageright', 'imagecenter', '|',
             'simpleupload', 'emotion', 'pagebreak','|',
-            'horizontal',  'spechars', 'preview'
+            'horizontal',  'spechars'
         ]]
         //褰撻紶鏍囨斁鍦ㄥ伐鍏锋爮涓婃椂鏄剧ず鐨則ooltip鎻愮ず,鐣欑┖鏀寔鑷姩澶氳瑷€閰嶇疆锛屽惁鍒欎互閰嶇疆鍊间负鍑�
         //,labelMap:{

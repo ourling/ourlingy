@@ -65,7 +65,7 @@ let coverImg = {
             title="封面素材"
             @on-ok="modelOk">
             <row>
-                <i-col span="6" :class="['demo-upload-list',coverId == item.id ? 'active' : '']" v-for="item in uploadList" :style="{height: height + 'px'}">
+                <i-col span="6" :class="['demo-upload-list',coverId == item.imgId ? 'active' : '']" v-for="item in uploadList" :style="{height: height + 'px'}">
                     <template v-if="item.status === 'finished'">
                         <img class="response-img" :src="item.url" @click="select(item)">
                     </template>
@@ -87,16 +87,16 @@ let coverImg = {
                         type="drag"
                         name="file"
                         :style="{display: 'table',height: height + 'px'}"
-                        :action="https.test">
+                        :action="https.upImg">
                         <div>
                             <icon type="camera" size="20"></icon>
                         </div>
                 </upload>
             </row>
+            <Page :current="1" :total="total" :page-size="size" @on-change="changePage" simple></Page>
         </modal>
     `,
     props: {
-        list: Array,
         isopen: Boolean
     },
     watch: {
@@ -107,9 +107,10 @@ let coverImg = {
     data(){
         return {
             https: {
-                test: '//ourlingy.com/data/qiniu/examples/upload.php',
+                upImg: '//ourlingy.com/data/qiniu/examples/upload.php',
+                getList: `${GLOBAL_STATIC_API}img/selectcover.php`
             },
-            defaultList: this.list,
+            defaultList: [],
             height: 192,
             coverId: "",
             selectImg: {
@@ -121,15 +122,39 @@ let coverImg = {
                 modelOpen: this.isopen
             },
             uploadList: [],
+            total: 0,
+            size: 7,
+            infoList: {
+                userId: '1',
+                page: '1'
+            },
         }
     },
     mounted () {
-        this.uploadList = this.$refs.upload.fileList;
+        let _self = this
+        _self.getList(_self.infoList);
     },
     methods: {
+        getList(item){
+            let _self = this
+            _self.$http.post(_self.https.getList,item,{emulateJSON:true}).then(
+                (res)=>{
+                    res = JSON.parse(res.data)
+                    if(res.isSuccess){
+                        _self.uploadList = res.list
+                        _self.total = res.count
+                    }else{
+                        _self.$Message.error('封面列表查询失败！');
+                    }
+                },
+                (err)=>{
+                    _self.$Message.error(err);
+                }
+            )
+        },
         handleSuccess (res, file) {
-            file.url = res.data.url;
-            file.name = res.data.name;
+            let _self = this
+            _self.getList(_self.infoList);
         },
         handleFormatError (file) {
             this.$Notice.warning({
@@ -144,9 +169,9 @@ let coverImg = {
             });
         },
         select(item){
-            this.coverId = item.id
+            this.coverId = item.imgId
             this.selectImg = {
-                id: item.id,
+                imgId: item.imgId,
                 name: item.name,
                 url: item.url
             }
@@ -157,6 +182,14 @@ let coverImg = {
                 return _self.$Message.error('请选择一个封面！');
             }
             this.$emit('select-cover',_self.selectImg)
+        },
+        changePage(page){
+            let _self = this
+            _self.infoList = {
+                userId: '1',
+                page: page
+            }
+            _self.getList(_self.infoList);
         }
     }
 }

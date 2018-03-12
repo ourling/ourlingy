@@ -39,5 +39,12 @@
                 'userId'=>$_COOKIE['userId']
                 ];
         $data = ['isSuccess'=>true,'msg'=>'图片上传成功','data'=>$file];
+        $userId = $file['userId'];
+        $url = $file['url'];
+        $name = $file['name'];
+        $con = mysqli_connect("qdm19334835.my3w.com:3306","qdm19334835","bin110123","qdm19334835_db");
+        $sql="INSERT INTO imgtable VALUES (null,'$userId','$url','$name','finished')";
+        $result=mysqli_query($con,$sql);
+        mysqli_close($con);
     }
     echo json_encode($data);
