@@ -1,8 +1,10 @@
 new Vue({
     el: "#app",
+    store,
     components: {
         'app-head': Head,
-        'app-foot':Foot
+        'app-foot':Foot,
+        'app-login': Login,
     },
     data: {
         https: {

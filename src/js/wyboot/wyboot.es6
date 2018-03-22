@@ -259,6 +259,7 @@ const GLOBAL_QIMIAOWA_VERSION = "v20171012233509";//全局上线版本号，上�
     _G.loadJs(GLOBAL_STATIC_URL + '/plugins/js/vue/vue.min.js?v=' + GLOBAL_QIMIAOWA_VERSION);
     _G.loadJs(GLOBAL_STATIC_URL + '/plugins/js/vue/vue-resource.min.js?v=' + GLOBAL_QIMIAOWA_VERSION);
     _G.loadJs(GLOBAL_STATIC_URL + '/plugins/js/vue/vue-router.min.js?v=' + GLOBAL_QIMIAOWA_VERSION);
+    _G.loadJs(GLOBAL_STATIC_URL + '/plugins/js/vue/vuex.js?v=' + GLOBAL_QIMIAOWA_VERSION);
     _G.loadJs(GLOBAL_STATIC_URL + '/plugins/js/iview/iview.min.js?v=' + GLOBAL_QIMIAOWA_VERSION);
 
     _G.process = function () {
@@ -270,3 +271,107 @@ const GLOBAL_QIMIAOWA_VERSION = "v20171012233509";//全局上线版本号，上�
         func($, $.fn[ns], _G);
     };
 })(window, document, undefined);
+function isPhone(phone){
+    let reg = /^1(3|4|5|7|8)\d{9}$/;
+    return reg.test(phone);
+}
+window.isBlank = function (text) {
+    return !(text && text !== '' && text !== ' ');
+}
+
+/**
+ * Determine whether the value is empty
+ * @param obj
+ * @returns {boolean}
+ */
+window.isNull = function (obj) {
+    return obj === null || typeof(obj) === 'undefined'
+}
+
+/**
+ * Boolean 转化 Int
+ * @param flag
+ * @returns {number}
+ */
+window.bool2Int = function (flag) {
+    return flag ? 1 : 0;
+}
+
+/**
+ * Int 转 boolean值
+ * @param number
+ * @returns {boolean}
+ */
+window.int2Bool = function (number) {
+    return number !== 0;
+}
+
+/**
+ * Parses the url and returns the corresponding value according to the parameter name
+ * @param name
+ * @returns {*}
+ */
+window.queryUrl = function (name) {
+    let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    let r = window.location.search.substr(1).match(reg);
+    if (r !== null) return decodeURI(r[2]);
+    return null;
+}
+/**
+ * Determine whether the user is logged in
+ * @returns {boolean|*}
+ */
+window.isLogin = function () {
+    let isLogin = addCookie.getCookie('isLogin') || '0';
+    return isLogin == '1' || (getBrowserType() === 'wx' && isSlientLogin)
+}
+window.addCookie = {
+    // Set expiration time
+    getsec: function (str) {
+        let str1 = str.substring(1, str.length) * 1;
+        let str2 = str.substring(0, 1);
+        if (str2 == "s") {
+            return str1 * 1000;
+        } else if (str2 == "h") {
+            return str1 * 60 * 60 * 1000;
+        } else if (str2 == "d") {
+            return str1 * 24 * 60 * 60 * 1000;
+        }
+    },
+    // Set the cookie
+    setCookie: function (name, value, time, path, domain) {
+        let strsec = this.getsec(time);
+        let exp = new Date();
+        exp.setTime(exp.getTime() + strsec * 1);
+        document.cookie = name + "=" + escape(value) + ";expires=" + exp.toGMTString() + ";path=" + path + ";domain=" + domain;
+    },
+    // Read cookies
+    getCookie: function (name) {
+        let arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+        if (arr = document.cookie.match(reg)) return unescape(arr[2]);
+        else return null;
+    },
+    // Remove cookies
+    delCookie: function () {
+        let exp = new Date();
+        exp.setTime(exp.getTime() - 1);
+        let cval = this.getCookie(name);
+        if (cval !== null) document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString();
+    }
+};
+function isBlank(varValue) {
+    let boo = varValue !== null && varValue !== 'undefined' && varValue !== '' && varValue !== 'null';
+    return boo ? false : true;
+}
+//获取URL地址参数
+function getQueryString(name, url) {
+    let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    if (!url || url == "") {
+        url = window.location.search;
+    } else {
+        url = url.substring(url.indexOf("?"));
+    }
+    let r = url.substr(1).match(reg);
+    if (r != null) return unescape(r[2]);
+    return null;
+}
