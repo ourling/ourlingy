@@ -2,6 +2,10 @@ const store = new Vuex.Store({
     state: {
         isLogin: false,
         isOpenLogin: false,
+        userName: "",
+        userHead: "",
+        isEditPage: false,
+        storyType: 0,
     },
     mutations: {
         isLogin (state, obj) {
@@ -10,6 +14,18 @@ const store = new Vuex.Store({
         isOpenLogin (state, obj) {
             state.isOpenLogin = obj.flag;
         },
+        userName (state, obj) {
+            state.userName = obj.flag;
+        },
+        userHead (state, obj) {
+            state.userHead = obj.flag;
+        },
+        isEditPage (state, obj) {
+            state.isEditPage = obj.flag;
+        },
+        storyType(state, obj){
+            state.storyType = obj.flag;
+}
     }
 })
 const Head = {
@@ -45,8 +61,20 @@ const Head = {
                     综合设置
                 </menu-item>
             </i-menu>
-            <i-input @keyup.enter.native="search" class="search-input" v-model="value14" placeholder="Enter something..."></i-input>
-            <Avatar v-if="isLogin" style="background-color: #87d068" icon="person" />
+            <i-input v-if="!isEditPage" @keyup.enter.native="search" class="search-input" v-model="title" placeholder="Enter something..."></i-input>
+            <div v-if="isLogin" class="login">
+                <i-menu class="header" mode="horizontal" :theme="theme1"  v-cloak>                
+                    <submenu name="1">
+                        <template slot="title">
+                            <Avatar :src="userHead"/></Avatar>
+                            <span class="user-name">{{userName}}</span>
+                        </template>
+                        <menu-item name="1-1">
+                            <i-button type="text" @click.native="exitLogin" long>退出登录</i-button>
+                        </menu-item>
+                    </submenu>
+                </i-menu>
+            </div>
             <i-button v-if="!isLogin" @click.native="openLogin" type="success">登 录</i-button>
         </div>
     </header>
@@ -54,20 +82,44 @@ const Head = {
     data(){
         return {
             theme1: 'dark',
-            value14: "",
+            title: ""
         }
     },
     computed: {
         isLogin(){
             return this.$store.state.isLogin
-        }
+        },
+        userName(){
+            return this.$store.state.userName;
+        },
+        userHead(){
+            return this.$store.state.userHead;
+        },
+        isEditPage(){
+            return this.$store.state.isEditPage;
+        },
+        storyType(){
+            return this.$store.state.storyType;
+        },
     },
     methods:{
         search(){
-          console.log(this.value14);
+            let _self = this
+            let arg = {
+                title: _self.title,
+                type: _self.storyType
+            }
+            this.$emit('search',arg)
         },
         openLogin(){
             store.commit('isOpenLogin', {flag: true})
+        },
+        exitLogin(){
+            addCookie.setCookie('isLogin',0,'h3',GLOBAL_HOME_PATH,GLOBAL_HOME_DOMAIN)
+            addCookie.delCookie('userId')
+            addCookie.delCookie('userName')
+            store.commit('isLogin', {flag: false})
+            store.commit('userName', {flag: ''})
         }
     },
 }
@@ -147,16 +199,25 @@ const coverImg = {
             total: 0,
             size: 7,
             infoList: {
-                userId: '1',
+                userId: '',
                 page: '1'
             },
         }
     },
     mounted () {
         let _self = this
+        _self.initLogin();
         _self.getList(_self.infoList);
     },
     methods: {
+        initLogin(){
+            let _self = this
+            let isLogin = addCookie.getCookie('isLogin')
+            if(isLogin != 0 && !isBlank(isLogin)){
+                store.commit('userName', {flag: addCookie.getCookie('userName')})
+                _self.infoList.userId = addCookie.getCookie('userId')
+            }
+        },
         getList(item){
             let _self = this
             _self.$http.post(_self.https.getList,item,{emulateJSON:true}).then(
@@ -286,7 +347,8 @@ const Login = {
     data () {
         return {
             https: {
-                register: `${GLOBAL_STATIC_API}user/create.php`
+                register: `${GLOBAL_STATIC_API}user/create.php`,
+                login: `${GLOBAL_STATIC_API}user/select.php`,
             },
             boo: {
                 canSubmit: false, //是否可以提交
@@ -326,6 +388,8 @@ const Login = {
             if(!_self.boo.canSubmit) return;
             if(!_self.boo.isLogin){
                 _self.registerAjax();
+            }else{
+                _self.loginAjax();
             }
         },
         cancel(){
@@ -429,19 +493,46 @@ const Login = {
             let _self = this
             _self.$http.post(_self.https.register,_self.register).then(
                 (res)=>{
-                    res = JSON.parse(res.data)
-                    if(res.isSuccess){
-                        store.commit('isLogin', {flag: true})
-                        _self.$Message.success(res.msg)
-                    }else{
-                        _self.$Message.error(res.msg)
-                    }
-                    store.commit('isOpenLogin', {flag: false})
+                    _self.res(res);
                 },
                 (err)=>{
                     _self.$Message.error(err)
                 }
             )
+        },
+        loginAjax(){
+            let _self = this
+            _self.$http.post(_self.https.login,_self.login).then(
+                (res)=>{
+                    _self.res(res);
+                },
+                (err)=>{
+                    _self.$Message.error(err)
+                }
+            )
+        },
+        res(res){
+            let _self = this
+            res = JSON.parse(res.data)
+            if(res.isSuccess){
+                _self.$Message.success(res.msg)
+                addCookie.setCookie('isLogin',1,'h3',GLOBAL_HOME_PATH,GLOBAL_HOME_DOMAIN)
+                addCookie.setCookie('userId',res.data.userId,'h3',GLOBAL_HOME_PATH,GLOBAL_HOME_DOMAIN)
+                addCookie.setCookie('userName',res.data.name,'h3',GLOBAL_HOME_PATH,GLOBAL_HOME_DOMAIN)
+                addCookie.setCookie('userHead',res.data.head,'h3',GLOBAL_HOME_PATH,GLOBAL_HOME_DOMAIN)
+                store.commit('isOpenLogin', {flag: false})
+                store.commit('isLogin', {flag: true})
+                store.commit('userName', {flag: res.data.name})
+                store.commit('userHead', {flag: res.data.head})
+            }else{
+                _self.$Message.error(res.msg)
+                addCookie.setCookie('isLogin',0,'h3',GLOBAL_HOME_PATH,GLOBAL_HOME_DOMAIN)
+                addCookie.delCookie('userId')
+                addCookie.delCookie('userName')
+                addCookie.delCookie('userHead')
+                store.commit('isOpenLogin', {flag: true})
+                store.commit('isLogin', {flag: false})
+            }
         }
     }
 }

@@ -1,30 +1,48 @@
 <?php
+//    namespace user;
 // 加载基础文件
     require dirname(dirname(__DIR__)) . '../thinkphp/base.php';
-    class Story {
-        /*故事筛选类
-        *@param array $ajax 前端ajax数据
-        */
-        /*通过类型筛选故事*/
-        function select_type()
+    function invests()
         {
             $ajax = Request::instance()->post(false);
-            $line = Db::table('storytable')->where('type',$ajax['type'])->limit(10)->select();
-            $data= array('isSuccess'=>true,'msg'=>'查询成功！','data'=>$line);
+            $size = 10;//每页显示数量
+            $page = $ajax['page'];
+            $type = $ajax['type'];
+            $title = $ajax['title'];
+            if($type == 0){
+                $invests = Db::table('storytable')
+                            ->where('title','like', '%'.$title.'%')
+                            ->where('state',1)
+                            ->order('storyId','desc')->limit(($page-1)*$size, $size)->select();
+                $count = Db::table('storytable')
+                            ->where('title','like', '%'.$title.'%')
+                            ->where('state',1)
+                            ->order('storyId')->count();
+            }else{
+                $invests = Db::table('storytable')
+                            ->where('type',$type)
+                            ->where('title',$title)
+                            ->where('state',1)
+                            ->order('storyId','desc')->limit(($page-1)*$size, $size)->select();
+                $count = Db::table('storytable')
+                            ->where('type',$type)
+                            ->where('title',$title)
+                            ->where('state',1)
+                            ->order('storyId')->count();
+            }
+            $data['list'] = [];
+            foreach ($invests as $k => $v) {
+                $data['list'][] = array('title' =>$v['title'],
+                                        'userId' =>$v['userId'],
+                                        'desc' =>$v['desc'],
+                                        'cover' =>$v['cover'],
+                                        'storyId' =>$v['storyId']
+                                         );
+            }
+            $data['page'] = $page;
+            $data['count'] = $count;
+            $data['isSuccess'] = true;
+            $data['msg'] = '查询成功！';
             echo json_encode($data);
         }
-        function select_other()
-        {
-            $ajax = Request::instance()->post(false);
-            $title = '标题';
-            $line = Db::table('storytable')
-                    ->where('title','like','%'.$ajax['title'].'%')
-                    ->limit(10)
-                    ->select();
-            $data= array('isSuccess'=>true,'msg'=>'查询成功！','data'=>$line,'num'=>12);
-            echo json_encode($data);
-        }
-    }
-    $bar = new Story();
-//    $bar->select_type();
-    $bar->select_other();
+        invests();

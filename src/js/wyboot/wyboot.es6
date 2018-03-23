@@ -1,5 +1,6 @@
 const GLOBAL_STATIC_URL = "//ourlingy.com/static";//静态资源路径
 const GLOBAL_STATIC_API = "//ourlingy.com/data/tp5/api/";//后台资源路径
+const GLOBAL_HOME_DOMAIN = ".ourlingy.com";
 const GLOBAL_HOME_PATH = "/";
 const GLOBAL_QIMIAOWA_VERSION = "v20171012233509";//全局上线版本号，上线时候手工改动
 (function (w, d, undefined) {

@@ -22,18 +22,25 @@
             </div>
             <div class="editor-edit">
                 <i-form :model="info" :label-width="54" label-position="left">
+                    <form-item label="类型：">
+                        <i-select v-model="info.type">
+                            <i-option v-for="(item,index) in storyType" :value="item.val">{{item.title}}</i-option>
+                        </i-select>
+                    </form-item>
                     <form-item label="标题：">
-                        <i-input v-model="info.title" placeholder="请输入文章标题..."></i-input>
+                        <i-input @on-blur="blur($event,'title')"
+                                :class="[boo.errorTitle ? 'ivu-form-item-error' : '']" v-model="info.title" placeholder="请输入文章标题..."></i-input>
                     </form-item>
                     <form-item label="摘要：">
-                        <i-input v-model="info.desc" type="textarea" :autosize="{minRows: 5,maxRows: 5}" placeholder="请输入文章摘要..."></i-input>
+                        <i-input @on-blur="blur($event,'desc')"
+                                :class="[boo.errorDesc ? 'ivu-form-item-error' : '']" v-model="info.desc" type="textarea" :autosize="{minRows: 5,maxRows: 5}" placeholder="请输入文章摘要..."></i-input>
                     </form-item>
                 </i-form>
                 <div id="editor"></div>
                 <div class="editor-cover">
                     <span class="margin-15">图文封面： <a href="javascript:;" class="color-999">（大图片建议尺寸：500像素×500像素）</a></span>
                     <div class="margin-15">
-                        <i-button @click="boo.isOpenCover = !boo.isOpenCover">选择封面</i-button>
+                        <i-button @click="openCover">选择封面</i-button>
                     </div>
                 </div>
                 <i class="bar-line"></i>
@@ -43,8 +50,9 @@
             </div>
         </div>
     </div>
-    <cover-img :isopen="boo.isOpenCover" @select-cover="selectCover"></cover-img>
+    <cover-img v-if="isLogin" :isopen="boo.isOpenCover" @select-cover="selectCover"></cover-img>
     <app-foot></app-foot>
+    <app-login></app-login>
 </div>
 <script type="text/javascript" charset="utf-8" src="../static/plugins/ueditor/ueditor.config.js"></script>
 <script type="text/javascript" charset="utf-8" src="../static/plugins/ueditor/ueditor.all.js"> </script>

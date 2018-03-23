@@ -7,10 +7,23 @@
     */
     class Check {
         //检查手机号是否已经存在
-        function checkUser($phone)
+        function checkTable($phone,$name)
         {
-            $sizeof = sizeof(Db::table('usertable')->where('phone',$phone)->column('userId'),0);
-            return $sizeof;
+            $sizeofPhone = sizeof(Db::table('usertable')->where('phone',$phone)->column('userId'),0);
+            $sizeofName = sizeof(Db::table('usertable')->where('name',$name)->column('userId'),0);
+            if($sizeofPhone == 0 && $sizeofName == 0){
+                $code = 1; // 正常
+            }
+            if($sizeofPhone == 1 && $sizeofName == 0){
+                $code = 2; //手机号重复
+            }
+            if($sizeofPhone == 1 && $sizeofName == 1){
+                $code = 2; //手机号重复
+            }
+            if($sizeofPhone != 1 && $sizeofName == 1){
+                $code = 3; //用户名重复
+            }
+            return $code;
         }
     }
     class User {
@@ -25,16 +38,22 @@
             $check = new Check();
             $ajax = Request::instance()->post(false);
             $phone = $ajax['phone'];
-            $boo= $check->checkUser($phone);
-            if($boo == 1){
-                //已经存在
-                $data = ['isSuccess'=>false,'msg'=>'手机号已经存在，请直接登录','data'=>[]];
-            }else{
-                //不存在
-                $ajax['date'] = $date;
-                $userId = Db::name('usertable')->insertGetId($ajax,false);
-                $line = Db::table('usertable')->where('userId',$userId)->find();
-                $data = ['isSuccess'=>true,'msg'=>'注册成功！','data'=>$line];
+            $name = $ajax['name'];
+            $code= $check->checkTable($phone,$name);
+            switch ($code)
+            {
+            case 1:
+              $ajax['date'] = $date;
+              $userId = Db::name('usertable')->insertGetId($ajax,false);
+              $line = Db::table('usertable')->where('userId',$userId)->find();
+              $data = ['isSuccess'=>true,'msg'=>'注册成功！','data'=>$line];
+              break;
+            case 2:
+              $data = ['isSuccess'=>false,'msg'=>'手机号已经存在，请直接登录','data'=>[]];
+              break;
+            case 3:
+              $data = ['isSuccess'=>false,'msg'=>'昵称已经存在，请更换','data'=>[]];
+              break;
             }
             echo json_encode($data);
         }

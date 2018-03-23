@@ -34,6 +34,15 @@ textarea{
 .ivu-modal-close .ivu-icon-ios-close-empty{
   z-index: 99;
 }
+.login{
+  float: right;
+  .user-name{
+    margin-left: 8px;
+  }
+  .ivu-btn{
+    font-size: 14px;
+  }
+}
 [v-cloak]{
   display: none;
 }
