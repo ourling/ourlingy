@@ -2,18 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>首页2</title>
+    <title>首页</title>
+    <link rel="stylesheet" href="static/css/index/index.css">
     <script src="static/js/wyboot/wyboot.js"></script>
-    <style>
-        [v-cloak]{
-            display: none;
-        }
-    </style>
 </head>
 <body>
 <div id="app">
     <app-head @search="search"></app-head>
-    <app-foot></app-foot>
+    <div class="app-banner">
+        <div class="banner-param">
+            <p class="info">一句概括</p>
+            <i-button class="edit-btn" @click="publish">发布故事</i-button>
+        </div>
+    </div>
+    <div class="app-list">
+        <div class="container">
+            <div class="hot-list">最热</div>
+            <div class="new-list">最新</div>
+            <div class="recommend-list">推荐</div>
+            <app-foot></app-foot>
+        </div>
+    </div>
     <app-login></app-login>
 </div>
 <script src="static/js/tpl/tpl.js"></script>

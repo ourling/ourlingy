@@ -19,6 +19,11 @@ new Vue({
             type: ""
         }
     },
+    computed: {
+        isLogin(){
+            return this.$store.state.isLogin
+        }
+    },
     mounted(){
         store.commit('storyType', {flag: 0})
         this.initLogin();
@@ -62,6 +67,14 @@ new Vue({
                 type: arg.type
             }
             _self.storyAjax(_self.param)
+        },
+        publish(){
+            let _self = this
+            if(_self.isLogin){
+                window.open(`${GLOBAL_PAGE_URL}edit.html`)
+            }else{
+                store.commit('isOpenLogin', {flag: true})
+            }
         },
     }
 })
