@@ -1,9 +1,22 @@
 [v-cloak]{
   display: none;
 }
+.app-header{
+  height: 0;
+  -webkit-transition: .3s;
+  transition: .3s;
+  &.fixed{
+    height: 60px;
+    top: 0;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+  }
+}
 .header-container{
   background: #495060;
   text-align: right;
+  line-height: 60px;
   .header{
     float: left;
     text-align: left;
@@ -13,6 +26,12 @@
     line-height: 60px;
     margin-right: 40px;
   }
+}
+.foot-container{
+  background: #495060;
+  color: #fff;
+  text-align: center;
+  padding: 35px 0;
 }
 .clearfix:before,.clearfix:after{
   content: "";

@@ -17,7 +17,8 @@ new Vue({
             page: 1,
             title: "",
             type: ""
-        }
+        },
+        banner: 0,
     },
     computed: {
         isLogin(){
@@ -67,14 +68,6 @@ new Vue({
                 type: arg.type
             }
             _self.storyAjax(_self.param)
-        },
-        publish(){
-            let _self = this
-            if(_self.isLogin){
-                window.open(`${GLOBAL_PAGE_URL}edit.html`)
-            }else{
-                store.commit('isOpenLogin', {flag: true})
-            }
         },
     }
 })

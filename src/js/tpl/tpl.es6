@@ -30,59 +30,64 @@ const store = new Vuex.Store({
 })
 const Head = {
     template: `
-    <header class="header-container">
-        <div class="container clearfix">
-            <i-menu class="header" mode="horizontal" :theme="theme1" active-name="1" v-cloak>
-                <menu-item name="1">
-                    <icon type="ios-paper"></icon>
-                    内容管理
-                </menu-item>
-                <menu-item name="2">
-                    <icon type="ios-people"></icon>
-                    用户管理
-                </menu-item>
-                <submenu name="3">
-                    <template slot="title">
-                        <icon type="stats-bars"></icon>
-                        统计分析
-                    </template>
-                    <menu-group title="使用">
-                        <menu-item name="3-1">新增和启动</menu-item>
-                        <menu-item name="3-2">活跃分析</menu-item>
-                        <menu-item name="3-3">时段分析</menu-item>
-                    </menu-group>
-                    <menu-group title="留存">
-                        <menu-item name="3-4">用户留存</menu-item>
-                        <menu-item name="3-5">流失用户</menu-item>
-                    </menu-group>
-                </submenu>
-                <menu-item name="4">
-                    <icon type="settings"></icon>
-                    综合设置
-                </menu-item>
-            </i-menu>
-            <i-input v-if="!isEditPage" @keyup.enter.native="search" class="search-input" v-model="title" placeholder="Enter something..."></i-input>
-            <div v-if="isLogin" class="login">
-                <i-menu class="header" mode="horizontal" :theme="theme1"  v-cloak>                
-                    <submenu name="1">
-                        <template slot="title">
-                            <Avatar :src="userHead"/></Avatar>
-                            <span class="user-name">{{userName}}</span>
-                        </template>
-                        <menu-item name="1-1">
-                            <i-button type="text" @click.native="exitLogin" long>退出登录</i-button>
+        <div :class="['app-header',isFixedNav ? 'fixed' : '']">
+            <header class="header-container">
+                <div class="container clearfix">
+                    <i-menu class="header" mode="horizontal" :theme="theme1" active-name="1" v-cloak>
+                        <menu-item name="1">
+                            <icon type="ios-paper"></icon>
+                            内容管理
                         </menu-item>
-                    </submenu>
-                </i-menu>
-            </div>
-            <i-button v-if="!isLogin" @click.native="openLogin" type="success">登 录</i-button>
-        </div>
-    </header>
+                        <menu-item name="2">
+                            <icon type="ios-people"></icon>
+                            用户管理
+                        </menu-item>
+                        <submenu name="3">
+                            <template slot="title">
+                                <icon type="stats-bars"></icon>
+                                统计分析
+                            </template>
+                            <menu-group title="使用">
+                                <menu-item name="3-1">新增和启动</menu-item>
+                                <menu-item name="3-2">活跃分析</menu-item>
+                                <menu-item name="3-3">时段分析</menu-item>
+                            </menu-group>
+                            <menu-group title="留存">
+                                <menu-item name="3-4">用户留存</menu-item>
+                                <menu-item name="3-5">流失用户</menu-item>
+                            </menu-group>
+                        </submenu>
+                        <menu-item name="4">
+                            <icon type="settings"></icon>
+                            综合设置
+                        </menu-item>
+                    </i-menu>
+                    <i-input v-if="!isEditPage" @keyup.enter.native="search" class="search-input" v-model="title" placeholder="Enter something..."></i-input>
+                    
+                    <i-button v-if="!isEditPage" @click="publish" class="edit-btn" type="info">分享故事</i-button>
+                    <div v-if="isLogin" class="login">
+                        <i-menu class="header" mode="horizontal" :theme="theme1"  v-cloak>                
+                            <submenu name="1">
+                                <template slot="title">
+                                    <Avatar :src="userHead"/></Avatar>
+                                    <span class="user-name">{{userName}}</span>
+                                </template>
+                                <menu-item name="1-1">
+                                    <i-button type="text" @click.native="exitLogin" long>退出登录</i-button>
+                                </menu-item>
+                            </submenu>
+                        </i-menu>
+                    </div>
+                    <i-button v-if="!isLogin" @click.native="openLogin" type="success">登 录</i-button>
+                </div>
+            </header>  
+        </div>    
     `,
     data(){
         return {
             theme1: 'dark',
-            title: ""
+            title: "",
+            isFixedNav: false,
         }
     },
     computed: {
@@ -102,6 +107,12 @@ const Head = {
             return this.$store.state.storyType;
         },
     },
+    mounted () {
+        let _self = this
+        _self.$nextTick(()=>{
+            _self.initScroll()
+        })
+    },
     methods:{
         search(){
             let _self = this
@@ -120,13 +131,34 @@ const Head = {
             addCookie.delCookie('userName')
             store.commit('isLogin', {flag: false})
             store.commit('userName', {flag: ''})
+        },
+        publish(){
+    let _self = this
+    if(_self.isLogin){
+        window.open(`${GLOBAL_PAGE_URL}edit.html`)
+    }else{
+        store.commit('isOpenLogin', {flag: true})
+    }
+},
+        initScroll(){
+            let _self = this
+            window.document.addEventListener('scroll', () => {
+                let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+                if(scrollTop > 250){
+                    _self.isFixedNav = true
+                }else{
+                    _self.isFixedNav = false
+                }
+            }, false)
         }
     },
 }
 const Foot = {
     template: `
-        <footer>
-            123
+        <footer class="foot-container">
+            <div class="container">
+                123
+            </div>            
         </footer>
     `
 }

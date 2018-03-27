@@ -31,10 +31,8 @@
   transition: $time;
 }
 .app-banner{
-  @include position('all');
-  top: 60px;
-  background: url('//ozjrt1c1f.bkt.clouddn.com/39e57684f452108b64f64579c724892c.png') no-repeat center;
-  min-width: 1300px;
+  margin-top: 60px;
+  background: #f4f4f4;
   .banner-param{
     @include position('X');
     top: 38%;
@@ -54,9 +52,38 @@
       }
     }
   }
+  .demo-carousel{
+    height: 500px;
+  }
 }
 .app-list{
-  position: absolute;
-  top: 100%;
-  width: 100%;
+  background: #f4f4f4;
+  .list{
+    padding: 20px 0;
+    &:last-child{
+      padding-bottom: 60px;
+    }
+    .row-title{
+      margin: 10px auto;
+    }
+  }
+  .ivu-card{
+    cursor: pointer;
+  }
+  .card-content{
+    position: relative;
+    height: 279px;
+    .card-title{
+      background: rgba(0,0,0,.3);
+      bottom: 0;
+      color: #fff;
+      line-height: 36px;
+      position: absolute;
+      width: 100%;
+      overflow: hidden;
+      text-overflow:ellipsis;
+      white-space: nowrap;
+      padding: 0 10px;
+    }
+  }
 }

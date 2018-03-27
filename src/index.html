@@ -7,22 +7,154 @@
     <script src="static/js/wyboot/wyboot.js"></script>
 </head>
 <body>
-<div id="app">
+<div id="app" v-cloak>
     <app-head @search="search"></app-head>
     <div class="app-banner">
-        <div class="banner-param">
-            <p class="info">一句概括</p>
-            <i-button class="edit-btn" @click="publish">发布故事</i-button>
+        <!--<div class="banner-param">-->
+            <!--<p class="info">一句概括</p>-->
+            <!--<i-button class="edit-btn" @click="publish">发布故事</i-button>-->
+        <!--</div>-->
+        <div class="container banner-container">
+            <carousel autoplay v-model="banner" loop autoplay-speed="5000">
+                <carousel-item>
+                    <div class="demo-carousel">
+                        <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/39e57684f452108b64f64579c724892c.png" alt="">
+                    </div>
+                </carousel-item>
+                <carousel-item>
+                    <div class="demo-carousel">
+                        <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/39e57684f452108b64f64579c724892c.png" alt="">
+                    </div>
+                </carousel-item>
+                <carousel-item>
+                    <div class="demo-carousel">
+                        <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/39e57684f452108b64f64579c724892c.png" alt="">
+                    </div>
+                </carousel-item>
+                <carousel-item>
+                    <div class="demo-carousel">
+                        <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/39e57684f452108b64f64579c724892c.png" alt="">
+                    </div>
+                </carousel-item>
+            </carousel>
         </div>
     </div>
     <div class="app-list">
         <div class="container">
-            <div class="hot-list">最热</div>
-            <div class="new-list">最新</div>
-            <div class="recommend-list">推荐</div>
-            <app-foot></app-foot>
+            <div class="list hot-list">
+                <p class="row-title">最热</p>
+                <row :gutter="16">
+                    <i-col span="6">
+                        <card>
+                            <div class="card-content">
+                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
+                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
+                            </div>
+                        </card>
+                    </i-col>
+                    <i-col span="6">
+                        <card>
+                            <div class="card-content">
+                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
+                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
+                            </div>
+                        </card>
+                    </i-col>
+                    <i-col span="6">
+                        <card>
+                            <div class="card-content">
+                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
+                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
+                            </div>
+                        </card>
+                    </i-col>
+                    <i-col span="6">
+                        <card>
+                            <div class="card-content">
+                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
+                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
+                            </div>
+                        </card>
+                    </i-col>
+                </row>
+            </div>
+            <div class="list new-list">
+                <p class="row-title">最新</p>
+                <row :gutter="16">
+                    <i-col span="6">
+                        <card>
+                            <div class="card-content">
+                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
+                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
+                            </div>
+                        </card>
+                    </i-col>
+                    <i-col span="6">
+                        <card>
+                            <div class="card-content">
+                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
+                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
+                            </div>
+                        </card>
+                    </i-col>
+                    <i-col span="6">
+                        <card>
+                            <div class="card-content">
+                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
+                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
+                            </div>
+                        </card>
+                    </i-col>
+                    <i-col span="6">
+                        <card>
+                            <div class="card-content">
+                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
+                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
+                            </div>
+                        </card>
+                    </i-col>
+                </row>
+            </div>
+            <div class="list recommend-list">
+                <p class="row-title">推荐</p>
+                <row :gutter="16">
+                    <i-col span="6">
+                        <card>
+                            <div class="card-content">
+                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
+                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
+                            </div>
+                        </card>
+                    </i-col>
+                    <i-col span="6">
+                        <card>
+                            <div class="card-content">
+                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
+                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
+                            </div>
+                        </card>
+                    </i-col>
+                    <i-col span="6">
+                        <card>
+                            <div class="card-content">
+                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
+                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
+                            </div>
+                        </card>
+                    </i-col>
+                    <i-col span="6">
+                        <card>
+                            <div class="card-content">
+                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
+                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
+                            </div>
+                        </card>
+                    </i-col>
+                </row>
+            </div>
         </div>
     </div>
+    <app-foot></app-foot>
     <app-login></app-login>
 </div>
 <script src="static/js/tpl/tpl.js"></script>
