@@ -70,20 +70,4 @@
   .ivu-card{
     cursor: pointer;
   }
-  .card-content{
-    position: relative;
-    height: 279px;
-    .card-title{
-      background: rgba(0,0,0,.3);
-      bottom: 0;
-      color: #fff;
-      line-height: 36px;
-      position: absolute;
-      width: 100%;
-      overflow: hidden;
-      text-overflow:ellipsis;
-      white-space: nowrap;
-      padding: 0 10px;
-    }
-  }
 }

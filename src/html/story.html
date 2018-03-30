@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title v-title data-title="标题内容">Title</title>
+    <script src="../static/js/wyboot/wyboot.js"></script>
+    <link rel="stylesheet" href="../static/css/story/story.css">
+</head>
+<body>
+<div id="app" v-cloak>
+    <app-head></app-head>
+    <div class="story-container">
+        <div class="container clearfix">
+            <breadcrumb>
+                <breadcrumb-item to="//ourlingy.com">首页</breadcrumb-item>
+                <breadcrumb-item to="//ourlingy.com/type.html">{{story.type}}</breadcrumb-item>
+                <breadcrumb-item>{{story.title}}</breadcrumb-item>
+            </breadcrumb>
+            <layout>
+                <i-content class="story-layout">
+                    <div class="story-top clearfix">
+                        <h3 class="story-title">{{story.title}}</h3>
+                        <div class="other-top">
+                            <span>{{story.user}}</span>
+                            <span>浏览量：{{story.lookNum }} </span>
+                            <span>发布时间：{{story.date}}</span>
+                        </div>
+                    </div>
+                    <div class="story-desc">{{story.desc}}</div>
+                    <div v-html="story.html" class="story-content"></div>
+                </i-content>
+                <!--<sider hide-trigger class="story-layout" width='350'>-->
+                    <!--<h3 class="sider-title">-->
+                        <!--推荐文章-->
+                    <!--</h3>-->
+                    <!--<div class="sider-list">-->
+                        <!--<card>-->
+                            <!--<div class="card-content">-->
+                                <!--<img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">-->
+                                <!--<p class="card-title">A high quality UI Toolkit based on Vue.js</p>-->
+                            <!--</div>-->
+                        <!--</card>-->
+                        <!--<card>-->
+                            <!--<div class="card-content">-->
+                                <!--<img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">-->
+                                <!--<p class="card-title">A high quality UI Toolkit based on Vue.js</p>-->
+                            <!--</div>-->
+                        <!--</card>-->
+                        <!--<card>-->
+                            <!--<div class="card-content">-->
+                                <!--<img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">-->
+                                <!--<p class="card-title">A high quality UI Toolkit based on Vue.js</p>-->
+                            <!--</div>-->
+                        <!--</card>-->
+                    <!--</div>-->
+                <!--</sider>-->
+            </layout>
+        </div>
+    </div>
+    <app-foot></app-foot>
+    <app-login></app-login>
+</div>
+<script src="../static/js/tpl/tpl.js"></script>
+<script src="../static/js/story/story.js"></script>
+</body>
+</html>

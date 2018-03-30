@@ -1,0 +1,47 @@
+.story-container{
+  margin-top: 60px;
+  background: #E4E4E4;
+  padding: 15px 0;
+  .ivu-breadcrumb{
+    margin-bottom: 15px;
+  }
+  .ivu-breadcrumb-item-separator{
+    color: #999;
+  }
+  .ivu-layout{
+    background: rgba(0,0,0,0);
+  }
+  .story-top{
+    background: #C3C4B4;
+    padding: 15px 10px;
+    line-height: 32px;
+    .story-title{
+      float: left;
+    }
+    .other-top{
+      float: right;
+    }
+  }
+  .story-content{
+    padding: 15px 10px;
+    background: #D4D4D4;
+  }
+  .story-desc{
+    padding: 15px 10px;
+    background: #b7b998;
+  }
+  .ivu-layout-sider{
+    background: rgba(0,0,0,0);
+    margin-left: 15px;
+    .sider-title{
+      background: #C3C4B4;
+      padding: 15px 10px;
+      line-height: 32px;
+    }
+    .ivu-card{
+      background: #D4D4D4;
+      cursor: pointer;
+      border: 1px solid #D4D4D4;
+    }
+  }
+}

@@ -28,6 +28,12 @@ const store = new Vuex.Store({
 }
     }
 })
+Vue.http.interceptors.push((request, next)=>{
+    request.emulateJSON = true
+    next((response) => {
+        return response
+    })
+})
 const Head = {
     template: `
         <div :class="['app-header',isFixedNav ? 'fixed' : '']">
