@@ -22,7 +22,11 @@ new Vue({
     },
     created(){
         let _self = this
-        _self.param.storyId = queryUrl('story') | 39;
+        _self.param.storyId = queryUrl('story');
+        console.log(queryUrl('story'));
+        if(_self.param.storyId == null){
+            location.href = GLOBAL_HOME_URL
+        }
         store.commit('isEditPage', {flag: false})
         _self.initLogin();
         _self.initStory();

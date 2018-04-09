@@ -1,6 +1,7 @@
 <?php
 //    namespace user;
 // 加载基础文件
+//故事搜索   故事列表
     require dirname(dirname(__DIR__)) . '../thinkphp/base.php';
     function invests()
         {

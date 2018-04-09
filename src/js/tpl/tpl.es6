@@ -68,9 +68,7 @@ const Head = {
                             综合设置
                         </menu-item>
                     </i-menu>
-                    <i-input v-if="!isEditPage" @keyup.enter.native="search" class="search-input" v-model="title" placeholder="Enter something..."></i-input>
-                    
-                    <i-button v-if="!isEditPage" @click="publish" class="edit-btn" type="info">分享故事</i-button>
+                    <i-input v-if="!isEditPage" @keyup.enter.native="search" class="search-input" v-model="title" placeholder="Enter something..."></i-input>                    
                     <div v-if="isLogin" class="login">
                         <i-menu class="header" mode="horizontal" :theme="theme1"  v-cloak>                
                             <submenu name="1">
@@ -84,7 +82,8 @@ const Head = {
                             </submenu>
                         </i-menu>
                     </div>
-                    <i-button v-if="!isLogin" @click.native="openLogin" type="success">登 录</i-button>
+                    <i-button v-if="!isEditPage" @click="publish" class="edit-btn head-btn" type="text">分享故事</i-button>
+                    <i-button v-if="!isLogin" @click.native="openLogin" type="text" class="head-btn">登 录</i-button>
                 </div>
             </header>  
         </div>    

@@ -44,35 +44,11 @@
             <div class="list hot-list">
                 <p class="row-title">最热</p>
                 <row :gutter="16">
-                    <i-col span="6">
+                    <i-col v-for="(item,index) in hostList" span="4">
                         <card>
-                            <div class="card-content">
-                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
-                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
-                            </div>
-                        </card>
-                    </i-col>
-                    <i-col span="6">
-                        <card>
-                            <div class="card-content">
-                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
-                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
-                            </div>
-                        </card>
-                    </i-col>
-                    <i-col span="6">
-                        <card>
-                            <div class="card-content">
-                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
-                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
-                            </div>
-                        </card>
-                    </i-col>
-                    <i-col span="6">
-                        <card>
-                            <div class="card-content">
-                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
-                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
+                            <div class="card-content small" @click="urlLink(item)">
+                                <img class="response-img" :src="item.cover">
+                                <p class="card-title">{{item.title}}</p>
                             </div>
                         </card>
                     </i-col>
@@ -81,35 +57,11 @@
             <div class="list new-list">
                 <p class="row-title">最新</p>
                 <row :gutter="16">
-                    <i-col span="6">
+                    <i-col v-for="(item,index) in newList" span="4">
                         <card>
-                            <div class="card-content">
-                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
-                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
-                            </div>
-                        </card>
-                    </i-col>
-                    <i-col span="6">
-                        <card>
-                            <div class="card-content">
-                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
-                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
-                            </div>
-                        </card>
-                    </i-col>
-                    <i-col span="6">
-                        <card>
-                            <div class="card-content">
-                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
-                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
-                            </div>
-                        </card>
-                    </i-col>
-                    <i-col span="6">
-                        <card>
-                            <div class="card-content">
-                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
-                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
+                            <div class="card-content small" @click="urlLink(item)">
+                                <img class="response-img" :src="item.cover">
+                                <p class="card-title">{{item.title}}</p>
                             </div>
                         </card>
                     </i-col>
@@ -118,35 +70,11 @@
             <div class="list recommend-list">
                 <p class="row-title">推荐</p>
                 <row :gutter="16">
-                    <i-col span="6">
+                    <i-col v-for="(item,index) in recomList" span="4">
                         <card>
-                            <div class="card-content">
-                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
-                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
-                            </div>
-                        </card>
-                    </i-col>
-                    <i-col span="6">
-                        <card>
-                            <div class="card-content">
-                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
-                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
-                            </div>
-                        </card>
-                    </i-col>
-                    <i-col span="6">
-                        <card>
-                            <div class="card-content">
-                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
-                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
-                            </div>
-                        </card>
-                    </i-col>
-                    <i-col span="6">
-                        <card>
-                            <div class="card-content">
-                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
-                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
+                            <div class="card-content small" @click="urlLink(item)">
+                                <img class="response-img" :src="item.cover">
+                                <p class="card-title">{{item.title}}</p>
                             </div>
                         </card>
                     </i-col>

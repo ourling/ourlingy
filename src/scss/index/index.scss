@@ -59,7 +59,7 @@
 .app-list{
   background: #f4f4f4;
   .list{
-    padding: 20px 0;
+    padding-top: 10px;
     &:last-child{
       padding-bottom: 60px;
     }
@@ -69,5 +69,8 @@
   }
   .ivu-card{
     cursor: pointer;
+  }
+  .ivu-card-body{
+    padding: 0;
   }
 }
