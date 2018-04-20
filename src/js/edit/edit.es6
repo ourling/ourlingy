@@ -19,7 +19,7 @@ new Vue({
             title: "",
             desc: "",
             text: "",
-            type: 1,
+            type: 2,
             cover: "",
         },
         boo: {
@@ -28,10 +28,13 @@ new Vue({
             errorDesc: false
         },
         storyType: [
-            {title: '北京', val: 1},
-            {title: '上海', val: 2},
-            {title: '天津', val: 3},
-            {title: '厦门', val: 4}
+            {title: '神话传说', val: 2},
+            {title: '民间奇谭', val: 3},
+            {title: '校园诡事', val: 4},
+            {title: '灵异事件', val: 5},
+            {title: '宇宙奥秘', val: 6},
+            {title: '奇异自然', val: 7},
+            {title: '五彩历史', val: 8}
         ],
         ue: null,
         userName: "",
