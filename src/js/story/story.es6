@@ -9,11 +9,13 @@ new Vue({
     data: {
         https: {
             story: `${GLOBAL_STATIC_API}story/item.php`,
+            recommon: `${GLOBAL_STATIC_API}story/tuijian.php`,
         },
         param: {
             storyId: 39,
         },
         story: {},
+        recomList: [],
     },
     computed: {
         isLogin(){
@@ -32,6 +34,8 @@ new Vue({
         _self.initStory();
     },
     mounted(){
+        let _self = this
+        _self.initCom();
     },
     methods: {
         initLogin(){
@@ -62,6 +66,27 @@ new Vue({
                     _self.$Message.error(err)
                 }
             )
+        },
+        initCom(){
+            let _self = this
+            _self.$http.post(_self.https.recommon).then(
+                (res)=>{
+                    res = JSON.parse(res.data)
+                    if(res.isSuccess){
+                        console.log(res)
+                        _self.recomList = res.recomList
+                    }else{
+                        _self.$Message.error(res.msg);
+                    }
+                },
+                (err)=>{
+                    _self.$Message.error(err)
+                }
+            )
+        },
+        urlLink(item){
+            let url = `${GLOBAL_PAGE_URL}story.html?story=${item.storyId}`
+            window.open(url)
         }
     },
 })

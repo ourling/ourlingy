@@ -34,10 +34,10 @@
                         推荐文章
                     </h3>
                     <div class="sider-list">
-                        <card>
-                            <div class="card-content">
-                                <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/9cbe3068c7ed8a39aa7ae73c5969f446.png">
-                                <p class="card-title">A high quality UI Toolkit based on Vue.js</p>
+                        <card v-for="(item,index) in recomList">
+                            <div class="card-content" @click="urlLink(item)">
+                                <img class="response-img" :src="item.cover">
+                                <p class="card-title">{{item.title}}</p>
                             </div>
                         </card>
                     </div>
