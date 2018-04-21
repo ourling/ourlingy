@@ -41,31 +41,28 @@ const Head = {
                 <div class="container clearfix">
                     <i-menu class="header" mode="horizontal" :theme="theme1" active-name="1" v-cloak>
                         <menu-item name="1">
-                            <icon type="ios-paper"></icon>
-                            内容管理
+                            首页
                         </menu-item>
                         <menu-item name="2">
-                            <icon type="ios-people"></icon>
-                            用户管理
+                            神话传说
                         </menu-item>
-                        <submenu name="3">
-                            <template slot="title">
-                                <icon type="stats-bars"></icon>
-                                统计分析
-                            </template>
-                            <menu-group title="使用">
-                                <menu-item name="3-1">新增和启动</menu-item>
-                                <menu-item name="3-2">活跃分析</menu-item>
-                                <menu-item name="3-3">时段分析</menu-item>
-                            </menu-group>
-                            <menu-group title="留存">
-                                <menu-item name="3-4">用户留存</menu-item>
-                                <menu-item name="3-5">流失用户</menu-item>
-                            </menu-group>
-                        </submenu>
+                        <menu-item name="3">
+                            民间奇谭
+                         </menu-item>
                         <menu-item name="4">
-                            <icon type="settings"></icon>
-                            综合设置
+                            校园诡事
+                        </menu-item>
+                        <menu-item name="5">
+                            灵异事件
+                        </menu-item>
+                        <menu-item name="6">
+                            宇宙奥秘
+                        </menu-item>
+                        <menu-item name="7">
+                            奇异自然
+                        </menu-item>
+                        <menu-item name="8">
+                            五彩历史
                         </menu-item>
                     </i-menu>
                     <i-input v-if="!isEditPage" @keyup.enter.native="search" class="search-input" v-model="title" placeholder="Enter something..."></i-input>                    
