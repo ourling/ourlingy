@@ -133,7 +133,7 @@ const GLOBAL_QIMIAOWA_VERSION = "v20171012233509";//全局上线版本号，上�
             //加载js
             loadJs: function (url, f) {
                 (isServer) ? server(url, f) : local(url, f);
-                //local(url, f);
+                // local(url, f);
             },
             //加载css
             loadCss: function (url) {
@@ -264,6 +264,7 @@ const GLOBAL_QIMIAOWA_VERSION = "v20171012233509";//全局上线版本号，上�
     _G.loadJs(GLOBAL_STATIC_URL + '/plugins/js/vue/vue-router.min.js?v=' + GLOBAL_QIMIAOWA_VERSION);
     _G.loadJs(GLOBAL_STATIC_URL + '/plugins/js/vue/vuex.js?v=' + GLOBAL_QIMIAOWA_VERSION);
     _G.loadJs(GLOBAL_STATIC_URL + '/plugins/js/iview/iview.min.js?v=' + GLOBAL_QIMIAOWA_VERSION);
+    // _G.loadJs(GLOBAL_STATIC_URL + '/plugins/js/flexible/flexible.min.js?v=' + GLOBAL_QIMIAOWA_VERSION);
 
     _G.process = function () {
 
