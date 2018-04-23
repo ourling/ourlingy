@@ -20,7 +20,9 @@
             $size = 6;//每页显示数量
             $host = Db::table('storytable')
                         ->where('state',1)
-                        ->order('lookNum','desc')->limit($size)->select();
+                        ->where('isHot',1)
+//                        ->order('lookNum','desc')->limit($size)->select();
+                        ->order('storyId','desc')->limit($size)->select();
             $new = Db::table('storytable')
                         ->where('state',1)
                         ->order('date','desc')->limit($size)->select();

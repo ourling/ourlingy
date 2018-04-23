@@ -1,3 +1,6 @@
+let  linkTag = `<link rel="shortcut icon" href="${GLOBAL_STATIC_URL}/images/ico.jpg">`;
+// 动态将ico添加到head里
+$($('head')[0]).append(linkTag);
 const store = new Vuex.Store({
     state: {
         isLogin: false,

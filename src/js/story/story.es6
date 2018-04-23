@@ -58,6 +58,7 @@ new Vue({
                     res = JSON.parse(res.data)
                     if(res.isSuccess){
                         _self.story = res.story;
+                        document.title = _self.story.title
                     }else{
                         _self.$Message.error(res.msg);
                     }
