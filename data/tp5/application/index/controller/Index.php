@@ -5,6 +5,6 @@ class Index
 {
     public function index()
     {
-       return $this->display();
+//        print_r (this);die;
     }
 }

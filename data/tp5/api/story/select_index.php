@@ -2,7 +2,8 @@
 //    namespace user;
 // 加载基础文件
 //首页故事列表   最热  推荐等等
-    require dirname(dirname(__DIR__)) . '../thinkphp/base.php';
+    require __DIR__ . '/../../public/index.php';
+    use think\Request;
     function typeStory($inv){
         $list = [];
         foreach ($inv as $k => $v) {
@@ -18,15 +19,15 @@
         {
             $ajax = Request::instance()->post(false);
             $size = 6;//每页显示数量
-            $host = Db::table('storytable')
+            $host = db('storytable')
                         ->where('state',1)
                         ->where('isHot',1)
 //                        ->order('lookNum','desc')->limit($size)->select();
                         ->order('storyId','desc')->limit($size)->select();
-            $new = Db::table('storytable')
+            $new = db('storytable')
                         ->where('state',1)
                         ->order('date','desc')->limit($size)->select();
-            $recomment = Db::table('storytable')
+            $recomment = db('storytable')
                         ->where('state',1)
                         ->where('isRecommend',1)
                         ->order('storyId','desc')->limit($size)->select();

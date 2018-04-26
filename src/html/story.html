@@ -12,8 +12,8 @@
     <div class="story-container">
         <div class="container clearfix">
             <breadcrumb>
-                <breadcrumb-item to="//ourlingy.com">首页</breadcrumb-item>
-                <breadcrumb-item to="//ourlingy.com/type.html">{{story.type}}</breadcrumb-item>
+                <breadcrumb-item :to="GLOBAL_HOME_URL">首页</breadcrumb-item>
+                <breadcrumb-item :to="GLOBAL_HOME_URL">{{story.type}}</breadcrumb-item>
                 <breadcrumb-item>{{story.title}}</breadcrumb-item>
             </breadcrumb>
             <layout>

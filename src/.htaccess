@@ -1,0 +1,4 @@
+RewriteEngine on
+#SetEnv CI_ENV DEV
+RewriteCond $1 !^(index\.php|webapp|assert|static|utils|mail|uploads|pay|phome)
+RewriteRule ^(.*)$ /index.php?/$1 [L]

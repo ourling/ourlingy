@@ -1,7 +1,8 @@
 <?php
 //    namespace user;
 // 加载基础文件
-    require dirname(dirname(__DIR__)) . '../thinkphp/base.php';
+    require __DIR__ . '/../../public/index.php';
+    use think\Request;
     /*检查类
     *@param string $phone 用户手机号
     */
@@ -9,8 +10,8 @@
         //检查手机号是否已经存在
         function checkTable($phone,$name)
         {
-            $sizeofPhone = sizeof(Db::table('usertable')->where('phone',$phone)->column('userId'),0);
-            $sizeofName = sizeof(Db::table('usertable')->where('name',$name)->column('userId'),0);
+            $sizeofPhone = sizeof(db('usertable')->where('phone',$phone)->column('userId'),0);
+            $sizeofName = sizeof(db('usertable')->where('name',$name)->column('userId'),0);
             if($sizeofPhone == 0 && $sizeofName == 0){
                 $code = 1; // 正常
             }
@@ -45,7 +46,7 @@
             case 1:
               $ajax['date'] = $date;
               $userId = Db::name('usertable')->insertGetId($ajax,false);
-              $line = Db::table('usertable')->where('userId',$userId)->find();
+              $line = db('usertable')->where('userId',$userId)->find();
               $data = ['isSuccess'=>true,'msg'=>'注册成功！','data'=>$line];
               break;
             case 2:

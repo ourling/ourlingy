@@ -2,7 +2,8 @@
 //    namespace user;
 // 加载基础文件
 //首页故事列表   最热  推荐等等
-    require dirname(dirname(__DIR__)) . '../thinkphp/base.php';
+    require __DIR__ . '/../../public/index.php';
+    use think\Request;
     /**
      * 随机获取数据
      * @param string $num  抽取条数
@@ -23,8 +24,8 @@
      }
     function random_data($num,$table)
     {
-        $pk = Db::name($table)->getPK();//获取主键
-        $countcus = Db::name($table)
+        $pk = db($table)->getPK();//获取主键
+        $countcus = db($table)
                     ->where('state',1)
                     ->where('isRecommend',1)
                     ->field($pk)->select();//查询数据
@@ -39,7 +40,7 @@
             $sunum = mt_rand(0,$countnum);
             $qu.= $array[$sunum].',';
         }
-        $list = Db::name($table)->where($pk,'in',$qu)->select();
+        $list = db($table)->where($pk,'in',$qu)->select();
         return $list;
     }
     $data['recomList'] = []; //推荐

@@ -1,11 +1,12 @@
 <?php
 //    namespace user;
 // 加载基础文件
-    require dirname(dirname(__DIR__)) . '../thinkphp/base.php';
+    require __DIR__ . '/../../public/index.php';
+    use think\Request;
     //检查文章是否已经存在
     function checkTitle($title)
     {
-        $sizeof = sizeof(Db::table('storytable')->where('title',$title)->column('storyId'),0);
+        $sizeof = sizeof(db('storytable')->where('title',$title)->column('storyId'),0);
         return $sizeof;
     }
     function create()

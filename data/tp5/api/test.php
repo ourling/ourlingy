@@ -1,7 +1,7 @@
 <?php
-//     [ 应用入口文件 ]
-    namespace think;
-// 加载基础文件
-    require __DIR__ . '/../thinkphp/base.php';
-    $ret = Db::table('test')->where('id',1)->find();
+// 定义应用目录
+//define('APP_PATH', __DIR__ . '/../application/');
+// 加载框架引导文件
+    require __DIR__ . '/../public/index.php';
+    $ret = db('test')->where('id',1)->find();
     echo json_encode($ret);

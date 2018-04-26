@@ -42,7 +42,7 @@ const Head = {
         <div :class="['app-header',isFixedNav ? 'fixed' : '']">
             <header class="header-container">
                 <div class="container clearfix">
-                    <i-menu class="header" mode="horizontal" :theme="theme1" active-name="1" v-cloak>
+                    <i-menu @on-select="menuSelect" class="header" mode="horizontal" :theme="theme1" active-name="1" v-cloak>
                         <menu-item name="1">
                             首页
                         </menu-item>
@@ -138,13 +138,13 @@ const Head = {
             store.commit('userName', {flag: ''})
         },
         publish(){
-    let _self = this
-    if(_self.isLogin){
-        window.open(`${GLOBAL_PAGE_URL}edit.html`)
-    }else{
-        store.commit('isOpenLogin', {flag: true})
-    }
-},
+            let _self = this
+            if(_self.isLogin){
+                window.open(`${GLOBAL_PAGE_URL}edit.html`)
+            }else{
+                store.commit('isOpenLogin', {flag: true})
+            }
+        },
         initScroll(){
             let _self = this
             window.document.addEventListener('scroll', () => {
@@ -155,6 +155,13 @@ const Head = {
                     _self.isFixedNav = false
                 }
             }, false)
+        },
+        menuSelect(name){
+            switch (name) {
+                case '1':
+                    window.location.href = GLOBAL_HOME_URL
+                    break;
+            }
         }
     },
 }
@@ -162,7 +169,7 @@ const Foot = {
     template: `
         <footer class="foot-container">
             <div class="container">
-                123
+               ©Copyright 2017 - 2018  探灵阁版权所有   &nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.miitbeian.gov.cn/">浙ICP备18016237号</a>
             </div>            
         </footer>
     `

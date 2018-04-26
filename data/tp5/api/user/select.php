@@ -1,7 +1,8 @@
 <?php
 //    namespace user;
 // 加载基础文件
-    require dirname(dirname(__DIR__)) . '../thinkphp/base.php';
+    require __DIR__ . '/../../public/index.php';
+    use think\Request;
     /*检查类
     *@param string $phone 用户手机号
     */
@@ -9,7 +10,7 @@
         //检查手机号是否已经存在
         function checkUser($name,$pwd)
         {
-            $sizeof = sizeof(Db::table('usertable')
+            $sizeof = sizeof(db('usertable')
                     ->where('name',$name)
                     ->where('pwd',$pwd)
                     ->column('userId'),0);
@@ -26,13 +27,13 @@
             date_default_timezone_set("PRC");
             $date = date("Y-m-d H:i:s");
             $check = new Check();
-            $ajax = Request::instance()->post(false);
+            $ajax = Request::instance()->post();
             $name = $ajax['name'];
             $pwd = $ajax['pwd'];
             $boo= $check->checkUser($name,$pwd);
             if($boo == 1){
                 //正常登录
-                $line = Db::table('usertable')->where('name',$name)->find();
+                $line = db('usertable')->where('name',$name)->find();
                 $data = ['isSuccess'=>true,'msg'=>'登录成功！','data'=>$line];
             }else{
                 //登录失败

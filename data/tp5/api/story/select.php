@@ -2,7 +2,8 @@
 //    namespace user;
 // 加载基础文件
 //故事搜索   故事列表
-    require dirname(dirname(__DIR__)) . '../thinkphp/base.php';
+    require __DIR__ . '/../../public/index.php';
+    use think\Request;
     function invests()
         {
             $ajax = Request::instance()->post(false);
@@ -11,21 +12,21 @@
             $type = $ajax['type'];
             $title = $ajax['title'];
             if($type == 0){
-                $invests = Db::table('storytable')
+                $invests = db('storytable')
                             ->where('title','like', '%'.$title.'%')
                             ->where('state',1)
                             ->order('storyId','desc')->limit(($page-1)*$size, $size)->select();
-                $count = Db::table('storytable')
+                $count = db('storytable')
                             ->where('title','like', '%'.$title.'%')
                             ->where('state',1)
                             ->order('storyId')->count();
             }else{
-                $invests = Db::table('storytable')
+                $invests = db('storytable')
                             ->where('type',$type)
                             ->where('title',$title)
                             ->where('state',1)
                             ->order('storyId','desc')->limit(($page-1)*$size, $size)->select();
-                $count = Db::table('storytable')
+                $count = db('storytable')
                             ->where('type',$type)
                             ->where('title',$title)
                             ->where('state',1)

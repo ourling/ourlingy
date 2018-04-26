@@ -39,6 +39,12 @@
   color: #fff;
   text-align: center;
   padding: 35px 0;
+  a{
+    color: #fff;
+    &:hover{
+      color: #fff;
+    }
+  }
 }
 .clearfix:before,.clearfix:after{
   content: "";

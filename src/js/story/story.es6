@@ -25,7 +25,7 @@ new Vue({
     created(){
         let _self = this
         _self.param.storyId = queryUrl('story');
-        console.log(queryUrl('story'));
+        // console.log(queryUrl('story'));
         if(_self.param.storyId == null){
             location.href = GLOBAL_HOME_URL
         }
@@ -74,7 +74,6 @@ new Vue({
                 (res)=>{
                     res = JSON.parse(res.data)
                     if(res.isSuccess){
-                        console.log(res)
                         _self.recomList = res.recomList
                     }else{
                         _self.$Message.error(res.msg);

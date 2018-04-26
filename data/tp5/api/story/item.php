@@ -1,22 +1,23 @@
 <?php
 //    namespace user;
 // 加载基础文件
-    require dirname(dirname(__DIR__)) . '../thinkphp/base.php';
+    require __DIR__ . '/../../public/index.php';
+    use think\Request;
     function invests()
         {
             $ajax = Request::instance()->post(false);
             $storyId = $ajax['storyId'];
-            $item = Db::table('storytable')
+            $item = db('storytable')
                         ->where('storyId', $storyId)
                         ->where('state',1)->select();
             if(count($item)){
                 $item = $item[0];
                 $typeId = $item['type'];
                 $userId = $item['userId'];
-                $type = Db::table('typetable')
+                $type = db('typetable')
                             ->field(['type'])
                             ->where('typeId', $typeId)->select();
-                $user = Db::table('usertable')
+                $user = db('usertable')
                             ->field(['name'])
                             ->where('userId', $userId)->select();
                 $data['story'] = [
