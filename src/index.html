@@ -5,6 +5,11 @@
     <title>探灵阁</title>
     <link rel="stylesheet" href="static/css/index/index.css">
     <script src="static/js/wyboot/wyboot.js"></script>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
 </head>
 <body>
 <div id="app" v-cloak>
@@ -15,22 +20,7 @@
             <!--<i-button class="edit-btn" @click="publish">发布故事</i-button>-->
         <!--</div>-->
         <div class="container banner-container">
-            <carousel autoplay v-model="banner" loop autoplay-speed="5000">
-                <carousel-item>
-                    <div class="demo-carousel">
-                        <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/39e57684f452108b64f64579c724892c.png" alt="">
-                    </div>
-                </carousel-item>
-                <carousel-item>
-                    <div class="demo-carousel">
-                        <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/39e57684f452108b64f64579c724892c.png" alt="">
-                    </div>
-                </carousel-item>
-                <carousel-item>
-                    <div class="demo-carousel">
-                        <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/39e57684f452108b64f64579c724892c.png" alt="">
-                    </div>
-                </carousel-item>
+            <carousel autoplay v-model="banner">
                 <carousel-item>
                     <div class="demo-carousel">
                         <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/39e57684f452108b64f64579c724892c.png" alt="">

@@ -45,7 +45,7 @@
             {
             case 1:
               $ajax['date'] = $date;
-              $userId = Db::name('usertable')->insertGetId($ajax,false);
+              $userId = db('usertable')->insertGetId($ajax,false);
               $line = db('usertable')->where('userId',$userId)->find();
               $data = ['isSuccess'=>true,'msg'=>'注册成功！','data'=>$line];
               break;
