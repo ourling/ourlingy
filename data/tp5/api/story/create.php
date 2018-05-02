@@ -22,7 +22,7 @@
             $data = ['isSuccess'=>false,'msg'=>'故事或故事名称已经存在，请更换！','data'=>[]];
         }else{
             //故事可以创建
-            $storyId = Db::name('storytable')->insertGetId($ajax,false);
+            $storyId = db('storytable')->insertGetId($ajax,false);
             $data = array('isSuccess'=>true,'msg'=>'故事新建成功！');
         }
         echo json_encode($data);

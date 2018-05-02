@@ -1,0 +1,97 @@
+---------------------------------------------------------------
+[ 2018-04-27T10:26:21+08:00 ] 101.199.108.118 POST /data/tp5/api/story/select_index.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.025997s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.002166s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1  AND `isHot` = 1 ORDER BY `storyId`  desc LIMIT 6 [ RunTime:0.006265s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1 ORDER BY `date`  desc LIMIT 6 [ RunTime:0.004464s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1  AND `isRecommend` = 1 ORDER BY `storyId`  desc LIMIT 6 [ RunTime:0.002057s ]
+---------------------------------------------------------------
+[ 2018-04-27T17:19:41+08:00 ] 124.79.7.201 POST /data/tp5/api/story/select_index.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.035412s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.002189s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1  AND `isHot` = 1 ORDER BY `storyId`  desc LIMIT 6 [ RunTime:0.005787s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1 ORDER BY `date`  desc LIMIT 6 [ RunTime:0.003564s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1  AND `isRecommend` = 1 ORDER BY `storyId`  desc LIMIT 6 [ RunTime:0.001726s ]
+---------------------------------------------------------------
+[ 2018-04-27T17:19:54+08:00 ] 124.79.7.201 POST /data/tp5/api/user/select.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005525s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `usertable` [ RunTime:0.002204s ]
+[ sql ] [ SQL ] SELECT `userId` FROM `usertable` WHERE  `name` = 'sjy'  AND `pwd` = 'sjyyyy65' [ RunTime:0.001250s ]
+[ sql ] [ SQL ] SELECT * FROM `usertable` WHERE  `name` = 'sjy' LIMIT 1 [ RunTime:0.001234s ]
+---------------------------------------------------------------
+[ 2018-04-27T17:20:00+08:00 ] 124.79.7.201 POST /data/tp5/api/img/selectcover.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005381s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `imgtable` [ RunTime:0.002320s ]
+[ sql ] [ SQL ] SELECT * FROM `imgtable` WHERE  `userId` = 27 ORDER BY `imgId`  desc LIMIT 0,7 [ RunTime:0.001570s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `imgtable` WHERE  `userId` = 27 ORDER BY `imgId` LIMIT 1 [ RunTime:0.001455s ]
+---------------------------------------------------------------
+[ 2018-04-27T17:21:39+08:00 ] 124.79.7.201 POST /data/tp5/api/img/selectcover.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005060s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `imgtable` [ RunTime:0.001979s ]
+[ sql ] [ SQL ] SELECT * FROM `imgtable` WHERE  `userId` = 27 ORDER BY `imgId`  desc LIMIT 0,7 [ RunTime:0.001322s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `imgtable` WHERE  `userId` = 27 ORDER BY `imgId` LIMIT 1 [ RunTime:0.001233s ]
+---------------------------------------------------------------
+[ 2018-04-27T17:22:00+08:00 ] 124.79.7.201 POST /data/tp5/api/story/create.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004819s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.002108s ]
+[ sql ] [ SQL ] SELECT `storyId` FROM `storytable` WHERE  `title` = '海棠不争春' [ RunTime:0.001379s ]
+[ error ] [1]Class 'Db' not found
+---------------------------------------------------------------
+[ 2018-04-27T17:23:07+08:00 ] 124.79.7.201 POST /data/tp5/api/story/create.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005183s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.006475s ]
+[ sql ] [ SQL ] SELECT `storyId` FROM `storytable` WHERE  `title` = '海棠不争春' [ RunTime:0.001212s ]
+[ error ] [1]Class 'Db' not found
+---------------------------------------------------------------
+[ 2018-04-27T17:23:11+08:00 ] 124.79.7.201 POST /data/tp5/api/story/create.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004713s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.002083s ]
+[ sql ] [ SQL ] SELECT `storyId` FROM `storytable` WHERE  `title` = '海棠不争春' [ RunTime:0.001204s ]
+[ error ] [1]Class 'Db' not found
+---------------------------------------------------------------
+[ 2018-04-27T17:24:14+08:00 ] 124.79.7.201 POST /data/tp5/api/story/create.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006627s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.002154s ]
+[ sql ] [ SQL ] SELECT `storyId` FROM `storytable` WHERE  `title` = '海棠不争春' [ RunTime:0.001267s ]
+[ error ] [1]Class 'Db' not found
+---------------------------------------------------------------
+[ 2018-04-27T17:24:37+08:00 ] 124.79.7.201 POST /data/tp5/api/story/create.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006571s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.002116s ]
+[ sql ] [ SQL ] SELECT `storyId` FROM `storytable` WHERE  `title` = '海棠不争春' [ RunTime:0.001222s ]
+[ error ] [1]Class 'Db' not found
+---------------------------------------------------------------
+[ 2018-04-27T17:24:45+08:00 ] 124.79.7.201 POST /data/tp5/api/story/create.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006079s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.002030s ]
+[ sql ] [ SQL ] SELECT `storyId` FROM `storytable` WHERE  `title` = '海棠不争春' [ RunTime:0.001183s ]
+[ error ] [1]Class 'Db' not found
+---------------------------------------------------------------
+[ 2018-04-27T19:02:07+08:00 ] 223.93.147.218 POST /data/tp5/api/story/select_index.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.025147s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.001964s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1  AND `isHot` = 1 ORDER BY `storyId`  desc LIMIT 6 [ RunTime:0.005586s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1 ORDER BY `date`  desc LIMIT 6 [ RunTime:0.004096s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1  AND `isRecommend` = 1 ORDER BY `storyId`  desc LIMIT 6 [ RunTime:0.001746s ]
+---------------------------------------------------------------
+[ 2018-04-27T19:02:32+08:00 ] 223.93.147.218 POST /data/tp5/api/story/select_index.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.012888s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.002103s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1  AND `isHot` = 1 ORDER BY `storyId`  desc LIMIT 6 [ RunTime:0.005204s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1 ORDER BY `date`  desc LIMIT 6 [ RunTime:0.003497s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1  AND `isRecommend` = 1 ORDER BY `storyId`  desc LIMIT 6 [ RunTime:0.001593s ]
+---------------------------------------------------------------
+[ 2018-04-27T19:03:15+08:00 ] 223.93.147.218 POST /data/tp5/api/story/item.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005523s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.010195s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `storyId` = 47  AND `state` = 1 [ RunTime:0.003816s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `typetable` [ RunTime:0.001631s ]
+[ sql ] [ SQL ] SELECT `type` FROM `typetable` WHERE  `typeId` = 2 [ RunTime:0.001148s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `usertable` [ RunTime:0.001636s ]
+[ sql ] [ SQL ] SELECT `name` FROM `usertable` WHERE  `userId` = 15 [ RunTime:0.001113s ]
+---------------------------------------------------------------
+[ 2018-04-27T19:03:15+08:00 ] 223.93.147.218 POST /data/tp5/api/story/tuijian.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.008090s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.001872s ]
+[ sql ] [ SQL ] SELECT `storyId` FROM `storytable` WHERE  `state` = 1  AND `isRecommend` = 1 [ RunTime:0.001603s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `storyId` IN (44,46,0) [ RunTime:0.002426s ]
