@@ -100,6 +100,14 @@ new Vue({
         urlLink(item){
             let url = `${GLOBAL_PAGE_URL}story.html?story=${item.storyId}`
             window.open(url)
-        }
+        },
+        publish(){
+            let _self = this
+            if(_self.isLogin){
+                window.open(`${GLOBAL_PAGE_URL}edit.html`)
+            }else{
+                store.commit('isOpenLogin', {flag: true})
+            }
+        },
     }
 })

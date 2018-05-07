@@ -33,13 +33,22 @@
 .app-banner{
   margin-top: 60px;
   background: #f4f4f4;
+  .banner-container{
+    background: url('//ozjrt1c1f.bkt.clouddn.com/975f09252fdeb06fd8e615d53a84d9a8.png') no-repeat center;
+    height: -webkit-fill-available;
+    background-size: cover;
+  }
   .banner-param{
     @include position('X');
     top: 38%;
+    width: 1300px;
     text-align: center;
     .info{
       @include font(42px,#fff);
       letter-spacing: 6px;
+    }
+    .info-desc{
+      @include font(24px,#fff);
     }
     .edit-btn{
       @include font(16px,#fff,15px);
@@ -58,6 +67,9 @@
 }
 .app-list{
   background: #f4f4f4;
+  width: 100%;
+  position: absolute;
+  top:100%;
   .list{
     padding-top: 10px;
     &:last-child{

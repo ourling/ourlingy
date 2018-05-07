@@ -1,0 +1,164 @@
+---------------------------------------------------------------
+[ 2018-04-30T14:28:40+08:00 ] 112.28.175.35 POST /data/tp5/api/story/select_index.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.025064s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.003347s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1  AND `isHot` = 1 ORDER BY `storyId`  desc LIMIT 6 [ RunTime:0.006005s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1 ORDER BY `date`  desc LIMIT 6 [ RunTime:0.005558s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1  AND `isRecommend` = 1 ORDER BY `storyId`  desc LIMIT 6 [ RunTime:0.003650s ]
+---------------------------------------------------------------
+[ 2018-04-30T14:28:52+08:00 ] 112.28.175.35 POST /data/tp5/api/story/item.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005540s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.002115s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `storyId` = 52  AND `state` = 1 [ RunTime:0.003787s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `typetable` [ RunTime:0.001790s ]
+[ sql ] [ SQL ] SELECT `type` FROM `typetable` WHERE  `typeId` = 2 [ RunTime:0.001237s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `usertable` [ RunTime:0.001906s ]
+[ sql ] [ SQL ] SELECT `name` FROM `usertable` WHERE  `userId` = 27 [ RunTime:0.001235s ]
+---------------------------------------------------------------
+[ 2018-04-30T14:28:52+08:00 ] 112.28.175.35 POST /data/tp5/api/story/tuijian.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004565s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.001764s ]
+[ sql ] [ SQL ] SELECT `storyId` FROM `storytable` WHERE  `state` = 1  AND `isRecommend` = 1 [ RunTime:0.001340s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `storyId` IN (44,45,0) [ RunTime:0.001578s ]
+---------------------------------------------------------------
+[ 2018-04-30T14:30:03+08:00 ] 112.28.175.35 POST /data/tp5/api/story/select_index.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004666s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.001930s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1  AND `isHot` = 1 ORDER BY `storyId`  desc LIMIT 6 [ RunTime:0.005632s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1 ORDER BY `date`  desc LIMIT 6 [ RunTime:0.004195s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1  AND `isRecommend` = 1 ORDER BY `storyId`  desc LIMIT 6 [ RunTime:0.002831s ]
+---------------------------------------------------------------
+[ 2018-04-30T14:30:12+08:00 ] 112.28.175.35 POST /data/tp5/api/story/item.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005244s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.002142s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `storyId` = 44  AND `state` = 1 [ RunTime:0.001804s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `typetable` [ RunTime:0.001730s ]
+[ sql ] [ SQL ] SELECT `type` FROM `typetable` WHERE  `typeId` = 5 [ RunTime:0.001187s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `usertable` [ RunTime:0.001778s ]
+[ sql ] [ SQL ] SELECT `name` FROM `usertable` WHERE  `userId` = 15 [ RunTime:0.001401s ]
+---------------------------------------------------------------
+[ 2018-04-30T14:30:12+08:00 ] 112.28.175.35 POST /data/tp5/api/story/tuijian.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006181s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.002244s ]
+[ sql ] [ SQL ] SELECT `storyId` FROM `storytable` WHERE  `state` = 1  AND `isRecommend` = 1 [ RunTime:0.001276s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `storyId` IN (43,52,44,0) [ RunTime:0.004082s ]
+---------------------------------------------------------------
+[ 2018-04-30T16:40:38+08:00 ] 112.28.175.35 POST /data/tp5/api/story/select_index.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.030716s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.002573s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1  AND `isHot` = 1 ORDER BY `storyId`  desc LIMIT 6 [ RunTime:0.013978s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1 ORDER BY `date`  desc LIMIT 6 [ RunTime:0.004627s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1  AND `isRecommend` = 1 ORDER BY `storyId`  desc LIMIT 6 [ RunTime:0.003291s ]
+---------------------------------------------------------------
+[ 2018-04-30T16:40:43+08:00 ] 112.28.175.35 POST /data/tp5/api/story/item.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005703s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.002192s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `storyId` = 52  AND `state` = 1 [ RunTime:0.003626s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `typetable` [ RunTime:0.002313s ]
+[ sql ] [ SQL ] SELECT `type` FROM `typetable` WHERE  `typeId` = 2 [ RunTime:0.001205s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `usertable` [ RunTime:0.001753s ]
+[ sql ] [ SQL ] SELECT `name` FROM `usertable` WHERE  `userId` = 27 [ RunTime:0.001383s ]
+---------------------------------------------------------------
+[ 2018-04-30T16:40:43+08:00 ] 112.28.175.35 POST /data/tp5/api/story/tuijian.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005161s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.002122s ]
+[ sql ] [ SQL ] SELECT `storyId` FROM `storytable` WHERE  `state` = 1  AND `isRecommend` = 1 [ RunTime:0.001394s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `storyId` IN (44,43,45,0) [ RunTime:0.002018s ]
+---------------------------------------------------------------
+[ 2018-04-30T16:41:23+08:00 ] 112.28.175.35 POST /data/tp5/api/user/select.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004737s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `usertable` [ RunTime:0.001951s ]
+[ sql ] [ SQL ] SELECT `userId` FROM `usertable` WHERE  `name` = '风'  AND `pwd` = 'bin110123' [ RunTime:0.001270s ]
+[ sql ] [ SQL ] SELECT * FROM `usertable` WHERE  `name` = '风' LIMIT 1 [ RunTime:0.001178s ]
+---------------------------------------------------------------
+[ 2018-04-30T16:41:30+08:00 ] 112.28.175.35 POST /data/tp5/api/img/selectcover.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004434s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `imgtable` [ RunTime:0.001783s ]
+[ sql ] [ SQL ] SELECT * FROM `imgtable` WHERE  `userId` = 15 ORDER BY `imgId`  desc LIMIT 0,7 [ RunTime:0.001289s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `imgtable` WHERE  `userId` = 15 ORDER BY `imgId` LIMIT 1 [ RunTime:0.001117s ]
+---------------------------------------------------------------
+[ 2018-04-30T16:48:09+08:00 ] 112.28.175.35 POST /data/tp5/api/img/selectcover.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.007858s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `imgtable` [ RunTime:0.002042s ]
+[ sql ] [ SQL ] SELECT * FROM `imgtable` WHERE  `userId` = 15 ORDER BY `imgId`  desc LIMIT 0,7 [ RunTime:0.001324s ]
+[ sql ] [ SQL ] SELECT COUNT(*) AS tp_count FROM `imgtable` WHERE  `userId` = 15 ORDER BY `imgId` LIMIT 1 [ RunTime:0.002157s ]
+---------------------------------------------------------------
+[ 2018-04-30T16:48:17+08:00 ] 112.28.175.35 POST /data/tp5/api/story/create.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.009491s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.002204s ]
+[ sql ] [ SQL ] SELECT `storyId` FROM `storytable` WHERE  `title` = '上海林家宅37号' [ RunTime:0.001535s ]
+[ sql ] [ SQL ] INSERT INTO `storytable` (`userId` , `title` , `desc` , `text` , `type` , `cover` , `date`) VALUES (15 , '上海林家宅37号' , ' 电话里面开始是喘息声，然后有一个不男不女的声音说自己杀了人，是来投案自首的，那个声音非常奇怪，而且电话里面杂声很大……' , '<p>小时候隔壁住着一个老刑警，由于年轻时候牵涉个人生活作风问题80年代初就提前退休了，他告诉我的一些事情据他说在上海市公安局档案里面都找不到的，也不知道是真是假，但是后来和一些那个年代的老人询问，有些事情竟然是真实存在的。&nbsp;</p><p>老刑警告诉我有一个案子一直非常奇特，而且延续了很多年。整件事情要从1956年武宁路灭门血案说起。</p><p>上海林家宅37号灵异事件 1956年的武宁路还是农田和一些沿街面的农宅以及一些工厂的仓库，老刑警说那里那个时候属于人烟稀少，晚上基本很少有人活动，那个时候那里刚刚 属于普陀区，区政府刚搬到普雄路没有多少时间，他作为一个刚从警校毕业的民警被分配到了刑警，就在离公安局不远的地方有个小住宅区，当然那个时候住宅区就 是些茅草房的村落而已。&nbsp;</p><p>一天晚上他值班，半夜的时候电话响了。 电话里面开始是喘息声，然后有一个不男不女的声音说自己杀了人，是来投案自首的，那个声音非常奇怪，而且电话里面杂声很大。 那个年代私人电话很少，一般都是厂里面或者公用电话，但是公用电话这个时候基本也打不到了。 当时刑警就问电话里面那个人在哪里，他说就在公安局隔三条街的一个住宅区。刑警感到情况很严重，就马上报告了值班的局长，同时通报了当地的派出所。 于是局里面能马上调动来的几个刑警都出动了。那时的路面很坑洼，他们是坐着三轮摩托去的。夜间的高速公路是没有路灯，一片漆黑，工人们下车后，拿着大号的手电筒向车内照去，看到的那一幕让人永生难忘。驾驶员早已死亡，满脸献血，档风玻璃破碎后 砸在他的脸上，连眼睛里都插着碎玻璃喳，整个方向盘已经深深地嵌在了司机的腹部。老板和后面的装卸工没有大的受伤，只是被卡在变形的车厢里，但二个大男人 从来没遇到过这种事情，已经吓得泪流满面，嚎啕大哭。前排另一个装卸工后来知道是锁骨骨折，不停地呻吟着，脸上也满是碎玻璃划伤后留下的伤口。而那个小伙 子脸色刷白，挣扎着对工人说了句“救救我”就没了声音，这时警察来了。当工人再次将手电照向那个小伙子的时候，他已经挣着双眼咽下了最后一口气。前面那辆 车的司机也被吓傻了。警察要求他开动车辆往前走一段，以便让我们撞上的那辆卡车和他的车分离，好开始救人。但司机吓得腿直哆嗦，几次都挂不进档位。好不容 易开动了车子，才发现，由于撞击力度太大，二辆车已经紧紧地粘在了一起，根本没办法分开。于是只能再打电话叫来消防队员，用电锯将车头切割开。这时已经是 二个小时后了。司机和那个小伙儿得尸体已经变冷发硬，司机的尸体被拖下来时仍然保持着坐在驾驶位上的姿势。在拖那个小伙子的时候，发现车辆的仪表盘狠狠地 砸进了他的腹部，他的腹部血肉模糊，把他的一件淡灰色的风衣都染成了红色，他的左腿被折成了三段，都看到了骨头，车厢内一大摊血。。。。在把尸体拖下车 后，才救出我老板和另外二个装卸工，他们很快被送到医院，同时殡仪馆的运尸车也到了，二个生命就在那么一瞬间消逝了。。。。。。折腾到早上6点多。那个司 机已经快40多岁，原来自己做点小生意，后来赔本了，就借了钱买了辆卡车挂靠在我们公司跑跑运输，家里老婆下岗，女儿还在读初三，明年6月就要考高中了， 全家人都指靠他挣钱，当时运输还是蛮赚钱的，他在2000年初就可以把借的钱还清了。。。。。。这些是他27日晚上在我公司装货时和我闲聊时告诉我的。而 那个小伙子在去南京前还和我们一起喝酒，拿出了他皮夹里未婚妻的照片给我们看，很漂亮的一个女孩子。 1958年冬天，群众举报了一个反革命分子。 这个人姓许，平时是个皮匠。经过查实这个许皮匠是个一贯道分子，所谓一贯道是一个反动封建道门组织，虽然在政治上属于反动组织，但是在江浙一带却有不小市场，所以危害很大。 当时上海一贯道分子还是属于比较稀少，据说一贯道类似东汉末年的五斗米道，其中有不少拥有奇术的人。 会以符咒治病，当然那个年代破除四旧很少有人相信他们这套鬼话。在这个姓许交代的一贯道上海组织人员名单里面却出现林家宅37号男主人的名字，当时就引起了重视，时隔两年后林家宅37号的事件再次浮出水面。 姓许还交代一个重要线索就是林家宅37号事件发生后一个月许皮匠曾经和37号的主人见过面。 那晚提审室空气异常凝重。参与审讯的人从半夜一直问到第二天中午，出来的时候还很气愤的说这个死硬的反革命分子简直胡说八道。 小刑警当时是没有参加审讯，但是多年后他曾经调阅了当时的笔录。 审讯员问“你当时在哪里看到叶先国的（37号的男主人）你们是怎么认识的。 许皮匠说：我小时候就认识叶先国，那个时候是民国13年。 审讯员说胡说叶先国身份证上是1933年出生的怎么可能那个时候你们就认识。</p><p>&nbsp;许皮匠说发誓是那个时候在河南伏牛山他的家乡看到叶先国的。最近看见叶先国是在1956年的11月在玉佛寺。 审讯员又问，他都跟你说了什么，他在你们里面属于什么身份。 许皮匠说叶大护法早就退出一贯道组织了，我只是打了个招呼，他竟然一点都不老而且比我认识他的时候更年青，但是他脸上有个痣所以我一看就知道是他。 许皮匠的留下的记述就这些，那个叶先国竟然是护法级的人物，那么叶先国到底是什么时候出生的，许皮匠到底说的是否真实，这件事情在一个月后许皮匠在看守所突然暴毙之后又蒙上了层层疑云。 许皮匠的暴毙也十分奇怪，当时同屋的三个人异口同声说许皮匠那天晚上一个人对着墙壁说了很多莫名奇妙的话好像在争论后来又好像在哀求什么人，他们都当许皮匠发神经病了，第二天醒过来却发现许皮匠还是面对墙壁坐着，却已经断气了。 身上没有任何伤痕，最奇怪的是许皮匠的脸色异常的红润。 看守所后来做了法医鉴定，也没有发现任何中毒之类的迹象。 但是许皮匠面对的那个墙壁上后来却发现一行奇怪的文字，但是一会就消失了，据同屋犯人说那像一行符咒一样的东西具体写什么也根本不清楚。 许皮匠的死无疑给林家宅37号的事件画了一个终止符号。 一个奇怪事件一个奇异的死亡，这种事情根本没有结论。 专案组调阅了叶先国的所有档案发现叶先国的父亲也叫叶先国但是这个老叶先国也没有死亡记录，那么许皮匠是否认识的是叶先国的父亲，按照许皮匠的描述他认识叶 先国的时候应该已经是差不多40岁的人了，到1956年这个老叶先国应该是70多的老头，而绝对不可能是30十多岁的叶先国。 疑问越来越多。于是专案组决定做最后的努力，一方面在上海秘密通缉叶先国，另外一方面派专门小组去许皮匠的老家伏牛山调查取证。 伏牛山是当年李自成出没的地方，据说有龙气，解放之前也是盗匪出没，传说伏牛山中有很多盗贼留下的洞窟，当年一贯道在伏牛山地区也是非常猖獗，山中也有一贯道设下的法坛之类的遗迹。 解放之后随着人民民主专政的加强以及解放军的多次剿灭，伏牛山恢复了少有的平静，许皮匠那个村庄就位于伏牛山外围一个叫许家口的地方，这个村子里面只有10来户人家，所以调查范围不大。 小刑警也参加了这次取证。 来到许家屯很多人都已经不知道有许皮匠这个人的存在了，因为许皮匠的家里已经没有人了。 但是村里老人说许皮匠家里祖上原来是从河北霸州迁到这里来的，听说也是大户人家，后来许皮匠的爷爷迷恋道术，突然就迁到伏牛山这个小村落来定居。 调查组问了一些关于叶先国这个人的事情，有一个老人说他记得这个人，不过当时这个叶先国据说是风水先生和许皮匠的爷爷是老相识还是同乡。 叶先国的祖籍的确是河北霸州。 临走的时候老人说你们应该去许皮匠家里去看看。&nbsp;</p><p>许皮匠的家里位于一个小山岗之上，由于多年无人居住，远看还看得出这是这个小村庄比较华丽的建筑物，远看像个堡垒，专案组进入许家，房屋多数已经残垣断壁，一个细心的女同志突然在远里的水井圈上看到雕刻着一些奇怪的符号。 专案组并没有宗教方面的专家，于是拍摄下来，等回上海再做结论。 专案组和上海通了电话决定还是去一次河北霸州。看看叶先国和许家到底是何种渊源。 专案组来到河北霸州，根据档案馆的资料，专案组发现叶先国的父亲的确叫叶先国，但是叶先国的爷爷确也叫叶先国，而且叶家不是什么大富之家，却是历代在一个叫玉皇庙的地方做庙祝的。 档案其他资料都是叶家族谱中的一些记载，却对于叶先国这个人记述不多，也没有发现一贯道和叶家有什么联系，小刑警说她当时一起帮助查询资料所以闲着无事也就对于其他人不注意的一些档案记述多看了几眼。 原来叶先国的祖上从明朝末年就来到霸州承继了玉皇庙的庙祝这个职位，玉皇庙庙祝这个职位在明代却也有从四品这样一个法衔。 玉皇庙开山祖师据说是北方道教修仙派刘志明的一个弟子。而这个刘志明却是明朝中叶一个大大有名的人物据说他得到过三卷九天妙法，根据这个妙法人可以修仙得道并有呼风唤雨的能力。 当地地方志就有叶先国先人在霸州祈雨得雨的记载。 当然小刑警对于这些记述只是当民间传说看待。 专案组在霸州的调查没有很大结果，反而给叶先国这个人的身世更笼罩了一层迷一样的色彩。 这个时候上海指挥中心来电话，据说最近有人在江西龙虎山附近看到国叶先国，而上海林家宅37号据说最近又有一些怪事发生。 于是专案组兵分两路一路去江西龙虎山，一路回上海继续跟踪林家宅37号的进展。 小 刑警随队赶回上海，才了解到，原来当时林家宅附近开始兴建工人新村，工人在拆迁林家宅37号的时候在地下3米处挖掘出一个大缸，缸里面竟然是失踪的叶先国 的妻子和两个孩子。市刑队在时隔两年后终于将林家宅37号事件定性为重大刑事案件，看来叶先国杀妻灭门罪名完全成立，于是向全国发出A级通缉令。 小刑警去再次去事发现场，只见林家宅37号已经夷为平地，而那个挖掘出大缸的地方竟然就是原先的客堂间的位置，但是林家宅37号很多的谜团还是没有解开失踪的刑警去哪里了，原先房屋中种种奇异现象到底是怎么形成的。 这些只有等叶先国抓捕归案后才能一一解开。 两个星期后江西小队在江西公安部门的配合下成功的在江西龙虎山一个破败的道观遗址附近将叶先国抓获并解送回上海。 由于叶先国案件的特殊性，他被关在提篮桥一间特殊的单人囚室中。由公安部派出的审讯专家对其进行审讯。 法医鉴定组的老陈却告诉小刑警一个在解剖叶先国妻儿中发现的问题，解剖时他发现叶先国妻子和儿女竟然毫无腐败现象他当时说简直就像活人，但是却毫无生命迹象。根本不像死了两年多的。 尸体要等叶先国审结后再送火葬场。叶先国被押回上海后审讯中也出现问题，叶先国整个人象得了某种精神疾病，也根本不说话，问他什么他只是眼神呆滞看着天花板，并且他回上海后一直没有进过食。甚至连水都没有喝过。 一个月后专案组和公安部专家毫无头绪。</p><p>这个案子毕竟已经进行了快三年，叶先国先后被进行了三次不同层级的精神鉴定，在一次照x光中，当时在场的人差点都吓个半死，因为叶先国竟然没有脑组织。一个没有脑组织的人根本就不是人的概念，叶先国到底是什么东西。 我问他这个案子就这样终结了么。 刑警说后面的事情就是秘密了。但是知道的人基本就剩我了。 那是最后一次带叶先国去指认现场，那是1959年的4月的一个晚上，他记得第二天就是清明节，他们回到林家宅37号旧址，那晚上海风力不小，甚至有点迷眼。 来到已经成为废墟的37号时。突然叶先国哈哈大笑起来，那种笑非常诡异。 当时突然整个进入旧址的人发现周围竟然泛起一层迷雾，在四周负责警戒的武警战士也发现根本无法看清37号废墟中的刑警和叶先国等人。 小刑警说那晚他也在外围，看到这个情况他就想走进迷雾那端去看看情况当他走进去的时候发现迷雾中竟然有若干金光，虚浮在迷雾中而且很多，他告诉我那些就是符咒，你根本无法靠近这些符咒。 迷 雾散去后，叶先国不见了，进去的三个刑警中都已经昏迷，后来据昏迷的刑警回忆，他们看到迷雾起来后，用枪顶住叶先国，然后他们看到令人恐怖的景象，已经拆 掉的37号竟然又出现了，他们竟然还是在那个客堂间里，而且二楼又传来孩子的笑声，当时他们看到叶先国仿佛飘走一样竟然走入了墙里面就不见了，当时他们马 上向墙里射击，但是墙里竟然出现一股很大的力量将他们瞬间击昏。 这些口述刑警说根本不会有人相信。</p><p>所以叶先国最后被定义为灭门杀人案，在官方档案里面叶先国是杀死全家后自杀身亡。 那么叶先国究竟是什么人，老刑警说他有个好朋友非常喜欢看古书，当时他问过这个朋友，这个朋友说这个叶先国不会就是古时候那些修道成仙的人吧，也许叶先国根本不是40岁而是一个活了很久的人，他的妻儿本来也应该和他一起成仙的，这就解释了为什么尸身不腐。 刘志明得到的那三卷九天秘法也许就传给了叶先国。至于那些奇幻的现象也完全可能是道术中的障眼法，至少叶先国是擅于用符箓的一个法师。叶先国消失了，也许他进入了另外一个空间，林家宅37号后来改建成了所谓的2万户房子就是工人新村，但是故事却没有就此结束。</p>' , 5 , '//ozjrt1c1f.bkt.clouddn.com/0a43cca2379a9b914bb9b557c9edb931.png' , '2018-04-30 16:48:17') [ RunTime:0.005117s ]
+---------------------------------------------------------------
+[ 2018-04-30T16:49:28+08:00 ] 112.28.175.35 POST /data/tp5/api/story/select_index.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.006363s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.003017s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1  AND `isHot` = 1 ORDER BY `storyId`  desc LIMIT 6 [ RunTime:0.005575s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1 ORDER BY `date`  desc LIMIT 6 [ RunTime:0.005883s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1  AND `isRecommend` = 1 ORDER BY `storyId`  desc LIMIT 6 [ RunTime:0.004586s ]
+---------------------------------------------------------------
+[ 2018-04-30T16:50:42+08:00 ] 112.28.175.35 POST /data/tp5/api/story/select_index.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005332s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.002053s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1  AND `isHot` = 1 ORDER BY `storyId`  desc LIMIT 6 [ RunTime:0.005350s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1 ORDER BY `date`  desc LIMIT 6 [ RunTime:0.003982s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `state` = 1  AND `isRecommend` = 1 ORDER BY `storyId`  desc LIMIT 6 [ RunTime:0.003447s ]
+---------------------------------------------------------------
+[ 2018-04-30T16:50:45+08:00 ] 112.28.175.35 POST /data/tp5/api/story/item.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004636s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.001992s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `storyId` = 53  AND `state` = 1 [ RunTime:0.002421s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `typetable` [ RunTime:0.001633s ]
+[ sql ] [ SQL ] SELECT `type` FROM `typetable` WHERE  `typeId` = 5 [ RunTime:0.001195s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `usertable` [ RunTime:0.001616s ]
+[ sql ] [ SQL ] SELECT `name` FROM `usertable` WHERE  `userId` = 15 [ RunTime:0.001258s ]
+---------------------------------------------------------------
+[ 2018-04-30T16:50:45+08:00 ] 112.28.175.35 POST /data/tp5/api/story/tuijian.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004687s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.001818s ]
+[ sql ] [ SQL ] SELECT `storyId` FROM `storytable` WHERE  `state` = 1  AND `isRecommend` = 1 [ RunTime:0.001305s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `storyId` IN (43,52,45,53,0) [ RunTime:0.004147s ]
+---------------------------------------------------------------
+[ 2018-04-30T16:51:00+08:00 ] 112.28.175.35 POST /data/tp5/api/story/item.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.005686s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.001948s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `storyId` = 53  AND `state` = 1 [ RunTime:0.002166s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `typetable` [ RunTime:0.001556s ]
+[ sql ] [ SQL ] SELECT `type` FROM `typetable` WHERE  `typeId` = 5 [ RunTime:0.001136s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `usertable` [ RunTime:0.001757s ]
+[ sql ] [ SQL ] SELECT `name` FROM `usertable` WHERE  `userId` = 15 [ RunTime:0.001155s ]
+---------------------------------------------------------------
+[ 2018-04-30T16:51:00+08:00 ] 112.28.175.35 POST /data/tp5/api/story/tuijian.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004957s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.001875s ]
+[ sql ] [ SQL ] SELECT `storyId` FROM `storytable` WHERE  `state` = 1  AND `isRecommend` = 1 [ RunTime:0.001229s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `storyId` IN (46,53,44,0) [ RunTime:0.002805s ]
+---------------------------------------------------------------
+[ 2018-04-30T16:51:14+08:00 ] 112.28.175.35 POST /data/tp5/api/story/item.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004823s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.002233s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `storyId` = 53  AND `state` = 1 [ RunTime:0.002098s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `typetable` [ RunTime:0.001517s ]
+[ sql ] [ SQL ] SELECT `type` FROM `typetable` WHERE  `typeId` = 5 [ RunTime:0.001108s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `usertable` [ RunTime:0.001642s ]
+[ sql ] [ SQL ] SELECT `name` FROM `usertable` WHERE  `userId` = 15 [ RunTime:0.001105s ]
+---------------------------------------------------------------
+[ 2018-04-30T16:51:14+08:00 ] 112.28.175.35 POST /data/tp5/api/story/tuijian.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004977s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.001811s ]
+[ sql ] [ SQL ] SELECT `storyId` FROM `storytable` WHERE  `state` = 1  AND `isRecommend` = 1 [ RunTime:0.001150s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `storyId` IN (43,44,0) [ RunTime:0.001707s ]
+---------------------------------------------------------------
+[ 2018-04-30T16:51:38+08:00 ] 112.28.175.35 POST /data/tp5/api/story/item.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004632s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.001893s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `storyId` = 53  AND `state` = 1 [ RunTime:0.001895s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `typetable` [ RunTime:0.001572s ]
+[ sql ] [ SQL ] SELECT `type` FROM `typetable` WHERE  `typeId` = 5 [ RunTime:0.001128s ]
+[ sql ] [ SQL ] SHOW COLUMNS FROM `usertable` [ RunTime:0.001606s ]
+[ sql ] [ SQL ] SELECT `name` FROM `usertable` WHERE  `userId` = 15 [ RunTime:0.001091s ]
+---------------------------------------------------------------
+[ 2018-04-30T16:51:38+08:00 ] 112.28.175.35 POST /data/tp5/api/story/tuijian.php
+[ sql ] [ DB ] CONNECT:[ UseTime:0.004778s ] mysql:host=qdm19334835.my3w.com;port=3306;dbname=qdm19334835_db;charset=utf8
+[ sql ] [ SQL ] SHOW COLUMNS FROM `storytable` [ RunTime:0.001886s ]
+[ sql ] [ SQL ] SELECT `storyId` FROM `storytable` WHERE  `state` = 1  AND `isRecommend` = 1 [ RunTime:0.001179s ]
+[ sql ] [ SQL ] SELECT * FROM `storytable` WHERE  `storyId` IN (46,43,53,45,0) [ RunTime:0.002851s ]

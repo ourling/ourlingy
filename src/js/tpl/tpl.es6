@@ -169,7 +169,7 @@ const Foot = {
     template: `
         <footer class="foot-container">
             <div class="container">
-               ©Copyright 2017 - 2018  探灵阁版权所有   &nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.miitbeian.gov.cn/">浙ICP备18016237号</a>
+               ©Copyright 2017 - 2018  畅想工作室版权所有   &nbsp;&nbsp;&nbsp;<a href="http://www.miitbeian.gov.cn/">浙ICP备18016237号</a>
             </div>            
         </footer>
     `

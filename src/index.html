@@ -5,29 +5,33 @@
     <title>探灵阁</title>
     <link rel="stylesheet" href="static/css/index/index.css">
     <script src="static/js/wyboot/wyboot.js"></script>
-    <style>
-        [v-cloak]{
-            display: none;
+    <script>
+        var isMobile = getBrowserType();
+        if(isMobile){
+            window.location.href = '//ourlingy.com/mobile/'
         }
-    </style>
+    </script>
 </head>
 <body>
 <div id="app" v-cloak>
     <app-head @search="search"></app-head>
     <div class="app-banner">
-        <!--<div class="banner-param">-->
-            <!--<p class="info">一句概括</p>-->
-            <!--<i-button class="edit-btn" @click="publish">发布故事</i-button>-->
-        <!--</div>-->
         <div class="container banner-container">
-            <carousel autoplay v-model="banner">
-                <carousel-item>
-                    <div class="demo-carousel">
-                        <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/39e57684f452108b64f64579c724892c.png" alt="">
-                    </div>
-                </carousel-item>
-            </carousel>
+            <div class="banner-param">
+                <p class="info">未解之谜档案馆</p>
+                <p class="info-desc">每一篇都是精彩</p>
+                <i-button class="edit-btn" @click="publish">发布故事</i-button>
+            </div>
         </div>
+        <!--<div class="container banner-container">-->
+            <!--<carousel autoplay v-model="banner">-->
+                <!--<carousel-item>-->
+                    <!--<div class="demo-carousel">-->
+                        <!--<img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/39e57684f452108b64f64579c724892c.png" alt="">-->
+                    <!--</div>-->
+                <!--</carousel-item>-->
+            <!--</carousel>-->
+        <!--</div>-->
     </div>
     <div class="app-list">
         <div class="container">
@@ -71,9 +75,15 @@
                 </row>
             </div>
         </div>
+        <app-foot></app-foot>
     </div>
-    <app-foot></app-foot>
     <app-login></app-login>
+    <!--<div class="aside-container">-->
+        <!--<div class="aside">-->
+            <!--<p class="aside-title">扫码关注公众号方便阅读</p>-->
+            <!--<img src="//ozjrt1c1f.bkt.clouddn.com/c6bba218d40f064f143597b0c7d58e23.png" alt="" class="response-img">-->
+        <!--</div>-->
+    <!--</div>-->
 </div>
 <script src="static/js/tpl/tpl.js"></script>
 <script src="static/js/index/index.js"></script>
