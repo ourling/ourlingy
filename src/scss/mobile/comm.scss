@@ -1,0 +1,51 @@
+html,body{
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: relative;
+  -webkit-overflow-scrolling: touch;
+}
+body{
+  src: url('//at.alicdn.com/t/font_1457590607_404899.eot'); /* IE9*/
+  src: url('//at.alicdn.com/t/font_1457590607_404899.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('//at.alicdn.com/t/font_1457590607_404899.woff') format('woff'), /* chromeã€firefox */
+  url('//at.alicdn.com/t/font_1457590607_404899.ttf') format('truetype'), /* chromeã€firefoxã€operaã€Safari, Android, iOS 4.2+*/
+  url('//at.alicdn.com/t/font_1457590607_404899.svg#iconfont') format('svg'); /* iOS 4.1- */
+  font: 100% "microsoft yahei",Helvetica;
+  list-style: none;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  width: 100%;
+}
+div:after{
+  content: "";
+  display: table;
+  clear: both;
+}
+a{ outline:none; }
+a:hover{ text-decoration: none; }
+a:focus{outline:0;}
+a {
+  color: #666;
+  text-decoration: none;
+}
+em, i {
+  font-style: normal;
+}
+ul,ol,li,p,h1,h2,h3,h4,h5,h6,dl,dt,dd{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.clearfix {
+  *zoom: 1;
+}
+.lf,.fl{ float: left;}
+.rt,.fr{ float: right; }
+.clearfix:before,
+.clearfix:after {
+  display: table;
+  content: "";
+  clear: both;
+}

@@ -1,0 +1,131 @@
+@import "./../template";
+.banner{
+  width: 100%;
+  .banner-container{
+    padding:  0 .28rem;
+    top: .45rem;
+  }
+}
+.mobile-body{
+  background: #223B56;
+}
+.index-container{
+  margin-bottom: .6rem;
+  padding-top: .2rem;
+  width: 100%;
+}
+.part{
+  .text{
+    @include font(.28rem,#fff);
+  }
+  .part-bg{
+    height: 2.46rem;
+    width: 4.55rem;
+  }
+  .part-sm{
+    height: 2.46rem;
+    width: 2.76rem;
+  }
+  .part-m{
+    height: 2.46rem;
+    width: 3.65rem;
+  }
+}
+.part-1{
+  .part-bg{
+    background: #B751F6;
+    position: relative;
+    .icon{
+      @include position('Y');
+      @include icon(1.66rem,1.78rem);
+      background: url("../../images/index/part01-lg.png") no-repeat;
+      background-size: contain;
+      left: .6rem;
+    }
+    .text{
+      @include position('Y');
+      right: .8rem;
+    }
+  }
+  .part-sm{
+    background: #F5515A;
+    position: relative;
+    .icon{
+      @include icon(.4rem,.52rem);
+      @include position('X');
+      background: url("../../images/index/part01-sm.png") no-repeat;
+      background-size: contain;
+      top: .62rem;
+    }
+    .text{
+      @include position('X');
+      bottom: .62rem;
+    }
+  }
+}
+.part-2{
+  .part-bg{
+    background: #5CDD95;
+    position: relative;
+    .icon{
+      @include icon(2.47rem,1.48rem);
+      @include position('Y');
+      background: url("../../images/index/part02-lg.png") no-repeat;
+      background-size: contain;
+      left: .31rem;
+    }
+    .text{
+      @include position('Y');
+      right: .42rem;
+    }
+  }
+  .part-sm{
+    background: #FB7C3E;
+    position: relative;
+    .icon{
+      @include icon(2.1rem,1.13rem);
+      @include position('X');
+      background: url("../../images/index/part02-sm.png") no-repeat;
+      background-size: contain;
+      bottom: .3rem;
+    }
+    .text{
+      @include position('X');
+      top: .38rem;
+    }
+  }
+}
+.part-3{
+  .left{
+    background: #FAB050;
+    float: left;
+    position: relative;
+    .icon{
+      @include icon(1.6rem,1.48rem);
+      @include position('Y');
+      background: url("../../images/index/part03-left.png") no-repeat;
+      background-size: contain;
+      left: .28rem;
+    }
+    .text{
+      @include position('Y');
+      right: .2rem;
+    }
+  }
+  .right{
+    background: #62B1FE;
+    float: right;
+    position: relative;
+    .icon{
+      @include icon(.42rem,.52rem);
+      @include position('X');
+      background: url("../../images/index/part03-right.png") no-repeat;
+      background-size: contain;
+      top: .66rem;
+    }
+    .text{
+      @include position('X');
+      bottom: .64rem;
+    }
+  }
+}
