@@ -346,13 +346,13 @@ const Login = {
                 </tab-pane>
                 <tab-pane label="马上注册" name="register">
                     <i-form :model="register" :label-width="62">
-                        <form-item label="手机号" prop="phone">
-                            <i-input
-                                    v-model="register.phone"
-                                    :class="[boo.hasRegisterPhone ? 'ivu-form-item-error' : '']"
-                                    @on-blur="blur($event,'register-phone')"
-                            ></i-input>
-                        </form-item>
+                        <!--<form-item label="手机号" prop="phone">-->
+                            <!--<i-input-->
+                                    <!--v-model="register.phone"-->
+                                    <!--:class="[boo.hasRegisterPhone ? 'ivu-form-item-error' : '']"-->
+                                    <!--@on-blur="blur($event,'register-phone')"-->
+                            <!--&gt;</i-input>-->
+                        <!--</form-item>-->
                         <form-item label="昵称" prop="name">
                             <i-input
                                     v-model="register.name"
@@ -460,9 +460,9 @@ const Login = {
                 case 'login-pwd':
                     _self.boo.hasLoginPwd = _self.checkMsg(val,'pwd','密码不能为空！');
                     break;
-                case 'register-phone':
-                    _self.boo.hasRegisterPhone = _self.checkMsg(val,'phone','手机号不能为空！');
-                    break;
+                // case 'register-phone':
+                //     _self.boo.hasRegisterPhone = _self.checkMsg(val,'phone','手机号不能为空！');
+                //     break;
                 case 'register-name':
                     _self.boo.hasRegisterName = _self.checkMsg(val,type,'用户名不能为空！');
                     break;
@@ -484,10 +484,10 @@ const Login = {
                 _self.$Message.error('密码长度不小于6位或不大于10位！');
                 return  true
             }
-            if(type == 'phone' && !isPhone(val)) {
-                _self.$Message.error('手机号格式不正确！');
-                return true
-            }
+            // if(type == 'phone' && !isPhone(val)) {
+            //     _self.$Message.error('手机号格式不正确！');
+            //     return true
+            // }
             if(type == 'register-cpwd' && val != _self.register.pwd) {
                 _self.$Message.error('密码不统一！');
                 return true
@@ -510,10 +510,10 @@ const Login = {
                     return _self.$Message.error('密码不能少于6位或大于10位！');
                 }
             }else{
-                if(_self.register.phone == ''){
-                    _self.boo.hasRegisterPhone = true
-                    return _self.$Message.error('手机号不能为空！');
-                }
+                // if(_self.register.phone == ''){
+                //     _self.boo.hasRegisterPhone = true
+                //     return _self.$Message.error('手机号不能为空！');
+                // }
                 if(_self.register.name == ''){
                     _self.boo.hasRegisterName = true
                     return _self.$Message.error('昵称不能为空！');

@@ -1,0 +1,122 @@
+@import "../template";
+body{
+  background: #fff;
+}
+.bg{
+  position: absolute;
+  @include icon(3.37rem,2.54rem);
+  z-index: -1;
+  &.top{
+    background: url('../images/register/bg-top.png') no-repeat center;
+    background-size: contain;
+    top: 0;
+    right: 0;
+  }
+  &.bottom{
+    background: url('../images/register/bg-bottom.png') no-repeat center;
+    background-size: contain;
+    bottom: 0;
+    left: 0;
+  }
+}
+.container{
+  padding: 10% .9rem;
+  .title{
+    @include font(.54rem,#333);
+    text-align: center;
+    padding-top: 28%;
+  }
+}
+.input-group{
+  border-bottom: 1px solid #DFDFDF;
+  width: 100%;
+  position: relative;
+  -webkit-transition: .3s;
+  transition: .3s;
+  &.no-border{
+    border: none;
+  }
+  .form-control{
+    @include font(.3rem,#333);
+    border: none;
+    padding: .3rem 0;
+    position: relative;
+    width: 100%;
+    &.code{
+      width: 65%;
+    }
+  }
+  .form-control:focus{
+    outline-offset: 0;
+    outline: none;
+  }
+}
+.txt{
+  @include font(.28rem,#F96868);
+  position: absolute;
+  top: 105%;
+  display: none;
+}
+.txt:before{
+  @include icon(.28rem,.25rem,inline-block);
+  content: "";
+  background: url('../images/register/error.png') no-repeat center;
+  background-size: contain;
+  vertical-align: middle;
+  margin-right: .15rem;
+}
+.btn{
+  display: block;
+  margin: 1rem auto;
+  width: 100%;
+  background: #5AA2E7;
+  padding: .2rem;
+  border-radius: .16rem;
+  &.disabled{
+    background: #D8DCE5;
+  }
+}
+.btn-txt{
+  @include font(.34rem,#fff);
+  text-align: center;
+  box-sizing: border-box;
+}
+.code-btn{
+  @include position('Y');
+  @include font(.34rem,#5AA2E7);
+  right: 0;
+}
+.code-container{
+  position: relative;
+}
+.code-container:after{
+  @include position('Y');
+  content: "";
+  background: #D2D2D2;
+  width: 1px;
+  height: 85%;
+}
+.info-container{
+  @extend .clear;
+  padding-top: .6rem;
+   border: none;
+  .info{
+    float: left;
+  }
+  .info-desc{
+    @include font(.28rem,#666);
+    float: left;
+  }
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active in below version 2.1.8 */ {
+  opacity: 0
+}
+.error{
+  border-bottom-color: #ff0000 !important;
+}
+.active{
+  border-color: #5AA2E7 !important;
+}

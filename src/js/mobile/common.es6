@@ -18,7 +18,7 @@
 let mixin = {
     methods: {
         login(){
-            window.location.href = "http://fw.waimaishop.com"
+            window.location.href = "./register.html"
         },
         qq(){
             $('.class_qidian_wpa')[0].contentWindow.document.getElementsByClassName("wpa-container")[0].click()
@@ -45,7 +45,7 @@ let Head = {
         <header id="head">
             <div class="nav">
                 <span class="logo"></span>
-                <span class="head-btn fr" @click="login">免费体验</span>
+                <span class="head-btn fr" @click="login">分享故事</span>
             </div>
         </header>
     `,
@@ -69,9 +69,9 @@ let Foot = {
             <span class="card-5">
                 <i class="icon icon-4"></i>
             </span>
-            <span class="card-5">
-                <span class="btn" @click="login">立即注册</span>
-            </span>
+            <!--<span class="card-5">-->
+                <!--<span class="btn" @click="login">登录</span>-->
+            <!--</span>-->
         </footer>
     `,
     props: {
