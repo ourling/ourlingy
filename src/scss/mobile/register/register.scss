@@ -7,13 +7,13 @@ body{
   @include icon(3.37rem,2.54rem);
   z-index: -1;
   &.top{
-    background: url('../images/register/bg-top.png') no-repeat center;
+    background: url('../../../images/mobile/register/bg-top.png') no-repeat center;
     background-size: contain;
     top: 0;
     right: 0;
   }
   &.bottom{
-    background: url('../images/register/bg-bottom.png') no-repeat center;
+    background: url('../../../images/mobile/register/bg-bottom.png') no-repeat center;
     background-size: contain;
     bottom: 0;
     left: 0;
@@ -60,7 +60,7 @@ body{
 .txt:before{
   @include icon(.28rem,.25rem,inline-block);
   content: "";
-  background: url('../images/register/error.png') no-repeat center;
+  background: url('../../../images/mobile/register/error.png') no-repeat center;
   background-size: contain;
   vertical-align: middle;
   margin-right: .15rem;

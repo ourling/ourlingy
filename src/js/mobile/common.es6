@@ -15,6 +15,17 @@
     win.addEventListener(resizeEvt, recalc, false);
     doc.addEventListener('DOMContentLoaded', recalc, false)
 })(document, window);
+const GLOBAL_STATIC_URL = "//ourlingy.com/static";//静态资源路径
+const GLOBAL_STATIC_API = "//ourlingy.com/data/tp5/api/";//后台资源路径
+const GLOBAL_PAGE_URL = "//ourlingy.com/html/";//网页路径
+const GLOBAL_HOME_URL = "//ourlingy.com";//首页
+const GLOBAL_HOME_DOMAIN = ".ourlingy.com";
+Vue.http.interceptors.push((request, next)=>{
+    request.emulateJSON = true
+    next((response) => {
+        return response
+    })
+})
 let mixin = {
     methods: {
         login(){

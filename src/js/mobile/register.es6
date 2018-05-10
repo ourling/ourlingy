@@ -4,19 +4,18 @@ function isBlank(varValue) {
     }
     return true;
 }
-let Local =  'http://121.199.182.2:30004';
 let app = new Vue({
     el: "#app",
     data: {
         https: {
-            register:`${Local}/hrm/account/register.do`,
-            getCode: `${Local}/hrm/account/getRegisterCode.do`,
-            checkCode: `${Local}/hrm/account/checkRegisterCode.do`,
-            index: './index.html'
+            register: `${GLOBAL_STATIC_API}user/create.php`,
+            index: `${GLOBAL_HOME_URL}/mobile/index.html`
         },
         arg: {
+            phone: "",
             name: '',
-            pwd: ''
+            pwd: '',
+            sex: '男'
         },
         isOver: false, //本步表单是否填完
         btnTxt: '注 册', //按钮文本
@@ -28,7 +27,7 @@ let app = new Vue({
     methods: {
         contentUpdate() {
             /* input文字修改 */
-            this.isOver = !isBlank(this.arg.name) && !isBlank(this.arg.pwd) && this.arg.pwd.length >= 8 && this.arg.pwd == this.transformObj.rpwd ? true : false;
+            this.isOver = !isBlank(this.arg.name) && !isBlank(this.arg.pwd) && this.arg.pwd.length >= 6 && this.arg.pwd == this.transformObj.rpwd ? true : false;
         },
         blurEvent(e, type){
             /****
@@ -85,31 +84,17 @@ let app = new Vue({
         },
         http(arg){
             let _self = this
-            this.$http.post(_self.https.register,arg,{emulateJSON:true}).then(
+            this.$http.post(_self.https.register,arg).then(
                 (res)=>{
-                    res = res.body
-                    if(res.code == '0'){
-                        _self.arg = {
-                            phone: '',
-                            email: '',
-                            code: '',
-                            userName: '',
-                            password: '',
-                            shopName: ''
-                        }
+                    res = JSON.parse(res.data)
+                    if(res.isSuccess){
                         window.location.href = _self.https.index
-                        return layer.msg(res.message, {icon: 1, time: 1000});
-                    }else if(res.code == '1'){
-                        _self.arg.email = ''
-                        _self.isOver = false
-                        $('#email').addClass('error')
-                        layer.msg(res.message, {icon: 5, time: 1000});
                     }else{
-                        layer.msg(res.message, {icon: 5, time: 1000});
+                        alert(res.msg)
                     }
                 },
                 (err)=>{
-                    layer.msg('网络连接超时，请稍候重试', {icon: 5, time: 1000});
+                    alert('网络连接超时，请稍候重试');
                 }
             )
         },
