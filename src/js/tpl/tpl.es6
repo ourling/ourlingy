@@ -264,7 +264,7 @@ const coverImg = {
         },
         getList(item){
             let _self = this
-            _self.$http.post(_self.https.getList,item,{emulateJSON:true}).then(
+            _self.$http.post(_self.https.getList,item).then(
                 (res)=>{
                     res = JSON.parse(res.data)
                     if(res.isSuccess){
@@ -312,10 +312,7 @@ const coverImg = {
         },
         changePage(page){
             let _self = this
-            _self.infoList = {
-                userId: '1',
-                page: page
-            }
+            _self.infoList.page = page
             _self.getList(_self.infoList);
         }
     }

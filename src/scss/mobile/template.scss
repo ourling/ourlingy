@@ -123,7 +123,7 @@ header{
   width: 100%;
   z-index: 99;
   .logo{
-    background: url("../../images/comm/mobile-logo.png") no-repeat;
+    background: url("//ourlingy.com/static/images/ico.jpg") no-repeat;
     background-size: contain;
     display: inline-block;
     height: .45rem;
@@ -181,10 +181,9 @@ header{
 
 //title-container样式  start
 .part {
-  background: #fff;
   @include bor(top);
   @include bor(bottom);
-  @include font($font-m,false,.2rem);
+  @include font($font-m,false);
   padding-bottom: $padding-m;
   .title-container {
     @include font($font-title,#333);
@@ -277,13 +276,13 @@ header{
     width: .42rem;
   }
   .icon-1{
-    background: url("../../images/comm/mobile_bars.png") no-repeat;
+    //background: url("../../images/comm/mobile_bars.png") n  o-repeat;
   }
   .icon-2{
-    background: url("../../images/comm/mobile_message.png") no-repeat;
+    //background: url("../../images/comm/mobile_message.png") no-repeat;
   }
   .icon-3{
-    background: url("../../images/comm/mobile_phone.png") no-repeat;
+    //background: url("../../images/comm/mobile_phone.png") no-repeat;
   }
 }
 //公共底部样式  end

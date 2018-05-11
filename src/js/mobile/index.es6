@@ -21,6 +21,12 @@ let app = new Vue({
     methods: {
         linkUrl(url){
             window.location.href = url
-        }
+        },
+        openModel(){
+            $('.mask-erwei').fadeIn();
+        },
+        closeModel(){
+            $('.mask-erwei').fadeOut();
+        },
     }
 })

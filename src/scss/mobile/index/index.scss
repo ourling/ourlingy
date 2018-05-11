@@ -25,107 +25,62 @@
   .part-sm{
     height: 2.46rem;
     width: 2.76rem;
+    position: relative;
   }
   .part-m{
     height: 2.46rem;
     width: 3.65rem;
+    position: relative;
   }
+}
+.title-text{
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: .1rem 0;
+  background: rgba(0,0,0,.6);
 }
 .part-1{
   .part-bg{
-    background: #B751F6;
+    background: url('//ozjrt1c1f.bkt.clouddn.com/0797e1cde9504f92f7980c2fae365d76.png') no-repeat center;
+    background-size: cover;
     position: relative;
-    .icon{
-      @include position('Y');
-      @include icon(1.66rem,1.78rem);
-      background: url("../../images/index/part01-lg.png") no-repeat;
-      background-size: contain;
-      left: .6rem;
-    }
-    .text{
-      @include position('Y');
-      right: .8rem;
-    }
+
   }
   .part-sm{
-    background: #F5515A;
+    background: url('//ozjrt1c1f.bkt.clouddn.com/36e56b51974c01e44e38339d875bf4a2.png') no-repeat center;
+    background-size: cover;
     position: relative;
-    .icon{
-      @include icon(.4rem,.52rem);
-      @include position('X');
-      background: url("../../images/index/part01-sm.png") no-repeat;
-      background-size: contain;
-      top: .62rem;
-    }
-    .text{
-      @include position('X');
-      bottom: .62rem;
-    }
+
   }
 }
 .part-2{
   .part-bg{
-    background: #5CDD95;
+    background: url('//ozjrt1c1f.bkt.clouddn.com/c3619fb667e5e6cc8f88e6890b23aee4.png') no-repeat center;
+    background-size: cover;
     position: relative;
-    .icon{
-      @include icon(2.47rem,1.48rem);
-      @include position('Y');
-      background: url("../../images/index/part02-lg.png") no-repeat;
-      background-size: contain;
-      left: .31rem;
-    }
-    .text{
-      @include position('Y');
-      right: .42rem;
-    }
   }
   .part-sm{
-    background: #FB7C3E;
+    background: url('//ozjrt1c1f.bkt.clouddn.com/7bb83a68d2596b6fb7a729b33b339a35.png') no-repeat center;
+    background-size: cover;
     position: relative;
-    .icon{
-      @include icon(2.1rem,1.13rem);
-      @include position('X');
-      background: url("../../images/index/part02-sm.png") no-repeat;
-      background-size: contain;
-      bottom: .3rem;
-    }
-    .text{
-      @include position('X');
-      top: .38rem;
-    }
+
   }
 }
 .part-3{
   .left{
-    background: #FAB050;
+    background: url('//ozjrt1c1f.bkt.clouddn.com/c7bf87a1f2b47bc86226abd6f9aac130.png') no-repeat center;
+    background-size: cover;
     float: left;
     position: relative;
-    .icon{
-      @include icon(1.6rem,1.48rem);
-      @include position('Y');
-      background: url("../../images/index/part03-left.png") no-repeat;
-      background-size: contain;
-      left: .28rem;
-    }
-    .text{
-      @include position('Y');
-      right: .2rem;
-    }
+
   }
   .right{
-    background: #62B1FE;
+    background: url('//ozjrt1c1f.bkt.clouddn.com/a881625ee99ba0242f3506a0c9d20cac.png') no-repeat center;
+    background-size: cover;
     float: right;
     position: relative;
-    .icon{
-      @include icon(.42rem,.52rem);
-      @include position('X');
-      background: url("../../images/index/part03-right.png") no-repeat;
-      background-size: contain;
-      top: .66rem;
-    }
-    .text{
-      @include position('X');
-      bottom: .64rem;
-    }
+
   }
 }
