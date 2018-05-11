@@ -248,7 +248,13 @@ header{
   @include card(20%);
 }
 //card 布局  end
-
+#foot{
+  padding: 0 0 .3rem;
+  text-align: center;
+  .foot-text{
+    @include font(.2rem,#fff,.1rem)
+  }
+}
 //公共底部样式  start
 .mobile-foot{
   background: #6BAAE9;
