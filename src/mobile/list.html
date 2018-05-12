@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <link rel="stylesheet" href="//ourlingy.com/static/plugins/css/iview/iview.min.css">
+    <link rel="stylesheet" href="../static/css/mobile/comm.css">
+    <link rel="stylesheet" href="../static/css/mobile/list/list.css">
+</head>
+<body>
+<div id="app" class="clear" v-cloak>
+    <app-head></app-head>
+    <div id="mobile-body" class="mobile-body">
+        <section id="main" class="mobile-container list-container">
+            <div class="body-item" v-for="(item,index) in list" @click="toStory(item.storyId)">
+                <span class="img-container">
+                    <img class="response-img" :src="item.cover" alt="">
+                </span>
+                <div class="item-content">
+                    <p class="item-title nowrap">{{item.title}}</p>
+                    <p class="item-desc">{{item.desc}}</p>
+                    <p class="item-info nowrap">
+                        <span class="story-info nowrap">{{item.user}}</span>
+                        <span class="story-info nowrap">{{item.date}}</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+        <section id="foot">
+            <p class="foot-text">©Copyright 2017 - 2018 畅想工作室提供技术支持</p>
+            <p class="foot-text">浙ICP备18016237号</p>
+        </section>
+    </div>
+</div>
+<script src="../static/plugins/js/jq/jquery-1.7.2.js?t=20170928"></script>
+<script src="../static/plugins/js/vue/vue.min.js?t=20170928"></script>
+<script src="../static/plugins/js/vue/vue-resource.min.js?t=20170928"></script>
+<script src="//ourlingy.com/static/plugins/js/iview/iview.min.js?v=v20171012233509"></script>
+<script src="../static/js/mobile/common.js?t=20170928"></script>
+<script src="../static/js/mobile/list.js?t=20170928"></script>
+</body>
+</html>

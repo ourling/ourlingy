@@ -13,9 +13,9 @@ body{
   font: 100% "microsoft yahei",Helvetica;
   list-style: none;
   color: #333;
+  background: #f2f2f2;
   margin: 0;
   padding: 0;
-  background: #fff;
   width: 100%;
 }
 div:after{
@@ -51,4 +51,11 @@ ul,ol,li,p,h1,h2,h3,h4,h5,h6,dl,dt,dd{
 }
 [v-cloak]{
   display: none;
+}
+.nowrap{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
+  text-align: justify;
 }

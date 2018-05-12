@@ -8,12 +8,13 @@ $(".mask-tel").click(function(e){
 
 let app = new Vue({
     el: "#app",
+    mixins: [mixin],
     components: {
         'app-head': Head,
         'app-foot': Foot
     },
     data: {
-
+        listUrl: '//ourlingy.com/mobile/list.html'
     },
     mounted(){
 
@@ -21,6 +22,9 @@ let app = new Vue({
     methods: {
         linkUrl(url){
             window.location.href = url
+        },
+        toList(type){
+            window.location.href = `${this.listUrl}?type=${type}`
         },
         openModel(){
             $('.mask-erwei').fadeIn();

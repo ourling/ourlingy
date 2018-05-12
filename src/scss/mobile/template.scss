@@ -116,18 +116,25 @@ $border: (border);
 header{
   background: #495060;
   box-sizing: border-box;
-  box-shadow: 0 1px 0 #e5e5e5;
   font-size: $font;
   padding: $padding-sm;
   position: fixed;
   width: 100%;
   z-index: 99;
+  .nav{
+    display: flex;
+    align-items: center;
+  }
   .logo{
     background: url("//ourlingy.com/static/images/ico.png") no-repeat;
     background-size: contain;
     display: inline-block;
     height: .45rem;
-    width: 2.5rem;
+    width: .6rem;
+  }
+  .logo-text{
+    @include font(.3rem,#fff);
+    flex: 1;
   }
   .head-btn{
     padding: 1% 2%;
@@ -135,7 +142,6 @@ header{
     border: 1px solid #00B0F0;
     border-radius: 6%;
     color: #fff;
-    text-align: center;
   }
 }
 //头部导航  end
@@ -174,15 +180,24 @@ header{
 
 //主体样式  start
 .mobile-body{
-  margin-top: .85rem;
-  min-height: 94%;
+  margin-top: .84rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
 }
 //主体样式  end
-
+#app{
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  justify-content: space-between;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+}
 //title-container样式  start
 .part {
-  @include bor(top);
-  @include bor(bottom);
   @include font($font-m,false);
   padding-bottom: $padding-m;
   .title-container {
@@ -252,7 +267,7 @@ header{
   padding: 0 0 .3rem;
   text-align: center;
   .foot-text{
-    @include font(.2rem,#fff,.1rem)
+    @include font(.2rem,#333,.1rem)
   }
 }
 //公共底部样式  start

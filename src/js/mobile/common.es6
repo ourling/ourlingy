@@ -15,6 +15,19 @@
     win.addEventListener(resizeEvt, recalc, false);
     doc.addEventListener('DOMContentLoaded', recalc, false)
 })(document, window);
+//获取URL地址参数
+function getQueryString(name, url) {
+    let reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+    if (!url || url == "") {
+        url = window.location.search;
+    } else {
+        url = url.substring(url.indexOf("?"));
+    }
+    let r = url.substr(1).match(reg);
+    if (r != null) return unescape(r[2]);
+    return null;
+}
+
 const GLOBAL_STATIC_URL = "//ourlingy.com/static";//静态资源路径
 const GLOBAL_STATIC_API = "//ourlingy.com/data/tp5/api/";//后台资源路径
 const GLOBAL_PAGE_URL = "//ourlingy.com/html/";//网页路径
@@ -33,6 +46,9 @@ let mixin = {
         },
         qq(){
             $('.class_qidian_wpa')[0].contentWindow.document.getElementsByClassName("wpa-container")[0].click()
+        },
+        toIndex(){
+            window.location.href = `${GLOBAL_HOME_URL}/mobile/`
         }
     }
 };
@@ -55,8 +71,9 @@ let Head = {
     template: `
         <header id="head">
             <div class="nav">
-                <span class="logo"></span>
-                <span class="head-btn fr" @click="login">分享故事</span>
+                <span class="logo" @click='toIndex'></span>
+                <span class="logo-text" @click='toIndex'>探灵阁</span>
+                <span class="head-btn" @click="login">我要分享</span>
             </div>
         </header>
     `,

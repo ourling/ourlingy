@@ -1,0 +1,24 @@
+@import "../template";
+
+.mobile-body{
+  align-items: center;
+  justify-content: center;
+  .body-item{
+    @include font(.3rem,#333,.2rem);
+    .success-icon{
+      display: block;
+      width: 2.5rem;
+      height: auto;
+      margin-bottom: .4rem;
+    }
+    .qrcode-icon{
+      display: block;
+      width: 2.5rem;
+      height: auto;
+      margin-bottom: .2rem;
+    }
+    .link{
+      color: #00a0e9;
+    }
+  }
+}

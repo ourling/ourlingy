@@ -9,7 +9,7 @@ let app = new Vue({
     data: {
         https: {
             register: `${GLOBAL_STATIC_API}user/create.php`,
-            index: `${GLOBAL_HOME_URL}/mobile/index.html`
+            index: `${GLOBAL_HOME_URL}/mobile/success.html`
         },
         arg: {
             phone: "",

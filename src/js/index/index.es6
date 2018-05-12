@@ -81,7 +81,7 @@ new Vue({
         //页面列表  最热  推荐  等等
         storyAjaxIndex(type){
             let _self = this
-            _self.$http.post(_self.https.storyIndex,{type: type},{emulateJSON:true}).then(
+            _self.$http.post(_self.https.storyIndex,{type: type}).then(
                 (res)=>{
                     res = JSON.parse(res.data)
                     if(res.isSuccess){

@@ -9,7 +9,6 @@
   <meta name="format-detection" content="telephone=no, email=no"/>
   <link rel="stylesheet" href="../static/css/mobile/comm.css">
   <link rel="stylesheet" href="../static/css/mobile/index/index.css">
-  <!--<script src="../static/plugins/js/flexible/flexible.min.js"></script>-->
 </head>
 <body>
   <div id="app" class="clear" v-cloak>
@@ -18,35 +17,34 @@
       <section id="banner">
         <div class="banner">
           <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/e18515566e0d8159d69bbe965323d0d2.png" alt="">
-          <!--<div class="banner-container">-->
-            <!--<h2 class="banner-title">互联网+外卖</h2>-->
-            <!--<img class="response-img" src="../images/index/banner-bar.png" alt="">-->
-            <!--<span class="banner-btn register">立即体验</span>-->
-          <!--</div>-->
+          <div class="banner-container">
+            <h2 class="banner-title">分享故事有惊喜哦！</h2>
+            <span class="banner-btn register" @click="login">立即分享</span>
+          </div>
         </div>
       </section>
       <section id="main" class="mobile-container index-container">
         <div class="part part-1">
-          <div class="part-bg fl">
+          <div class="part-bg fl" @click="toList('new')">
             <p class="text title-text">最新分享</p>
           </div>
-          <div class="part-sm fr solution-btn">
+          <div class="part-sm fr" @click="toList('hot')">
             <p class="text title-text">热门故事</p>
           </div>
         </div>
         <div class="part part-2">
-          <div class="part-sm fl case-btn">
+          <div class="part-sm fl" @click="toList('tuijian')">
             <p class="text title-text">阁主推荐</p>
           </div>
-          <div class="part-bg fr agent-btn">
+          <div class="part-bg fr">
             <p class="text title-text">神秘谷</p>
           </div>
         </div>
         <div class="part part-3">
-          <div class="part-m left win-btn">
+          <div class="part-m left">
             <p class="text title-text">天空之城</p>
           </div>
-          <div class="part-m right contact-btn" @click="openModel">
+          <div class="part-m right" @click="openModel">
             <p class="text title-text">随心随时看</p>
           </div>
         </div>
@@ -61,7 +59,7 @@
     <div class="mask mask-erwei" @click="closeModel">
       <div class="mask-container">
         <img class="response-img" src="//ozjrt1c1f.bkt.clouddn.com/c6bba218d40f064f143597b0c7d58e23.png" alt="">
-        <p class="info">扫码关注探灵阁，阅读更多</p>
+        <p class="info">扫码关注探灵阁，不定期抽奖哦！</p>
       </div>
     </div>
     <!--<app-foot></app-foot>-->

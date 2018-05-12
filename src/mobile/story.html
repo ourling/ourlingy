@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no" name="viewport">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <link rel="stylesheet" href="//ourlingy.com/static/plugins/css/iview/iview.min.css">
+    <link rel="stylesheet" href="../static/css/mobile/comm.css">
+    <link rel="stylesheet" href="../static/css/mobile/story/story.css">
+</head>
+<body>
+<div id="app" class="clear" v-cloak>
+    <app-head></app-head>
+    <div id="mobile-body" class="mobile-body">
+        <section id="main" class="mobile-container list-container">
+            <h5 class="story-title">{{story.title}}</h5>
+            <div class="story-info">
+                <span class="user nowrap">作者：{{story.user}}</span>
+                <span class="date nowrap">{{story.date}}</span>
+            </div>
+            <p class="story-desc">{{story.desc}}</p>
+            <div class="story-section" v-html="story.html"></div>
+            <p class="story-web">以上观点归作者所有，与本站无关。</p>
+            <div class="story-qrcode">
+                <img src="//ozjrt1c1f.bkt.clouddn.com/c6bba218d40f064f143597b0c7d58e23.png" alt="">
+            </div>
+            <p class="qrcode-info">扫码关注公众号，不定期抽奖哦！</p>
+        </section>
+        <section id="foot">
+            <p class="foot-text">©Copyright 2017 - 2018 畅想工作室提供技术支持</p>
+            <p class="foot-text">浙ICP备18016237号</p>
+        </section>
+    </div>
+</div>
+<script src="../static/plugins/js/jq/jquery-1.7.2.js?t=20170928"></script>
+<script src="../static/plugins/js/vue/vue.min.js?t=20170928"></script>
+<script src="../static/plugins/js/vue/vue-resource.min.js?t=20170928"></script>
+<script src="//ourlingy.com/static/plugins/js/iview/iview.min.js?v=v20171012233509"></script>
+<script src="../static/js/mobile/common.js?t=20170928"></script>
+<script src="../static/js/mobile/story.js?t=20170928"></script>
+</body>
+</html>

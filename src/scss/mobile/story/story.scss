@@ -1,0 +1,61 @@
+@import "../template";
+.ivu-spin-fullscreen-wrapper{
+  top: .85rem;
+  .ivu-spin-main{
+    font-size: .3rem;
+    .demo-spin-icon-load{
+      animation: ani-demo-spin 1s linear infinite;
+      font-size: .6rem;
+    }
+  }
+}
+body{
+  background: #D4D4D4;
+}
+.mobile-body{
+  display: flex;
+  .story-title{
+    @include font(.32rem,#333);
+    padding: .2rem;
+    background: #C3C4B4;
+  }
+  .story-info{
+    display: flex;
+    @include font(.28rem,#666);
+    padding: .2rem;
+    .user{
+      width: 60%;
+    }
+  }
+  .story-desc{
+    @include font(.28rem,#333);
+    padding: .2rem;
+    background: #b7b998;
+  }
+  .story-section{
+    @include font(.28rem,#666);
+    padding: .2rem;
+    text-align: justify;
+    img{
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+  .story-qrcode{
+    img{
+      display: block;
+      width: 3rem;
+      margin: auto;
+    }
+    margin-bottom: .2rem;
+  }
+  .qrcode-info{
+    @include font(.28rem,#333,.2rem);
+    text-align: center;
+  }
+  .story-web{
+    @include font(.2rem,#333,.2rem);
+    text-align: center;
+  }
+}
