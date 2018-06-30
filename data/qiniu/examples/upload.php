@@ -31,7 +31,7 @@
                   'data'=>[]];
       } else {
         $file = [
-                'url'=>'//ozjrt1c1f.bkt.clouddn.com/'.$key,
+                'url'=>'http://ozjrt1c1f.bkt.clouddn.com/'.$key,
                 'name'=>$_FILES['file']['name'],
                 'userId'=>$_COOKIE['userId']
                 ];
