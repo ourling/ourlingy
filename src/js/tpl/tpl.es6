@@ -486,7 +486,7 @@ const Login = {
             //     return true
             // }
             if(type == 'register-cpwd' && val != _self.register.pwd) {
-                _self.$Message.error('密码不统一！');
+                // _self.$Message.error('密码不统一！');
                 return true
             }
             return false
