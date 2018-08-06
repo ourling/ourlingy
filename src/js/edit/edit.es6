@@ -10,6 +10,7 @@ new Vue({
     data: {
         https: {
             storyCreate: `${GLOBAL_STATIC_API}story/create.php`,
+            createPart: `${GLOBAL_STATIC_API}story/create_part.php`
         },
         viewInfo: {
             cover: "http://ozjrt1c1f.bkt.clouddn.com/1f2a9a4ecf5457208557c8a15ee1d4c3.png",
@@ -26,7 +27,26 @@ new Vue({
         boo: {
             isOpenCover: false,
             errorTitle: false,
-            errorDesc: false
+            errorDesc: false,
+            isPartTime: false, //是否是编辑兼职信息
+
+            errorName: false,
+            errorArea: false,
+            errorCompany: false,
+            errorDate: false,
+            errorMoney: false,
+            errorUrl: false,
+        },
+        param: {
+            userId: "",
+            user: "",
+            name: "",
+            area: "",
+            company: "",
+            date: "",
+            money: "",
+            methods: '日结',
+            url: ''
         },
         storyType: [
             {title: '学霸君', val: 9},
@@ -41,6 +61,11 @@ new Vue({
             {title: '宇宙奥秘', val: 6},
             {title: '奇异自然', val: 7},
             {title: '五彩历史', val: 8},
+        ],
+        methodsList: [
+            {id: 1,val: '月结'},
+            {id: 2,val: '周结'},
+            {id: 3,val: '日结'},
         ],
         ue: null,
         userName: "",
@@ -67,6 +92,8 @@ new Vue({
                 store.commit('userHead', {flag: addCookie.getCookie('userHead')})
                 _self.info.userId = addCookie.getCookie('userId')
                 _self.info.user = addCookie.getCookie('userName')
+                _self.param.userId = addCookie.getCookie('userId')
+                _self.param.user = addCookie.getCookie('userName')
             }else{
                 store.commit('isLogin', {flag: false})
                 store.commit('userName', {flag: ''})
@@ -89,9 +116,9 @@ new Vue({
             let _self = this
             _self.viewInfo.cover = item.url
         },
-        createStory(item){
+        createStory(item,url){
             let _self = this
-            _self.$http.post(_self.https.storyCreate,item,{emulateJSON:true}).then(
+            _self.$http.post(url,item,{emulateJSON:true}).then(
                 (res)=>{
                     res = JSON.parse(res.data)
                     if(res.isSuccess){
@@ -122,7 +149,7 @@ new Vue({
                 _self.boo.errorDesc = false
             }
             if(isBlank(_self.info.text)) return _self.$Message.error('文章内容不能为空！');
-            _self.createStory(_self.info);
+            _self.createStory(_self.info,_self.https.storyCreate);
         },
         blur(e,type){
             let _self = this
@@ -141,6 +168,52 @@ new Vue({
                     return _self.boo.errorDesc = false
                 }
             }
-        }
+        },
+        change(val){
+            console.log(val)
+            let _self = this
+            _self.boo.isPartTime = val == 10 ? true : false
+            console.log(_self.boo.isPartTime)
+        },
+        submitPart(){
+            let _self = this
+            if(isBlank(_self.param.name)) {
+                _self.boo.errorName = true
+                return _self.$Message.error('兼职名称不能为空！');
+            }else{
+                _self.boo.errorName = false
+            }
+            if(isBlank(_self.param.area)) {
+                _self.boo.errorArea = true
+                return _self.$Message.error('工作区域不能为空！');
+            }else{
+                _self.boo.errorArea = false
+            }
+            if(isBlank(_self.param.company)) {
+                _self.boo.errorCompany = true
+                return _self.$Message.error('公司名称不能为空！');
+            }else{
+                _self.boo.errorCompany = false
+            }
+            if(isBlank(_self.param.money)) {
+                _self.boo.errorMoney = true
+                return _self.$Message.error('薪水不能为空！');
+            }else{
+                _self.boo.errorMoney = false
+            }
+            if(isBlank(_self.param.date)) {
+                _self.boo.errorDate = true
+                return _self.$Message.error('发布时间不能为空！');
+            }else{
+                _self.boo.errorDate = false
+            }
+            if(isBlank(_self.param.url)) {
+                _self.boo.errorUrl = true
+                return _self.$Message.error('第三方链接不能为空！');
+            }else{
+                _self.boo.errorUrl = false
+            }
+            _self.createStory(_self.param,_self.https.createPart);
+        },
     }
 })
