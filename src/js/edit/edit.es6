@@ -19,8 +19,9 @@ new Vue({
             title: "",
             desc: "",
             text: "",
-            type: 2,
+            type: 9,
             cover: "",
+            user: "",
         },
         boo: {
             isOpenCover: false,
@@ -28,13 +29,18 @@ new Vue({
             errorDesc: false
         },
         storyType: [
+            {title: '学霸君', val: 9},
+            {title: '兼职君', val: 10},
+            {title: '专业分析', val: 11},
+            {title: '游戏攻略', val: 12},
+            {title: '周末必去', val: 13},
             {title: '神话传说', val: 2},
             {title: '民间奇谭', val: 3},
             {title: '校园诡事', val: 4},
             {title: '灵异事件', val: 5},
             {title: '宇宙奥秘', val: 6},
             {title: '奇异自然', val: 7},
-            {title: '五彩历史', val: 8}
+            {title: '五彩历史', val: 8},
         ],
         ue: null,
         userName: "",
@@ -60,6 +66,7 @@ new Vue({
                 store.commit('userName', {flag: addCookie.getCookie('userName')})
                 store.commit('userHead', {flag: addCookie.getCookie('userHead')})
                 _self.info.userId = addCookie.getCookie('userId')
+                _self.info.user = addCookie.getCookie('userName')
             }else{
                 store.commit('isLogin', {flag: false})
                 store.commit('userName', {flag: ''})
