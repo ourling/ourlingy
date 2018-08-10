@@ -21,7 +21,7 @@
         </div>
         <i-table class="admin-table" stripe :columns="columns7" :data="list"></i-table>
         <div class="page-container">
-            <page :total="10" @on-change="page" />
+            <page :total="transform.count" @on-change="page" />
         </div>
     </div>
     <cover-img v-if="isLogin" :isopen="boo.isOpenCover" @select-cover="selectCover"></cover-img>
