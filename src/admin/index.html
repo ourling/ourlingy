@@ -4,17 +4,31 @@
     <meta charset="UTF-8">
     <title>后台管理</title>
     <script src="../static/js/wyboot/wyboot.js"></script>
+    <link rel="stylesheet" href="../static/css/edit/edit.css">
     <link rel="stylesheet" href="../static/css/admin/index.css">
 </head>
 <body>
-<div id="app">
-    <!--<app-head></app-head>-->
+<div id="app" v-cloak>
+    <app-head></app-head>
     <div class="container admin-container">
-        <router-view></router-view>
+        <div class="input-container">
+            <i-select @on-change="change($event,'type')" v-model="params.type" style="width:200px;margin-right: 15px">
+                <i-option v-for="item in typeList" :value="item.value" :key="item.value">{{ item.label }}</i-option>
+            </i-select>
+            <i-select @on-change="change($event,'state')" v-model="params.state" style="width:200px">
+                <i-option v-for="item in stateList" :value="item.value" :key="item.value">{{ item.label }}</i-option>
+            </i-select>
+        </div>
+        <i-table class="admin-table" stripe :columns="columns7" :data="list"></i-table>
+        <div class="page-container">
+            <page :total="10" @on-change="page" />
+        </div>
     </div>
-    <!--<app-foot></app-foot>-->
+    <cover-img v-if="isLogin" :isopen="boo.isOpenCover" @select-cover="selectCover"></cover-img>
+    <app-foot></app-foot>
     <app-login></app-login>
 </div>
+<script src="//unpkg.com/iview/dist/iview.min.js"></script>
 <script src="../static/js/tpl/tpl.js"></script>
 <script src="../static/js/admin/index.js"></script>
 </body>

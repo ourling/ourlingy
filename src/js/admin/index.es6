@@ -1,6 +1,4 @@
-let test = {
-    template : `<div>123</div>`
-}
+
 let route = [
     {
         path: '/test',
@@ -10,42 +8,269 @@ let route = [
 let router = new VueRouter({
     routes : route
 })
-new Vue({
-    el: "#app",
+let Main = {
     store,
     router,
     components:{
         'app-head': Head,
         'app-foot':Foot,
         "app-login": Login,
+        "cover-img" : coverImg,
     },
-    data: {
-        https: {
-            story: `${GLOBAL_STATIC_API}story/item.php`,
-            recommon: `${GLOBAL_STATIC_API}story/tuijian.php`,
-        },
-        param: {
-            storyId: 39,
-        },
-        story: {},
-        recomList: [],
+    data () {
+        return {
+            https: {
+                list: `${GLOBAL_STATIC_API}admin/list.php`,
+                upcover: `${GLOBAL_STATIC_API}admin/upcover.php`,
+                del: `${GLOBAL_STATIC_API}admin/del.php`,
+                publish: `${GLOBAL_STATIC_API}admin/publish.php`,
+            },
+            boo: {
+                isOpenCover: false,
+                openDel: false,
+                modal_loading: false
+            },
+            params: {
+                page: 1,
+                userId: '',
+                state: 1,
+                type: 9
+            },
+            upcover: {
+                storyId: '',
+                cover: ''
+            },
+            transform: {
+                count: 1,
+            },
+            item: {},
+            columns7: [
+                {
+                    title: '序号',
+                    type:'index',
+                    width: 150,
+                    align: 'center',
+                },
+                {
+                    title: '文章ID',
+                    key: 'storyId',
+                    width: 150,
+                    align: 'center',
+                },
+                {
+                    title: '文章标题',
+                    key: 'title',
+                    align: 'center',
+                },
+                {
+                    title: '文章封面',
+                    key: 'cover',
+                    align: 'center',
+                    render: (h,params)=>{
+                        return h('div',[
+                            h('img',{
+                                attrs: {
+                                    src: params.row.cover,
+                                    class: 'cover'
+                                }
+                            })
+                        ])
+                    }
+                },
+                {
+                    title: '操作',
+                    key: 'action',
+                    width: 280,
+                    align: 'center',
+                    render: (h, params) => {
+                        return h('div', [
+                            h('Button', {
+                                props: {
+                                    type: 'info',
+                                    size: 'small'
+                                },
+                                style: {
+                                    marginRight: '5px'
+                                },
+                                on: {
+                                    click: () => {
+                                        let _self = this
+                                        if(_self.isLogin){
+                                            _self.boo.isOpenCover = !_self.boo.isOpenCover
+                                            _self.upcover.storyId = params.row.storyId
+                                            _self.item = params.row
+                                        }else{
+                                            store.commit('isOpenLogin', {flag: true})
+                                        }
+                                    }
+                                }
+                            }, '更改封面'),
+                            h('Button', {
+                                props: {
+                                    type: 'primary',
+                                    size: 'small'
+                                },
+                                style: {
+                                    marginRight: '5px',
+                                    display: params.row.state == 0 ? 'inline-block' : 'none'
+                                },
+                                on: {
+                                    click: () => {
+                                        this.item = params.row
+                                        this.publish(params.row.storyId)
+                                    }
+                                }
+                            }, '发布'),
+                            h('Button', {
+                                props: {
+                                    type: 'error',
+                                    size: 'small'
+                                },
+                                on: {
+                                    click: () => {
+                                        this.item = params.row
+                                        this.del()
+                                    }
+                                }
+                            }, '删除')
+                        ]);
+                    }
+                }
+            ],
+            typeList: [
+                {
+                    value: 9,
+                    label: '学霸君'
+                },
+                {
+                    value: 10,
+                    label: '兼职君'
+                },
+                {
+                    value: 11,
+                    label: '专业分析'
+                },
+                {
+                    value: 12,
+                    label: '游戏攻略'
+                },
+                {
+                    value: 13,
+                    label: '旅游攻略'
+                },
+                {
+                    value: 14,
+                    label: '合肥汇'
+                }
+            ],
+            stateList: [
+                {value: 0,label: '未发布'},
+                {value: 1,label: '已发布'}
+            ],
+            list: [],
+        }
     },
     computed: {
         isLogin(){
             return this.$store.state.isLogin
-        }
+        },
     },
     created(){
         let _self = this
-        _self.param.storyId = queryUrl('story');
-        // console.log(queryUrl('story'));
-        store.commit('isEditPage', {flag: false})
+        store.commit('isEditPage', {flag: true})
+        _self.params.userId = addCookie.getCookie('userId')
         _self.initLogin();
+        _self.getList();
     },
     mounted(){
         let _self = this
     },
     methods: {
+        getList(){
+            let _self = this
+            _self.$http.post(_self.https.list,_self.params).then(
+                (res)=>{
+                    res = JSON.parse(res.data)
+                    if(res.isSuccess){
+                        _self.list = res.list
+                        _self.transform.count = res.count
+                    }
+                },
+                (err)=>{
+                    console.log(err)
+                }
+            )
+        },
+        upCover(){
+            let _self = this
+            _self.$http.post(_self.https.upcover,_self.upcover).then(
+                (res)=>{
+                    res = JSON.parse(res.data)
+                    if(res.isSuccess){
+                        _self.item.cover = _self.upcover.cover
+                        _self.$Message.success(res.msg);
+                    }else{
+                        _self.$Message.error(res.msg);
+                    }
+                },
+                (err)=>{
+                    console.log(err)
+                }
+            )
+        },
+        openDel(){
+            let _self = this
+            _self.boo.openDel = true
+        },
+        del(){
+            let _self = this
+            _self.boo.modal_loading = true
+            _self.$http.post(_self.https.del,{storyId: _self.item.storyId}).then(
+                (res)=>{
+                    res = JSON.parse(res.data)
+                    if(res.isSuccess){
+                        _self.getList()
+                        _self.$Message.success(res.msg);
+                    }else{
+                        _self.$Message.error(res.msg);
+                    }
+                    _self.boo.openDel = false
+                    _self.boo.modal_loading = false
+                },
+                (err)=>{
+                    console.log(err)
+                }
+            )
+        },
+        publish (id) {
+            let _self = this
+            _self.$http.post(_self.https.publish,{storyId: id}).then(
+                (res)=>{
+                    res = JSON.parse(res.data)
+                    if(res.isSuccess){
+                        _self.getList()
+                        _self.$Message.success(res.msg);
+                    }else{
+                        _self.$Message.error(res.msg);
+                    }
+                },
+                (err)=>{
+                    console.log(err)
+                }
+            )
+        },
+        page(page){
+            let _self = this
+            if(page != _self.params.page){
+                _self.params.page = page
+                _self.getList()
+            }
+        },
+        selectCover(item){
+            let _self = this
+            _self.upcover.cover = item.url
+            _self.upCover();
+        },
         initLogin(){
             let _self = this
             let isLogin = addCookie.getCookie('isLogin')
@@ -59,9 +284,22 @@ new Vue({
                 store.commit('userHead', {flag: ''})
             }
         },
-        urlLink(item){
-            let url = `${GLOBAL_PAGE_URL}story.html?story=${item.storyId}`
-            window.open(url)
-        }
+        change(val,type){
+            let _self = this
+            switch (type){
+                case 'state':
+                    _self.params.page = 1
+                    _self.params.state = val
+                    _self.getList();
+                    break;
+                case 'type':
+                    _self.params.page = 1
+                    _self.params.type = val
+                    _self.getList();
+                    break;
+            }
+        },
     },
-})
+}
+let Component = Vue.extend(Main)
+new Component().$mount('#app')

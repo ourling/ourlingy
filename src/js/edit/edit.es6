@@ -10,7 +10,8 @@ new Vue({
     data: {
         https: {
             storyCreate: `${GLOBAL_STATIC_API}story/create.php`,
-            createPart: `${GLOBAL_STATIC_API}story/create_part.php`
+            createPart: `${GLOBAL_STATIC_API}story/create_part.php`,
+            createOther: `${GLOBAL_STATIC_API}story/create_other.php`
         },
         viewInfo: {
             cover: "http://ozjrt1c1f.bkt.clouddn.com/1f2a9a4ecf5457208557c8a15ee1d4c3.png",
@@ -23,19 +24,22 @@ new Vue({
             type: 9,
             cover: "",
             user: "",
+            other: 1
         },
         boo: {
             isOpenCover: false,
             errorTitle: false,
             errorDesc: false,
             isPartTime: false, //是否是编辑兼职信息
+            isShowOther12: false,
+            isShowOther14: false,
 
             errorName: false,
             errorArea: false,
             errorCompany: false,
             errorDate: false,
             errorMoney: false,
-            errorUrl: false,
+            errorUrl: false
         },
         param: {
             userId: "",
@@ -53,7 +57,8 @@ new Vue({
             {title: '兼职君', val: 10},
             {title: '专业分析', val: 11},
             {title: '游戏攻略', val: 12},
-            {title: '周末必去', val: 13},
+            {title: '旅游攻略', val: 13},
+            {title: '合肥汇', val: 14},
             {title: '神话传说', val: 2},
             {title: '民间奇谭', val: 3},
             {title: '校园诡事', val: 4},
@@ -66,6 +71,16 @@ new Vue({
             {id: 1,val: '月结'},
             {id: 2,val: '周结'},
             {id: 3,val: '日结'},
+        ],
+        otherType12: [
+            {id: 1,val: 'LOL'},
+            {id: 2,val: '绝地求生'},
+            {id: 3,val: '刺激战场'},
+            {id: 4,val: '王者荣耀'}
+        ],
+        otherType14: [
+            {id: 1,val: '美食美味'},
+            {id: 2,val: '玩乐趣处'}
         ],
         ue: null,
         userName: "",
@@ -170,10 +185,18 @@ new Vue({
             }
         },
         change(val){
-            console.log(val)
             let _self = this
             _self.boo.isPartTime = val == 10 ? true : false
-            console.log(_self.boo.isPartTime)
+            _self.boo.isShowOther12 = false
+            _self.boo.isShowOther14 = false
+            if(val == 12){
+                _self.boo.isShowOther12 = true
+                _self.boo.isShowOther14 = false
+            }
+            if(val == 14){
+                _self.boo.isShowOther12 = false
+                _self.boo.isShowOther14 = true
+            }
         },
         submitPart(){
             let _self = this
@@ -215,5 +238,8 @@ new Vue({
             }
             _self.createStory(_self.param,_self.https.createPart);
         },
+        enterPlant(){
+            window.open(`${GLOBAL_HOME_URL}/admin/`);
+        }
     }
 })

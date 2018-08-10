@@ -12,6 +12,9 @@
     <div class="container">
         <div class="editor-container clearfix">
             <div class="editor-review" v-if="!boo.isPartTime">
+                <div class="enter-plant">
+                    <i-button type="success" @click="enterPlant">进入文章管理后台</i-button>
+                </div>
                 <h3>封面预览:</h3>
                 <card class="view-card">
                     <div class="view-content" style="text-align:center">
@@ -25,6 +28,16 @@
                     <form-item label="类型：">
                         <i-select v-model="info.type" @on-change="change">
                             <i-option v-for="(item,index) in storyType" :value="item.val">{{item.title}}</i-option>
+                        </i-select>
+                    </form-item>
+                    <form-item v-if="boo.isShowOther12" label="分类：">
+                        <i-select v-model="info.other">
+                            <i-option v-for="(item,index) in otherType12" :value="item.id">{{item.val}}</i-option>
+                        </i-select>
+                    </form-item>
+                    <form-item v-if="boo.isShowOther14" label="分类：">
+                        <i-select v-model="info.other">
+                            <i-option v-for="(item,index) in otherType14" :value="item.id">{{item.val}}</i-option>
                         </i-select>
                     </form-item>
                     <div v-if="boo.isPartTime" class="part-time">
@@ -92,6 +105,6 @@
 <script type="text/javascript" charset="utf-8" src="../static/plugins/ueditor/ueditor.all.js"> </script>
 <script type="text/javascript" charset="utf-8" src="../static/plugins/ueditor/lang/zh-cn/zh-cn.js"></script>
 <script src="../static/js/tpl/tpl.js"></script>
-<script src="../static/js/edit/edit.js"></script>
+<script src="../static/js/edit/edit.js?t=123"></script>
 </body>
 </html>

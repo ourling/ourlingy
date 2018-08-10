@@ -131,7 +131,7 @@ const Head = {
             store.commit('isOpenLogin', {flag: true})
         },
         exitLogin(){
-            addCookie.setCookie('isLogin',0,'h3',GLOBAL_HOME_PATH,GLOBAL_HOME_DOMAIN)
+            addCookie.setCookie('isLogin',0,'d1',GLOBAL_HOME_PATH,GLOBAL_HOME_DOMAIN)
             addCookie.delCookie('userId')
             addCookie.delCookie('userName')
             store.commit('isLogin', {flag: false})
@@ -557,17 +557,17 @@ const Login = {
             res = JSON.parse(res.data)
             if(res.isSuccess){
                 _self.$Message.success(res.msg)
-                addCookie.setCookie('isLogin',1,'h3',GLOBAL_HOME_PATH,GLOBAL_HOME_DOMAIN)
-                addCookie.setCookie('userId',res.data.userId,'h3',GLOBAL_HOME_PATH,GLOBAL_HOME_DOMAIN)
-                addCookie.setCookie('userName',res.data.name,'h3',GLOBAL_HOME_PATH,GLOBAL_HOME_DOMAIN)
-                addCookie.setCookie('userHead',res.data.head,'h3',GLOBAL_HOME_PATH,GLOBAL_HOME_DOMAIN)
+                addCookie.setCookie('isLogin',1,'d1',GLOBAL_HOME_PATH,GLOBAL_HOME_DOMAIN)
+                addCookie.setCookie('userId',res.data.userId,'d1',GLOBAL_HOME_PATH,GLOBAL_HOME_DOMAIN)
+                addCookie.setCookie('userName',res.data.name,'d1',GLOBAL_HOME_PATH,GLOBAL_HOME_DOMAIN)
+                addCookie.setCookie('userHead',res.data.head,'d1',GLOBAL_HOME_PATH,GLOBAL_HOME_DOMAIN)
                 store.commit('isOpenLogin', {flag: false})
                 store.commit('isLogin', {flag: true})
                 store.commit('userName', {flag: res.data.name})
                 store.commit('userHead', {flag: res.data.head})
             }else{
                 _self.$Message.error(res.msg)
-                addCookie.setCookie('isLogin',0,'h3',GLOBAL_HOME_PATH,GLOBAL_HOME_DOMAIN)
+                addCookie.setCookie('isLogin',0,'d1',GLOBAL_HOME_PATH,GLOBAL_HOME_DOMAIN)
                 addCookie.delCookie('userId')
                 addCookie.delCookie('userName')
                 addCookie.delCookie('userHead')
