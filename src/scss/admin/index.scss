@@ -14,3 +14,36 @@
     margin: 10px auto;
   }
 }
+.view-container{
+  width: 315px;
+  margin: auto;
+  border: 1px solid #eee;
+  background: #f1f8f8;
+  height: 475px;
+  overflow-y: scroll;
+  .view-item{
+    padding: 5px;
+  }
+  .view-title{
+    background: #C3C4B4;
+  }
+  .view-desc{
+    background: #b7b998;
+  }
+  .date{
+    float: right;
+  }
+  .html-container{
+    img{
+      display: table;
+      max-width: 100%;
+    }
+  }
+}
+.btn-container{
+  margin: 15px 0;
+  text-align: center;
+  .item + .item{
+    margin-left: 10px;
+  }
+}

@@ -19,7 +19,17 @@
 
                                     'storyId' =>$v['storyId'],
 
-                                    'state' =>$v['state']
+                                    'state' =>$v['state'],
+
+                                    'text' =>$v['text'],
+
+                                    'user' =>$v['user'],
+
+                                    'date' => $v['date'],
+
+                                    'isRecommend' => $v['isRecommend'],
+
+                                    'desc' => $v['desc']
 
                                      );
 
@@ -39,12 +49,15 @@
             $userId = $ajax['userId'];
             $page = $ajax['page'];
             $state = $ajax['state'];
+            $isRecommend = $ajax['isRecommend'];
             $where['type'] = $ajax['type'];
             $list = db('storytable')
 
                         ->where('state',$state)
 
                         ->where('userId',$userId)
+
+                        ->where('isRecommend',$isRecommend)
 
                         ->where($where)
 
@@ -54,6 +67,8 @@
                        ->where('state',$state)
 
                        ->where('userId',$userId)
+
+                        ->where('isRecommend',$isRecommend)
 
                        ->where($where)
 

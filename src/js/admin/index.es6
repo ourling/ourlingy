@@ -19,22 +19,28 @@ let Main = {
     },
     data () {
         return {
+            modal1: true,
             https: {
                 list: `${GLOBAL_STATIC_API}admin/list.php`,
                 upcover: `${GLOBAL_STATIC_API}admin/upcover.php`,
                 del: `${GLOBAL_STATIC_API}admin/del.php`,
                 publish: `${GLOBAL_STATIC_API}admin/publish.php`,
+                uptext: `${GLOBAL_STATIC_API}admin/edit.php`,
+                recommend: `${GLOBAL_STATIC_API}admin/recommend.php`,
             },
             boo: {
                 isOpenCover: false,
                 openDel: false,
-                modal_loading: false
+                modal_loading: false,
+                isView: false,
+                isEdit: false
             },
             params: {
                 page: 1,
                 userId: '',
                 state: 1,
-                type: 9
+                type: 9,
+                isRecommend: 0,
             },
             upcover: {
                 storyId: '',
@@ -107,6 +113,26 @@ let Main = {
                             }, '更改封面'),
                             h('Button', {
                                 props: {
+                                    type: 'info',
+                                    size: 'small'
+                                },
+                                style: {
+                                    marginRight: '5px'
+                                },
+                                on: {
+                                    click: () => {
+                                        let _self = this
+                                        if(_self.isLogin){
+                                            _self.item = params.row
+                                            _self.recommend(params.row)
+                                        }else{
+                                            store.commit('isOpenLogin', {flag: true})
+                                        }
+                                    }
+                                }
+                            }, this.params.isRecommend == 1 ? '取消精选': '置为精选'),
+                            h('Button', {
+                                props: {
                                     type: 'primary',
                                     size: 'small'
                                 },
@@ -126,13 +152,28 @@ let Main = {
                                     type: 'error',
                                     size: 'small'
                                 },
+                                style: {
+                                    marginRight: '5px'
+                                },
                                 on: {
                                     click: () => {
                                         this.item = params.row
                                         this.del()
                                     }
                                 }
-                            }, '删除')
+                            }, '删除'),
+                            h('Button', {
+                                props: {
+                                    type: 'success',
+                                    size: 'small'
+                                },
+                                on: {
+                                    click: () => {
+                                        this.item = params.row
+                                        this.boo.isView = true
+                                    }
+                                }
+                            }, '预览')
                         ]);
                     }
                 }
@@ -167,6 +208,10 @@ let Main = {
                 {value: 0,label: '未发布'},
                 {value: 1,label: '已发布'}
             ],
+            recommendList: [
+                {value: 0,label: '未精选'},
+                {value: 1,label: '精选'}
+            ],
             list: [],
         }
     },
@@ -179,6 +224,7 @@ let Main = {
         let _self = this
         store.commit('isEditPage', {flag: true})
         _self.params.userId = addCookie.getCookie('userId')
+        // _self.params.userId = 36
         _self.initLogin();
         _self.getList();
     },
@@ -186,6 +232,9 @@ let Main = {
         let _self = this
     },
     methods: {
+        ok () {
+            this.$Message.info('Clicked ok');
+        },
         getList(){
             let _self = this
             _self.$http.post(_self.https.list,_self.params).then(
@@ -209,6 +258,27 @@ let Main = {
                     if(res.isSuccess){
                         _self.item.cover = _self.upcover.cover
                         _self.$Message.success(res.msg);
+                    }else{
+                        _self.$Message.error(res.msg);
+                    }
+                },
+                (err)=>{
+                    console.log(err)
+                }
+            )
+        },
+        upText(item){
+            let _self = this
+            let param = {
+                storyId: item.storyId,
+                text: item.text
+            }
+            _self.$http.post(_self.https.uptext,param).then(
+                (res)=>{
+                    res = JSON.parse(res.data)
+                    if(res.isSuccess){
+                        _self.$Message.success(res.msg);
+                        _self.boo.isView = false
                     }else{
                         _self.$Message.error(res.msg);
                     }
@@ -259,6 +329,27 @@ let Main = {
                 }
             )
         },
+        recommend(item){
+            let _self = this
+            let param = {
+                storyId: item.storyId,
+                isRecommend: item.isRecommend == 1 ? 0 : 1
+            }
+            _self.$http.post(_self.https.recommend,param).then(
+                (res)=>{
+                    res = JSON.parse(res.data)
+                    if(res.isSuccess){
+                        _self.getList()
+                        _self.$Message.success(res.msg);
+                    }else{
+                        _self.$Message.error(res.msg);
+                    }
+                },
+                (err)=>{
+                    console.log(err)
+                }
+            )
+        },
         page(page){
             let _self = this
             if(page != _self.params.page){
@@ -295,6 +386,11 @@ let Main = {
                 case 'type':
                     _self.params.page = 1
                     _self.params.type = val
+                    _self.getList();
+                    break;
+                case 'recommend':
+                    _self.params.page = 1
+                    _self.params.isRecommend = val
                     _self.getList();
                     break;
             }
