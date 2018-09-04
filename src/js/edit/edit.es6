@@ -39,7 +39,9 @@ new Vue({
             errorCompany: false,
             errorDate: false,
             errorMoney: false,
-            errorUrl: false
+            errorUrl: false,
+            errorPhone: false,
+            errorContacts: false
         },
         param: {
             userId: "",
@@ -50,7 +52,9 @@ new Vue({
             date: "",
             money: "",
             methods: '日结',
-            url: ''
+            url: '',
+            phone: '', 
+            contacts: ''
         },
         storyType: [
             {title: '学霸君', val: 9},
@@ -230,11 +234,17 @@ new Vue({
             }else{
                 _self.boo.errorDate = false
             }
-            if(isBlank(_self.param.url)) {
-                _self.boo.errorUrl = true
-                return _self.$Message.error('第三方链接不能为空！');
+            if(isBlank(_self.param.contacts)) {
+                _self.boo.errorContacts = true
+                return _self.$Message.error('联系人不能为空！');
             }else{
-                _self.boo.errorUrl = false
+                _self.boo.errorContacts = false
+            }
+            if(isBlank(_self.param.phone)) {
+                _self.boo.errorPhone = true
+                return _self.$Message.error('联系电话不能为空！');
+            }else{
+                _self.boo.errorPhone = false
             }
             _self.createStory(_self.param,_self.https.createPart);
         },

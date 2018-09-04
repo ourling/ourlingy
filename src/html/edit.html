@@ -66,9 +66,17 @@
                             <i-input
                                      :class="[boo.errorDate ? 'ivu-form-item-error' : '']" v-model="param.date" placeholder="请输入该兼职的发布时间..."></i-input>
                         </form-item>
-                        <form-item label="链接地址：">
+                        <form-item label="联系人：">
                             <i-input
-                                     :class="[boo.errorUrl ? 'ivu-form-item-error' : '']" v-model="param.url" placeholder="请输入以http或https开头的第三方链接..."></i-input>
+                                     :class="[boo.errorContacts ? 'ivu-form-item-error' : '']" v-model="param.contacts" placeholder="请输入联系人姓名..."></i-input>
+                        </form-item>
+                        <form-item label="联系电话：">
+                            <i-input
+                                    :class="[boo.errorPhone ? 'ivu-form-item-error' : '']" v-model="param.phone" placeholder="请输入联系电话..."></i-input>
+                        </form-item>
+                        <form-item label="工作描述">
+                            <i-input @on-blur="blur($event,'desc')"
+                                     :class="[boo.errorDesc ? 'ivu-form-item-error' : '']" v-model="info.desc" type="textarea" :autosize="{minRows: 5,maxRows: 5}" placeholder="请输入工作描述..."></i-input>
                         </form-item>
                     </div>
                     <div v-else class="part">

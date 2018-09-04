@@ -408,7 +408,8 @@ const Login = {
                 phone: "",
                 name: "",
                 pwd: '',
-                sex: '男'
+                sex: '男',
+                admin: 0
             },
             cpwd: "",
             login: {
@@ -561,6 +562,7 @@ const Login = {
                 addCookie.setCookie('userId',res.data.userId,'d1',GLOBAL_HOME_PATH,GLOBAL_HOME_DOMAIN)
                 addCookie.setCookie('userName',res.data.name,'d1',GLOBAL_HOME_PATH,GLOBAL_HOME_DOMAIN)
                 addCookie.setCookie('userHead',res.data.head,'d1',GLOBAL_HOME_PATH,GLOBAL_HOME_DOMAIN)
+                addCookie.setCookie('admin',res.data.admin,'d1',GLOBAL_HOME_PATH,GLOBAL_HOME_DOMAIN)
                 store.commit('isOpenLogin', {flag: false})
                 store.commit('isLogin', {flag: true})
                 store.commit('userName', {flag: res.data.name})
@@ -571,6 +573,7 @@ const Login = {
                 addCookie.delCookie('userId')
                 addCookie.delCookie('userName')
                 addCookie.delCookie('userHead')
+                addCookie.delCookie('admin')
                 store.commit('isOpenLogin', {flag: true})
                 store.commit('isLogin', {flag: false})
             }
