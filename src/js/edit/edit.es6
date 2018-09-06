@@ -37,24 +37,25 @@ new Vue({
             errorName: false,
             errorArea: false,
             errorCompany: false,
-            errorDate: false,
             errorMoney: false,
             errorUrl: false,
             errorPhone: false,
             errorContacts: false
         },
         param: {
-            userId: "",
-            user: "",
-            name: "",
-            area: "",
-            company: "",
-            date: "",
-            money: "",
-            methods: '日结',
-            url: '',
-            phone: '', 
-            contacts: ''
+            userId: "", // 审查者ID
+            user: "",  //  审查者名称
+            name: "",  //  兼职名称
+            area: "",  //  兼职区域
+            company: "", //  兼职公司
+            money: "",  //  兼职报酬
+            methods: '日结',  //  结算方式
+            url: '',  //  兼职链接
+            phone: '',  //  联系电话
+            contacts: '',  //  联系人
+            content: '',  //  具体内容
+            demand: '',  //  兼职要求
+            worktime: ''  //  工作时间
         },
         storyType: [
             {title: '学霸君', val: 9},
@@ -227,12 +228,6 @@ new Vue({
                 return _self.$Message.error('薪水不能为空！');
             }else{
                 _self.boo.errorMoney = false
-            }
-            if(isBlank(_self.param.date)) {
-                _self.boo.errorDate = true
-                return _self.$Message.error('发布时间不能为空！');
-            }else{
-                _self.boo.errorDate = false
             }
             if(isBlank(_self.param.contacts)) {
                 _self.boo.errorContacts = true

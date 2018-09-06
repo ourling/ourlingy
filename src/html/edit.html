@@ -62,10 +62,6 @@
                                 <i-option v-for="(item,index) in methodsList" :value="item.val">{{item.val}}</i-option>
                             </i-select>
                         </form-item>
-                        <form-item label="发布时间：">
-                            <i-input
-                                     :class="[boo.errorDate ? 'ivu-form-item-error' : '']" v-model="param.date" placeholder="请输入该兼职的发布时间..."></i-input>
-                        </form-item>
                         <form-item label="联系人：">
                             <i-input
                                      :class="[boo.errorContacts ? 'ivu-form-item-error' : '']" v-model="param.contacts" placeholder="请输入联系人姓名..."></i-input>
@@ -74,9 +70,17 @@
                             <i-input
                                     :class="[boo.errorPhone ? 'ivu-form-item-error' : '']" v-model="param.phone" placeholder="请输入联系电话..."></i-input>
                         </form-item>
+                        <form-item label="工作时间：">
+                            <i-input
+                                    :class="[boo.errorPhone ? '' : '']" v-model="param.worktime" placeholder="请输入工作时间..."></i-input>
+                        </form-item>
+                        <form-item label="兼职要求：">
+                            <i-input
+                                    :class="[boo.errorPhone ? '' : '']" v-model="param.demand" placeholder="请输入工作要求..."></i-input>
+                        </form-item>
                         <form-item label="工作描述">
                             <i-input @on-blur="blur($event,'desc')"
-                                     :class="[boo.errorDesc ? 'ivu-form-item-error' : '']" v-model="info.desc" type="textarea" :autosize="{minRows: 5,maxRows: 5}" placeholder="请输入工作描述..."></i-input>
+                                     :class="[boo.errorDesc ? 'ivu-form-item-error' : '']" v-model="param.content" type="textarea" :autosize="{minRows: 5,maxRows: 5}" placeholder="请输入工作描述..."></i-input>
                         </form-item>
                     </div>
                     <div v-else class="part">
